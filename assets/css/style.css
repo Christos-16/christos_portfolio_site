@@ -1863,3 +1863,16 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* Styling for timeline list items to ensure correct text color */
+.timeline-item-title,
+.timeline-text,
+.timeline-item span,
+.timeline-item ul {
+  color: var(--light-gray);
+}
+
+/* Ensure correct text color for list items within timeline-text */
+.timeline-text ul li {
+  color: var(--light-gray);
+}
