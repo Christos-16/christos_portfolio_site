@@ -1,1071 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christos Anastasiou - Portfolio Site</title>
+  <title>Christos Anastasiou - Junior Software Developer</title>
 
-  <!--
-    - favicon
-  -->
   <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <div class="nav-logo">
+        <span>Christos</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/MYAVATAR-removebg-preview.png" alt="" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="">Christos Anastasiou</h1>
-          <p class="title">Master's Student in <br>Modern Information Technologies <br>and Services UoWM</p>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-avatar">
+        <img src="./assets/images/MYAVATAR-removebg-preview.png" alt="Christos Anastasiou">
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-title">Christos Anastasiou</h1>
+        <p class="hero-subtitle">Junior Software Developer</p>
+        <p class="hero-description">
+          Passionate about building beautiful web applications and exploring IoT solutions.
+          <br>I'm currently working at <strong>Enchatted</strong> and studying at <strong>University of Western Macedonia</strong>.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Get In Touch</a>
+          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank">View GitHub</a>
         </div>
-
-
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
       </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <ion-icon name="arrow-down"></ion-icon>
+    </div>
+  </section>
 
-      <div class="sidebar-info_more">
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
 
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="" class="contact-link">anastasiouxrhstos@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+12133522795" class="contact-link">+30 6978142511</a>
-            </div>
-
-          </li>
-
-        <!-- --> <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">My CV</p>
-
-              <a href="https://drive.google.com/drive/folders/1ppLg7VataCrp7wzt3ZFxn2SPcz7-tfIZ" download><address>Click to Download</address></a>
-
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Kastoria, Greece</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://github.com/Christos-16" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://www.instagram.com/christos_anastasiou16/" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
+      <div class="about-content">
+        <div class="about-text">
           <p>
-            Hello!
-            My name is Christos Anastasiou, and I am a Junior Software Developer at Enchatted with 18 months of professional experience. Over this time, I have gained hands-on expertise in developing applications using PHP and JavaScript, while also specializing in creating and customizing Shopify stores.
+            Hello! I'm a Junior Software Developer at <strong>Enchatted</strong> with 18 months of professional experience.
+            I specialize in web development using <strong>PHP</strong>, <strong>JavaScript</strong>, and <strong>Laravel</strong>,
+            while also having expertise in <strong>Shopify</strong> customization.
           </p>
           <p>
-            Currently, I am pursuing a Master's degree in Modern Information Technologies and Services at the University of Western Macedonia. My academic journey, combined with my professional work, has equipped me with a solid foundation in web development, encompassing technologies like HTML, CSS, JavaScript, and WordPress.          </p>
+            I'm currently pursuing a <strong>Master's degree in Modern Information Technologies and Services</strong>
+            at the University of Western Macedonia. My academic journey combines practical experience with advanced learning
+            in IoT, cloud computing, and data analytics.
+          </p>
           <p>
-            My undergraduate thesis focused on the Internet of Things (IoT), particularly on automating smart buildings with Z-Wave technology. Building on that foundation, my current research explores advanced IoT system integration and management, aiming to develop scalable and efficient solutions.          </p>
-          <p>
-            I am passionate about creating impactful digital experiences and solving challenging problems in the fields of web development and IoT. Feel free to explore my projects, and if you're interested in collaborating, don't hesitate to reach out.</p>
-            <p>
-              Let’s create something amazing together! </p>
-
-        </section>
-
-
-
-
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-          <h3 class="h3 service-title">What I'm Doing</h3>
-          <ul class="service-list">
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/laravel.png" alt="Laravel icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">PHP Development</h4>
-                <p class="service-item-text">
-                  As a Junior Software Developer at Enchatted, I contribute to developing and maintaining web applications using PHP and Laravel. My responsibilities include implementing new features, fixing bugs, and collaborating with my team to improve existing functionality. I also get involved in learning and applying best practices to write clean and efficient code.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/logo.png" alt="Web development icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web Development</h4>
-                <p class="service-item-text">
-                  I work with HTML, CSS, and JavaScript to create dynamic and responsive web applications. My focus is on providing an excellent user experience through the development of interactive and visually appealing web interfaces. I also have experience with frameworks like React and Vue.js.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/iot.png" alt="IoT icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">IoT</h4>
-                <p class="service-item-text">
-                  I have extensive experience with IoT Sensors and smart devices, working on integration and automation projects. My thesis focused on Z-Wave technology for smart building automation, demonstrating my skills in designing and implementing IoT solutions that enhance efficiency and connectivity.
-                </p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/wordpress.png" alt="WordPress icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">WordPress</h4>
-                <p class="service-item-text">
-                  I work with the WordPress tool to create and manage websites. I can do a variety of things, including creating and editing content, designing and managing the layout of a website, and adding functionality to a website.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-
-
-
-
-
-        <!-- <section class="interests">
-
-           <h3 class="h3 interests-title">Interests</h3>
-
-           <ul class="interests-list has-scrollbar">
-
-             <li class="interests-item">
-               <div class="content-card" data-interests-item>
-
-                 <figure class="interests-avatar-box">
-                   <img src="./assets/images/homework.png" alt="High School Courses" width="60" data-interests-avatar>
-                 </figure>
-
-                 <h4 class="h4 interests-item-title" data-interests-title>Working with <span>Time Management</span></h4>
-
-                 <div class="interests-text" data-interests-text>
-                   <p>
-                     I have been working with Time Management since 2019, and it has become part of my daily routine. From the moment I wake up to the moment I go to sleep, I have most events scheduled into my day so that I have a success rate in the form of 70%-80% daily. I follow the same pattern in whatever Project I have undertaken so that there is a clear start and end date.
-                   </p>
-                 </div>
-
-               </div>
-             </li>
-             <li class="interests-item">
-               <div class="content-card" data-interests-item>
-
-                 <figure class="interests-avatar-box">
-                   <img src="./assets/images/homework.png" alt="High School Courses" width="60" data-interests-avatar>
-                 </figure>
-
-                 <h4 class="h4 interests-item-title" data-interests-title>Working with <span>High School Courses</span></h4>
-
-                 <div class="interests-text" data-interests-text>
-                   <p>
-                     Experimenting on the Computer Science courses that high school students take for their University entrance exams.
-                   </p>
-                 </div>
-
-               </div>
-             </li>
-
-             <li class="interests-item">
-               <div class="content-card" data-interests-item>
-
-                 <figure class="interests-avatar-box">
-                   <img src="./assets/images/iot.png" alt="Jessica miller" width="60" data-interests-avatar>
-                 </figure>
-
-                 <h4 class="h4 interests-item-title" data-interests-title>Working with <span>IoT Equipment</span></h4>
-
-                 <div class="interests-text" data-interests-text>
-                   <p>
-                     Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                     lot of experience
-                     and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                     consectetur adipiscing
-                     elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                   </p>
-                 </div>
-
-               </div>
-             </li>
-
-             <li class="interests-item">
-               <div class="content-card" data-interests-item>
-
-                 <figure class="interests-avatar-box">
-                   <img src="./assets/images/newsletter.png" alt="Emily evans" width="60" data-interests-avatar>
-                 </figure>
-
-                 <h4 class="h4 interests-item-title" data-interests-title>Working with <span>Creation of Newsletters</span></h4>
-
-                 <div class="interests-text" data-interests-text>
-                   <p>
-                     Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                     lot of experience
-                     and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                     consectetur adipiscing
-                     elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                   </p>
-                 </div>
-
-               </div>
-             </li> -->
-<!--
-            <li class="interests-item">
-              <div class="content-card" data-interests-item>
-
-                <figure class="interests-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-interests-avatar>
-                </figure>
-
-                <h4 class="h4 interests-item-title" data-interests-title>Henry william</h4>
-
-                <div class="interests-text" data-interests-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
--->
-          </ul>
-
-        </section>
-
-
-
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="interests-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </section>
-
+            My passion lies in creating impactful digital experiences and solving challenging problems in web development
+            and IoT. I love learning new technologies and applying them to real-world projects.
+          </p>
         </div>
 
-
-        <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <ion-icon name="code-outline"></ion-icon>
             </div>
-            <h3 class="h3">Work Experience</h3>
-          </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Junior Software Developer at Enchatted</h4>
-              <span>11/2023 — Present</span>
-              <p class="timeline-text">
-                Developing and maintaining web applications using PHP and JavaScript.
-                <br>Creating and customizing websites using Shopify.
-                <br>Data analysis and server management.
-                <br>Database management and in-house application development.
-                <br>Design and development of websites, web applications, and REST APIs.
-                <br>Media processing and management.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Sales Advisor at Telectron Hellas-Vodafone</h4>
-              <span>09/2021 — 02/2022</span>
-              <p class="timeline-text">
-                Sale of telephony packages, fixed internet, mobile phones and technological gadgets.
-                <br>Effective communication with customers both in person at the store and over the phone.
-                <br>Proficient in troubleshooting and resolving issues related to customer devices.
-                <br>Keeping abreast of the latest developments in the industry to provide the best possible solutions for customers.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="school-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Education</h3>
-          </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">University of Western Macedonia, Department of Computer Science</h4>
-              <span>10/2023 — Present</span>
-              <p class="timeline-text">
-                Pursuing a Master of Science (MSc) in Modern Information Technologies and Services. The program focuses on advanced topics in computer science and information technology, including IoT, cloud computing, data analytics, and cybersecurity. My research involves developing solutions for the integration and management of IoT systems.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">University of Western Macedonia, Department of Computer Science</h4>
-              <span>10/2019 — 10/2023</span>
-              <p class="timeline-text">
-                Bachelor of Science in Computer Science with a final grade of 7.34. My thesis focused on "Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management," demonstrating my expertise in designing and implementing automated systems for buildings.
-                <br><br>
-                Integrating IoT: My thesis explores the integration of Internet of Things (IoT) technologies, with a particular focus on Z-Wave, in the context of smart building automation. This suggests the understanding and implementation of IoT integration technologies. Smart building automation: the case study conducted in my thesis revolves around smart building automation, which demonstrates my expertise in designing and implementing automated systems for buildings.
-                <br><br>
-                Z-Wave technology: my thesis focuses on Z-Wave technology for smart building automation. This showcases my knowledge in working with Z-Wave devices and protocols. IoT Management: in the context of smart building automation, my thesis looks at the management aspects of IoT systems. This highlights my skills in supervising and maintaining IoT networks within a building environment.
-                <br><br>
-                Overall, my thesis demonstrates my proficiency in IoT integration, smart building automation, Z-Wave technology, and IoT management.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="code-working-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Projects</h3>
-          </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Sally</h4>
-              <span>04/2023 – Present</span>
-              <p class="timeline-text">
-                Collaborated with the Enchatted team on managing conversation data. Responsibilities include:
-              <ul>
-                <li>Configuring and developing features using PHP and Laravel</li>
-                <li>Creating and processing real-time conversation data</li>
-                <li>Integrating Typebot services for storing and analyzing conversations</li>
-                <li>Sending JSON data to external servers</li>
-                <li>Optimizing data processing and retrieval processes</li>
-              </ul>
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">PDF Search Project</h4>
-              <span>04/2023 – Present</span>
-              <p class="timeline-text">
-                Worked with the Enchatted team on the PDF Search project. Responsibilities include:
-              <ul>
-                <li>Configuring and developing search functionalities in PDF files using PHP and Laravel</li>
-                <li>Developing functions for analyzing and searching PDF content</li>
-                <li>Using the Smalot\PdfParser library for processing and analyzing PDF files</li>
-                <li>Creating a user interface for search and display of search results</li>
-              </ul>
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">ENCRYPT Project</h4>
-              <span>12/2023 – Present</span>
-              <p class="timeline-text">
-                Collaborated with the Enchatted team on the ENCRYPT project. Responsibilities include:
-              <ul>
-                <li>Configuring and developing new functionalities with PHP</li>
-                <li>Optimizing the conversion of JSON to RDF</li>
-                <li>Configuring and using GraphDB</li>
-                <li>Sending configured data to remote servers via Kafka</li>
-                <li>Managing and processing DICOM files</li>
-              </ul>
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Kalfidis Website Development</h4>
-              <span>12/2023 – 03/2024</span>
-              <p class="timeline-text">
-                Collaborated with the Enchatted team on the development and customization of the Kalfidis website. Focused on the Shopify platform, making backend and frontend customizations using Liquid and CSS to optimize user experience.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">AskCoCo Extension</h4>
-              <span>11/2023 – 12/2023</span>
-              <p class="timeline-text">
-                Worked with the Enchatted team on the development of AskCoCo, a Chromium extension serving as an AI-powered Coach Copilot. This extension allows text analysis within the browser environment, improving interactivity and user experience.
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">SmartHAB</h4>
-              <span>06/2023</span>
-              <p class="timeline-text">
-                Participated in the 4th Student and Student Programming Competition "Kozani 2030: On the road to climate neutrality", winning 2nd place with the project-proposal "SmartHAB - Smart building management".
-              </p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">FOSSCOMM 2020 (Free and Open Source Software Communities Meeting)</h4>
-              <span>11/2020</span>
-              <p class="timeline-text">
-                Participation in FOSSCOMM 2020 by organizing online events with more than 2000 views on Live broadcasts and dozens of post-conference video broadcasts. As tasks I had the communication between institutions (University of Western Macedonia, ELLAK), technical editing via Zoom, Cisco Webex, Big Blue Button, coordination of the YouTube Video Stream as well as the creation of the individual videos of each presentation available on the FOSSCOMM 2020 channel with the help of the Kdenlive tool.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-
-
-      </article>
-
-
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Work Projects</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Student Projects</button>
-            </li>
-          </ul>
-
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-            <ul class="select-list">
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Work Projects</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Student Projects</button>
-              </li>
-            </ul>
+            <h3>Web Development</h3>
+            <p>Building responsive and dynamic web applications with modern technologies like React, Vue.js, and Laravel</p>
           </div>
 
-          <ul class="project-list">
-            <!-- Work Projects -->
-            <li class="project-item active" data-filter-item data-category="Work Projects">
-              <a href="https://kalfidis.com/en">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/work.png" alt="Kalfidis Website Development" loading="lazy">
-                </figure>
-                <h3 class="project-title">Kalfidis Website Development</h3>
-                <p class="project-category">Work Project</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Work Projects">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/work.png" alt="AskCoCo Extension" loading="lazy">
-                </figure>
-                <h3 class="project-title">AskCoCo Extension</h3>
-                <p class="project-category">Work Project</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Work Projects">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/work.png" alt="Sally" loading="lazy">
-                </figure>
-                <h3 class="project-title">Sally</h3>
-                <p class="project-category">Work Project</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Work Projects">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/work.png" alt="PDF Search Project" loading="lazy">
-                </figure>
-                <h3 class="project-title">PDF Search Project</h3>
-                <p class="project-category">Work Project</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Work Projects">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/work.png" alt="ENCRYPT Project" loading="lazy">
-                </figure>
-                <h3 class="project-title">ENCRYPT Project</h3>
-                <p class="project-category">Work Project</p>
-              </a>
-            </li>
-            <!-- Student Projects -->
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://ieee.cs.uowm.gr/">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/template-1599665.png" alt="IEEE CS UoWM Website" loading="lazy">
-                </figure>
-                <h3 class="project-title">IEEE CS UoWM Website</h3>
-                <p class="project-category">WordPress</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://github.com/pjkots01/IoT_Romilos_Project">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/iot-3337536_1920.png" alt="Romilos Weather Station" loading="lazy">
-                </figure>
-                <h3 class="project-title">Romilos Weather Station</h3>
-                <p class="project-category">IoT</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://christos-16.github.io/Quotes_Generator_Site/">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/quotes generator.png" alt="Quotes Generator Site" loading="lazy">
-                </figure>
-                <h3 class="project-title">Quotes Generator Site</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://weatherappana.netlify.app/">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/weather_app.jpg" alt="weather_app" loading="lazy">
-                </figure>
-                <h3 class="project-title">Weather App</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://www.youtube.com/@Fosscomm-xf9sz">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/fosscomm2020.jpg" alt="brawlhalla" loading="lazy">
-                </figure>
-                <h3 class="project-title">FOSSCOMM 2020</h3>
-                <p class="project-category">Video Editing</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://github.com/Christos-16/music_player_with_js">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/web-design-3411373_1920.jpg" alt="metaspark" loading="lazy">
-                </figure>
-                <h3 class="project-title">Music Player with JS</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://cs.uowm.gr/?s=newsletter">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/newsletter.png" alt="summary" loading="lazy">
-                </figure>
-                <h3 class="project-title">Newsletter</h3>
-                <p class="project-category">Newsletter</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://github.com/Christos-16/Python_Runner">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/code-1084923.png" alt="task manager" loading="lazy">
-                </figure>
-                <h3 class="project-title">Python Runner</h3>
-                <p class="project-category">Python</p>
-              </a>
-            </li>
-            <li class="project-item active" data-filter-item data-category="Student Projects">
-              <a href="https://drive.google.com/drive/folders/198fFgIT1QdIWKq9qt_xmNPQvJnxI99sz?usp=sharing">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/iot-3337536_1920.png" alt="weather_app" loading="lazy">
-                </figure>
-                <h3 class="project-title">SmartHAB - 4ος Μαθητικός & Φοιτητικός Διαγωνισμός Προγραμματισμού «Κοζάνη 2030: Στο δρόμο για την κλιματική ουδετερότητα»</h3>
-                <p class="project-category">IoT</p>
-              </a>
-            </li>
-          </ul>
-        </section>
-
-
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-       <!-- <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
--->
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form name="contact" method="POST" netlify data-netlify="true">
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+          <div class="service-card">
+            <div class="service-icon">
+              <ion-icon name="settings-outline"></ion-icon>
             </div>
+            <h3>PHP Development</h3>
+            <p>Developing robust server-side applications and REST APIs using PHP and Laravel framework</p>
+          </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+          <div class="service-card">
+            <div class="service-icon">
+              <ion-icon name="cube-outline"></ion-icon>
+            </div>
+            <h3>IoT Solutions</h3>
+            <p>Designing and implementing IoT systems with a focus on smart building automation and Z-Wave technology</p>
+          </div>
 
-            <button class="form-btn" type="submit"  data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
+          <div class="service-card">
+            <div class="service-icon">
+              <ion-icon name="storefront-outline"></ion-icon>
+            </div>
+            <h3>Shopify</h3>
+            <p>Creating and customizing Shopify stores with advanced features and optimized user experience</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </main>
+  <!-- Tech Stack Section -->
+  <section id="tech-stack" class="tech-stack">
+    <div class="container">
+      <h2 class="section-title">Tech Stack</h2>
 
+      <div class="tech-categories">
+        <div class="tech-category">
+          <h3>Frontend</h3>
+          <div class="tech-items">
+            <div class="tech-item" title="HTML5">
+              <span>HTML5</span>
+            </div>
+            <div class="tech-item" title="CSS3">
+              <span>CSS3</span>
+            </div>
+            <div class="tech-item" title="JavaScript">
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-item" title="React">
+              <span>React</span>
+            </div>
+            <div class="tech-item" title="Vue.js">
+              <span>Vue.js</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="tech-category">
+          <h3>Backend</h3>
+          <div class="tech-items">
+            <div class="tech-item" title="PHP">
+              <span>PHP</span>
+            </div>
+            <div class="tech-item" title="Laravel">
+              <span>Laravel</span>
+            </div>
+            <div class="tech-item" title="REST APIs">
+              <span>REST APIs</span>
+            </div>
+            <div class="tech-item" title="MySQL">
+              <span>MySQL</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="tech-category">
+          <h3>Other</h3>
+          <div class="tech-items">
+            <div class="tech-item" title="Shopify">
+              <span>Shopify</span>
+            </div>
+            <div class="tech-item" title="WordPress">
+              <span>WordPress</span>
+            </div>
+            <div class="tech-item" title="Git">
+              <span>Git</span>
+            </div>
+            <div class="tech-item" title="IoT">
+              <span>IoT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
 
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>PHP</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 85%"></div>
+            </div>
+          </div>
 
-  <!--
-    - custom js link
-  -->
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>JavaScript</span>
+              <span>80%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>Laravel</span>
+              <span>80%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>React</span>
+              <span>70%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Web Development</h3>
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>HTML & CSS</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>Responsive Design</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>Shopify Development</span>
+              <span>80%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>WordPress</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Other Skills</h3>
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>IoT Systems</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>Database Design</span>
+              <span>80%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>Problem Solving</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-label">
+              <span>Team Collaboration</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2 class="section-title">Experience & Education</h2>
+
+      <div class="timeline-container">
+        <!-- Work Experience -->
+        <div class="timeline-section">
+          <h3 class="timeline-heading">Work Experience</h3>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h4 class="timeline-title">Junior Software Developer</h4>
+                <p class="timeline-company">Enchatted</p>
+                <span class="timeline-date">11/2023 — Present</span>
+                <ul class="timeline-details">
+                  <li>Developing and maintaining web applications using PHP and JavaScript</li>
+                  <li>Creating and customizing websites using Shopify</li>
+                  <li>Database management and REST API development</li>
+                  <li>Collaborating with team to implement new features and fix bugs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h4 class="timeline-title">Sales Advisor</h4>
+                <p class="timeline-company">Telectron Hellas - Vodafone</p>
+                <span class="timeline-date">09/2021 — 02/2022</span>
+                <ul class="timeline-details">
+                  <li>Sales of telephony packages and technological gadgets</li>
+                  <li>Customer communication and issue resolution</li>
+                  <li>Product knowledge and customer service excellence</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="timeline-section">
+          <h3 class="timeline-heading">Education</h3>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h4 class="timeline-title">Master of Science - Modern Information Technologies and Services</h4>
+                <p class="timeline-company">University of Western Macedonia</p>
+                <span class="timeline-date">10/2023 — Present</span>
+                <p>Pursuing advanced topics in IoT, cloud computing, data analytics, and cybersecurity.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h4 class="timeline-title">Bachelor of Science - Computer Science</h4>
+                <p class="timeline-company">University of Western Macedonia</p>
+                <span class="timeline-date">10/2019 — 10/2023</span>
+                <p>Final Grade: 7.34</p>
+                <p><strong>Thesis:</strong> "Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="work">Work Projects</button>
+        <button class="filter-btn" data-filter="student">Student Projects</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Work Projects -->
+        <div class="portfolio-card" data-category="work">
+          <div class="portfolio-image">
+            <img src="./assets/images/work.png" alt="Kalfidis Website Development">
+            <div class="portfolio-overlay">
+              <a href="https://kalfidis.com/en" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Kalfidis Website Development</h3>
+            <p class="portfolio-category">Work Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">Shopify</span>
+              <span class="tag">Liquid</span>
+              <span class="tag">CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="work">
+          <div class="portfolio-image">
+            <img src="./assets/images/work.png" alt="AskCoCo Extension">
+            <div class="portfolio-overlay">
+              <a href="#" class="portfolio-link" title="Details coming soon">
+                <ion-icon name="information-circle-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>AskCoCo Extension</h3>
+            <p class="portfolio-category">Work Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">Chrome Extension</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">AI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="work">
+          <div class="portfolio-image">
+            <img src="./assets/images/work.png" alt="Sally Project">
+            <div class="portfolio-overlay">
+              <a href="#" class="portfolio-link" title="Details coming soon">
+                <ion-icon name="information-circle-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Sally</h3>
+            <p class="portfolio-category">Work Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">Typebot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="work">
+          <div class="portfolio-image">
+            <img src="./assets/images/work.png" alt="PDF Search Project">
+            <div class="portfolio-overlay">
+              <a href="#" class="portfolio-link" title="Details coming soon">
+                <ion-icon name="information-circle-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>PDF Search Project</h3>
+            <p class="portfolio-category">Work Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">PDF Parser</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="work">
+          <div class="portfolio-image">
+            <img src="./assets/images/work.png" alt="ENCRYPT Project">
+            <div class="portfolio-overlay">
+              <a href="#" class="portfolio-link" title="Details coming soon">
+                <ion-icon name="information-circle-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>ENCRYPT Project</h3>
+            <p class="portfolio-category">Work Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">GraphDB</span>
+              <span class="tag">Kafka</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Projects -->
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/template-1599665.png" alt="IEEE CS UoWM Website">
+            <div class="portfolio-overlay">
+              <a href="https://ieee.cs.uowm.gr/" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>IEEE CS UoWM Website</h3>
+            <p class="portfolio-category">Student Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">WordPress</span>
+              <span class="tag">Web Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/iot-3337536_1920.png" alt="Romilos Weather Station">
+            <div class="portfolio-overlay">
+              <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Romilos Weather Station</h3>
+            <p class="portfolio-category">Student Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">IoT</span>
+              <span class="tag">Python</span>
+              <span class="tag">Arduino</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/quotes generator.png" alt="Quotes Generator">
+            <div class="portfolio-overlay">
+              <a href="https://christos-16.github.io/Quotes_Generator_Site/" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Quotes Generator Site</h3>
+            <p class="portfolio-category">Student Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/weather_app.jpg" alt="Weather App">
+            <div class="portfolio-overlay">
+              <a href="https://weatherappana.netlify.app/" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Weather App</h3>
+            <p class="portfolio-category">Student Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">React</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/fosscomm2020.jpg" alt="FOSSCOMM 2020">
+            <div class="portfolio-overlay">
+              <a href="https://www.youtube.com/@Fosscomm-xf9sz" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>FOSSCOMM 2020</h3>
+            <p class="portfolio-category">Student Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">Video Editing</span>
+              <span class="tag">Event Management</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/web-design-3411373_1920.jpg" alt="Music Player">
+            <div class="portfolio-overlay">
+              <a href="https://github.com/Christos-16/music_player_with_js" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Music Player with JS</h3>
+            <p class="portfolio-category">Student Project</p>
+            <div class="portfolio-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Audio API</span>
+              <span class="tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-image">
+            <img src="./assets/images/iot-3337536_1920.png" alt="SmartHAB">
+            <div class="portfolio-overlay">
+              <a href="https://drive.google.com/drive/folders/198fFgIT1QdIWKq9qt_xmNPQvJnxI99sz" target="_blank" class="portfolio-link">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>SmartHAB - Smart Building Management</h3>
+            <p class="portfolio-category">Student Project - 2nd Place Award</p>
+            <div class="portfolio-tags">
+              <span class="tag">IoT</span>
+              <span class="tag">Smart Home</span>
+              <span class="tag">Award Winner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>I'm always interested in hearing about new projects and opportunities.</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+              <div>
+                <p class="label">Email</p>
+                <a href="mailto:anastasiouxrhstos@gmail.com">anastasiouxrhstos@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+              <div>
+                <p class="label">Phone</p>
+                <a href="tel:+306978142511">+30 697 814 2511</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+              <div>
+                <p class="label">Location</p>
+                <p>Kastoria, Greece</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" target="_blank" title="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://github.com/Christos-16" target="_blank" title="GitHub">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+            <a href="https://www.instagram.com/christos_anastasiou16/" target="_blank" title="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder="Your Message" rows="6" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Christos Anastasiou. All rights reserved.</p>
+      <p>Crafted with passion for great web experiences.</p>
+    </div>
+  </footer>
+
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
-
 </html>

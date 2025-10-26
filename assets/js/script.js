@@ -1,127 +1,309 @@
 'use strict';
 
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+/* ===========================
+   NAVIGATION FUNCTIONALITY
+   =========================== */
 
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+// Smooth scroll navigation
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
 
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
+    navLinks.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
 
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
+    // Close mobile menu if open
+    if (hamburger && navMenu) {
+      navMenu.classList.remove('active');
+    }
+  });
+});
 
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
+// Update active nav link on scroll
+window.addEventListener('scroll', () => {
+  let current = '';
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-  testimonialsItem[i].addEventListener("click", function () {
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-    testimonialsModalFunc();
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+/* ===========================
+   MOBILE MENU TOGGLE
+   =========================== */
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    if (navMenu) {
+      navMenu.classList.toggle('active');
+    }
   });
 }
 
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+/* ===========================
+   PORTFOLIO FILTER
+   =========================== */
 
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioCards = document.querySelectorAll('.portfolio-card');
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    // Remove active class from all buttons
+    filterBtns.forEach(b => b.classList.remove('active'));
+    // Add active class to clicked button
+    this.classList.add('active');
 
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
+    const filterValue = this.getAttribute('data-filter');
+
+    // Filter cards
+    portfolioCards.forEach(card => {
+      if (filterValue === 'all') {
+        card.style.display = 'block';
+        setTimeout(() => card.classList.add('animate'), 10);
+      } else {
+        const cardCategory = card.getAttribute('data-category');
+        if (cardCategory === filterValue) {
+          card.style.display = 'block';
+          setTimeout(() => card.classList.add('animate'), 10);
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('animate');
+        }
+      }
+    });
+  });
+});
+
+/* ===========================
+   SCROLL REVEAL ANIMATIONS
+   =========================== */
+
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Observe elements for animation
+const animateElements = document.querySelectorAll(
+  '.service-card, .tech-item, .skill-bar, .timeline-item, .portfolio-card, .contact-item'
+);
+
+animateElements.forEach(el => {
+  observer.observe(el);
+});
+
+/* ===========================
+   FORM HANDLING
+   =========================== */
+
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value
+    };
+
+    // Here you would normally send the form data to a server
+    console.log('Form Data:', formData);
+
+    // Show success message
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    submitBtn.textContent = 'Message Sent Successfully! ✓';
+    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+    // Reset form
+    contactForm.reset();
+
+    // Restore button after 3 seconds
+    setTimeout(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.style.background = '';
+    }, 3000);
   });
 }
 
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
+/* ===========================
+   HAMBURGER MENU STYLES
+   =========================== */
 
-const filterFunc = function (selectedValue) {
-  for (let i = 0; i < filterItems.length; i++) {
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (filterItems[i].dataset.category.toLowerCase() === selectedValue) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
+// Add mobile menu styles dynamically
+const style = document.createElement('style');
+style.textContent = `
+  @media (max-width: 768px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.98);
+      flex-direction: column;
+      padding: 2rem 1rem;
+      gap: 1rem;
+      border-top: 1px solid var(--border-color);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .nav-menu.active {
+      max-height: 400px;
+    }
+
+    .nav-link {
+      padding: 0.75rem 0;
+      display: block;
     }
   }
-}
+`;
+document.head.appendChild(style);
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+/* ===========================
+   SMOOTH SCROLL BEHAVIOR
+   =========================== */
 
-for (let i = 0; i < filterBtn.length; i++) {
-  filterBtn[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-  });
-}
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
 
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
+    // Skip if it's just # or if it's a nav link (already handled)
+    if (href === '#' || this.classList.contains('nav-link')) return;
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+    e.preventDefault();
+
+    const target = document.querySelector(href);
+    if (target) {
+      const offsetTop = target.offsetTop - 80; // Account for navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
     }
   });
-}
+});
 
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
+/* ===========================
+   SKILL BARS ANIMATION
+   =========================== */
 
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
+const skillBars = document.querySelectorAll('.progress-bar');
+
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const progressBar = entry.target.querySelector('.progress');
+      const width = progressBar.style.width;
+      progressBar.style.width = '0';
+      setTimeout(() => {
+        progressBar.style.width = width;
+      }, 100);
+      skillObserver.unobserve(entry.target);
     }
   });
-}
+}, { threshold: 0.5 });
+
+skillBars.forEach(bar => skillObserver.observe(bar));
+
+/* ===========================
+   PAGE LOAD ANIMATIONS
+   =========================== */
+
+window.addEventListener('load', () => {
+  // Animate hero section on load
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent) {
+    heroContent.classList.add('animate');
+  }
+});
+
+/* ===========================
+   SCROLL TO TOP FUNCTIONALITY
+   =========================== */
+
+let scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '↑';
+scrollToTopBtn.className = 'scroll-to-top';
+scrollToTopBtn.style.cssText = `
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+`;
+
+document.body.appendChild(scrollToTopBtn);
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.style.display = 'flex';
+    scrollToTopBtn.style.alignItems = 'center';
+    scrollToTopBtn.style.justifyContent = 'center';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+scrollToTopBtn.addEventListener('mouseenter', () => {
+  scrollToTopBtn.style.transform = 'scale(1.1)';
+});
+
+scrollToTopBtn.addEventListener('mouseleave', () => {
+  scrollToTopBtn.style.transform = 'scale(1)';
+});
+
+/* ===========================
+   UTILITY FUNCTIONS
+   =========================== */
+
+// Log script loaded
+console.log('Portfolio script loaded successfully!');
