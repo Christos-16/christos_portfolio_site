@@ -302,6 +302,107 @@ scrollToTopBtn.addEventListener('mouseleave', () => {
 });
 
 /* ===========================
+   PROJECT MODAL FUNCTIONALITY
+   =========================== */
+
+const projectData = {
+  askcoco: {
+    title: 'AI-Powered Browser Assistant Extension',
+    description: 'Developed a Chrome extension that enhances browser functionality with AI-assisted text analysis. This project involved creating a seamless integration between browser DOM manipulation and external AI services to provide real-time content analysis within the browser environment.',
+    highlights: [
+      'Implemented Chrome Extension manifest and background scripts',
+      'Built DOM manipulation for content detection and interaction',
+      'Integrated with external AI APIs for text processing',
+      'Created responsive popup UI for user interactions',
+      'Optimized performance for background processing'
+    ]
+  },
+  sally: {
+    title: 'Conversation Data Management System',
+    description: 'Engineered a real-time data processing platform for managing conversation data across multiple sources. The system handles complex data transformation, external service integration, and JSON-based data pipeline optimization for seamless information flow.',
+    highlights: [
+      'Designed and implemented real-time data processing pipeline',
+      'Integrated Typebot services for conversation data collection',
+      'Optimized JSON data transformation and validation',
+      'Implemented error handling and data consistency checks',
+      'Created efficient database queries for large datasets',
+      'Developed API endpoints for external service communication'
+    ]
+  },
+  pdfsearch: {
+    title: 'Document Content Search Engine',
+    description: 'Created a sophisticated document processing and search system that enables users to find and retrieve information from document collections efficiently. Implemented advanced parsing techniques and optimized search algorithms for fast, accurate results.',
+    highlights: [
+      'Engineered document parsing and content extraction',
+      'Implemented full-text search functionality',
+      'Optimized indexing for improved query performance',
+      'Built user-friendly search interface and results display',
+      'Handled multiple document formats and encodings',
+      'Integrated with Laravel backend for scalability'
+    ]
+  },
+  encrypt: {
+    title: 'Healthcare Data Integration Platform',
+    description: 'Built a comprehensive data integration system for healthcare applications with strict security and compliance requirements. The platform handles complex data transformation using graph databases and implements streaming infrastructure for real-time processing of sensitive medical data.',
+    highlights: [
+      'Designed graph database schema for medical data relationships',
+      'Implemented Kafka-based streaming for real-time data processing',
+      'Developed data transformation pipeline for format conversion',
+      'Integrated DICOM file processing for medical imaging data',
+      'Built secure data validation and encryption mechanisms',
+      'Optimized data flow for low-latency processing',
+      'Implemented comprehensive logging and monitoring'
+    ]
+  }
+};
+
+const projectModal = document.getElementById('project-modal');
+const modalClose = document.getElementById('modal-close');
+const modalOverlay = document.getElementById('modal-overlay');
+const modalTriggers = document.querySelectorAll('.portfolio-modal-trigger');
+
+// Open modal when clicking on project
+modalTriggers.forEach(trigger => {
+  trigger.addEventListener('click', function(e) {
+    e.preventDefault();
+    const projectId = this.getAttribute('data-project');
+    const data = projectData[projectId];
+
+    if (data) {
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-description').textContent = data.description;
+
+      const highlightsList = document.getElementById('modal-highlights');
+      highlightsList.innerHTML = '';
+      data.highlights.forEach(highlight => {
+        const li = document.createElement('li');
+        li.textContent = highlight;
+        highlightsList.appendChild(li);
+      });
+
+      projectModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+});
+
+// Close modal
+function closeModal() {
+  projectModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', closeModal);
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+    closeModal();
+  }
+});
+
+/* ===========================
    UTILITY FUNCTIONS
    =========================== */
 

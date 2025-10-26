@@ -436,78 +436,87 @@
           <div class="portfolio-image">
             <img src="./assets/images/work.png" alt="AskCoCo Extension">
             <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link" title="Details coming soon">
-                <ion-icon name="information-circle-outline"></ion-icon>
+              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="askcoco">
+                <ion-icon name="open-outline"></ion-icon>
               </a>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>AskCoCo Extension</h3>
-            <p class="portfolio-category">Work Project</p>
+            <h3>AI-Powered Browser Assistant Extension</h3>
+            <p class="portfolio-category">Work Project - Proprietary</p>
+            <p class="portfolio-description">Built and optimized a Chrome extension for AI-assisted text analysis within browser environment</p>
             <div class="portfolio-tags">
               <span class="tag">Chrome Extension</span>
               <span class="tag">JavaScript</span>
-              <span class="tag">AI</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">DOM Manipulation</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Sally Project">
+            <img src="./assets/images/work.png" alt="Conversation Data Management System">
             <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link" title="Details coming soon">
-                <ion-icon name="information-circle-outline"></ion-icon>
+              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="sally">
+                <ion-icon name="open-outline"></ion-icon>
               </a>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Sally</h3>
-            <p class="portfolio-category">Work Project</p>
+            <h3>Conversation Data Management System</h3>
+            <p class="portfolio-category">Work Project - Proprietary</p>
+            <p class="portfolio-description">Developed real-time conversation data processing system with external service integration and JSON pipeline optimization</p>
             <div class="portfolio-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">Typebot</span>
+              <span class="tag">PHP/Laravel</span>
+              <span class="tag">Real-time Data Processing</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">Database Optimization</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="PDF Search Project">
+            <img src="./assets/images/work.png" alt="Document Content Search Engine">
             <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link" title="Details coming soon">
-                <ion-icon name="information-circle-outline"></ion-icon>
+              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="pdfsearch">
+                <ion-icon name="open-outline"></ion-icon>
               </a>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>PDF Search Project</h3>
-            <p class="portfolio-category">Work Project</p>
+            <h3>Document Content Search Engine</h3>
+            <p class="portfolio-category">Work Project - Proprietary</p>
+            <p class="portfolio-description">Engineered document processing and search functionality using advanced parsing techniques with optimized user interface</p>
             <div class="portfolio-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">PDF Parser</span>
+              <span class="tag">PHP/Laravel</span>
+              <span class="tag">Document Parsing</span>
+              <span class="tag">Search Algorithms</span>
+              <span class="tag">UI/UX Implementation</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="ENCRYPT Project">
+            <img src="./assets/images/work.png" alt="Healthcare Data Integration Platform">
             <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link" title="Details coming soon">
-                <ion-icon name="information-circle-outline"></ion-icon>
+              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="encrypt">
+                <ion-icon name="open-outline"></ion-icon>
               </a>
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>ENCRYPT Project</h3>
-            <p class="portfolio-category">Work Project</p>
+            <h3>Healthcare Data Integration Platform</h3>
+            <p class="portfolio-category">Work Project - Proprietary</p>
+            <p class="portfolio-description">Implemented complex data transformation pipeline with graph database and streaming infrastructure for secure medical data processing</p>
             <div class="portfolio-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">GraphDB</span>
-              <span class="tag">Kafka</span>
+              <span class="tag">PHP/Laravel</span>
+              <span class="tag">Graph Databases</span>
+              <span class="tag">Data Streaming</span>
+              <span class="tag">DICOM Processing</span>
+              <span class="tag">Data Architecture</span>
             </div>
           </div>
         </div>
@@ -649,6 +658,25 @@
               <span class="tag">Award Winner</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="project-modal">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <div class="modal-body">
+          <h3 id="modal-title"></h3>
+          <p id="modal-description"></p>
+          <div class="modal-details">
+            <h4>Technical Highlights</h4>
+            <ul id="modal-highlights"></ul>
+          </div>
+          <div class="modal-tags" id="modal-tags"></div>
         </div>
       </div>
     </div>
