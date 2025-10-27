@@ -465,15 +465,14 @@ document.querySelectorAll('section:not(#hero)').forEach(section => {
   sectionReveal.observe(section);
 });
 
-// Fallback: Make sure all sections are visible (in case observer fails)
-window.addEventListener('load', () => {
+// Make all sections visible by adding in-view class after a short delay
+// This ensures animations trigger even if user doesn't scroll
+document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     document.querySelectorAll('section:not(#hero)').forEach(section => {
-      if (!section.classList.contains('in-view')) {
-        section.classList.add('in-view');
-      }
+      section.classList.add('in-view');
     });
-  }, 1000);
+  }, 100);
 });
 
 /* ===========================
