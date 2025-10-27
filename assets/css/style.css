@@ -76,7 +76,7 @@ section {
 
 #hero {
   opacity: 1;
-  animation: none !important;
+  animation: fadeIn 0.8s ease-out 0s forwards;
 }
 
 #about {
@@ -359,6 +359,7 @@ section {
   gap: 4rem;
   max-width: 1200px;
   z-index: 1;
+  animation: fadeIn 1s ease-out 0.2s forwards;
 }
 
 .hero-avatar {
@@ -369,6 +370,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: slideInLeft 0.8s ease-out 0.3s forwards;
+  opacity: 0;
 }
 
 .avatar-background {
@@ -450,6 +453,8 @@ section {
 .hero-text {
   flex: 1;
   max-width: 600px;
+  animation: slideInRight 0.8s ease-out 0.3s forwards;
+  opacity: 0;
 }
 
 .hero-title {
@@ -1313,6 +1318,7 @@ section {
 
 #testimonials {
   background: linear-gradient(135deg, rgba(224, 134, 73, 0.05) 0%, rgba(90, 159, 212, 0.05) 100%);
+  animation: fadeInUp 0.8s ease-out 0s forwards;
 }
 
 .testimonials-grid {
@@ -1333,6 +1339,7 @@ section {
   gap: 1.5rem;
   position: relative;
   overflow: hidden;
+  opacity: 0;
 }
 
 .testimonial-card::before {
@@ -1344,6 +1351,18 @@ section {
   opacity: 0.1;
   font-weight: bold;
   color: var(--primary-color);
+}
+
+.testimonial-card:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.testimonial-card:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.testimonial-card:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
 }
 
 .testimonial-card:hover {
@@ -1769,15 +1788,6 @@ section {
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .testimonial-card {
-    padding: 1.5rem;
   }
 
   .cta-banner {
