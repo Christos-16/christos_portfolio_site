@@ -149,39 +149,6 @@ animateElements.forEach(el => {
    FORM HANDLING
    =========================== */
 
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value
-    };
-
-    // Here you would normally send the form data to a server
-    console.log('Form Data:', formData);
-
-    // Show success message
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    submitBtn.textContent = 'Message Sent Successfully! ✓';
-    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-    // Reset form
-    contactForm.reset();
-
-    // Restore button after 3 seconds
-    setTimeout(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.style.background = '';
-    }, 3000);
-  });
-}
-
 /* ===========================
    HAMBURGER MENU STYLES
    =========================== */
@@ -726,30 +693,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ===========================
    THEME TOGGLE (Dark/White)
    =========================== */
-
-const themeToggle = document.getElementById('theme-toggle');
-const htmlElement = document.documentElement;
-
-// Get saved theme preference or default to dark
-let currentTheme = localStorage.getItem('theme') || 'dark';
-
-// Apply saved theme on load
-if (currentTheme === 'white') {
-  htmlElement.classList.add('white-theme');
-}
-
-// Theme toggle functionality
-themeToggle.addEventListener('click', () => {
-  currentTheme = currentTheme === 'dark' ? 'white' : 'dark';
-
-  if (currentTheme === 'white') {
-    htmlElement.classList.add('white-theme');
-  } else {
-    htmlElement.classList.remove('white-theme');
-  }
-
-  localStorage.setItem('theme', currentTheme);
-});
 
 /* ===========================
    UTILITY FUNCTIONS
