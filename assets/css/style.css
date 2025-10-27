@@ -80,59 +80,31 @@ section {
 }
 
 #about {
-  opacity: 0;
-}
-
-#about.in-view {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out 0s forwards;
 }
 
 #highlights {
-  opacity: 0;
-}
-
-#highlights.in-view {
-  animation: fadeInDown 0.8s ease-out forwards;
+  animation: fadeInDown 0.8s ease-out 0s forwards;
 }
 
 #tech-stack {
-  opacity: 0;
-}
-
-#tech-stack.in-view {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out 0s forwards;
 }
 
 #skills {
-  opacity: 0;
-}
-
-#skills.in-view {
-  animation: fadeInDown 0.8s ease-out forwards;
+  animation: fadeInDown 0.8s ease-out 0s forwards;
 }
 
 #experience {
-  opacity: 0;
-}
-
-#experience.in-view {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out 0s forwards;
 }
 
 #portfolio {
-  opacity: 0;
-}
-
-#portfolio.in-view {
-  animation: fadeInDown 0.8s ease-out forwards;
+  animation: fadeInDown 0.8s ease-out 0s forwards;
 }
 
 #contact {
-  opacity: 0;
-}
-
-#contact.in-view {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out 0s forwards;
 }
 
 .container {
