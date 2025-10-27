@@ -185,15 +185,43 @@ section {
 
 .hero-avatar {
   flex-shrink: 0;
+  position: relative;
+  width: 220px;
+  height: 220px;
 }
 
-.hero-avatar img {
+.avatar-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.hero-avatar:hover .avatar-glow {
+  opacity: 1;
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.6), 0 0 100px rgba(236, 72, 153, 0.3);
+}
+
+.avatar-img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 3px solid var(--primary-color);
   box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
   animation: float 3s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+
+.hero-avatar:hover .avatar-img {
+  transform: scale(1.05);
+  box-shadow: 0 30px 80px rgba(99, 102, 241, 0.5), 0 0 40px rgba(236, 72, 153, 0.4);
+  border-color: var(--secondary-color);
 }
 
 @keyframes float {
