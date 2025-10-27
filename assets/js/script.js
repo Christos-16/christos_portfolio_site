@@ -517,29 +517,38 @@ window.addEventListener('beforeunload', () => {
    DARK MODE TOGGLE
    =========================== */
 
-const darkModeToggle = document.getElementById('dark-mode-toggle');
+function setupThemeToggle() {
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-function updateThemeIcon() {
-  if (!darkModeToggle) return;
-  const icon = darkModeToggle.querySelector('ion-icon');
-  if (!icon) return;
-
-  if (document.documentElement.classList.contains('white-theme')) {
-    icon.setAttribute('name', 'sunny-outline');
-  } else {
-    icon.setAttribute('name', 'moon-outline');
+  if (!darkModeToggle) {
+    console.error('Theme toggle button not found');
+    return;
   }
-}
 
-// Load saved theme preference (dark or white)
-let currentThemeMode = localStorage.getItem('themeMode') || 'dark';
-if (currentThemeMode === 'white') {
-  document.documentElement.classList.add('white-theme');
-}
-updateThemeIcon();
+  function updateThemeIcon() {
+    const icon = darkModeToggle.querySelector('ion-icon');
+    if (!icon) return;
 
-if (darkModeToggle) {
-  darkModeToggle.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('white-theme')) {
+      icon.setAttribute('name', 'sunny-outline');
+    } else {
+      icon.setAttribute('name', 'moon-outline');
+    }
+  }
+
+  // Load saved theme preference (dark or white)
+  let currentThemeMode = localStorage.getItem('themeMode') || 'dark';
+
+  if (currentThemeMode === 'white') {
+    document.documentElement.classList.add('white-theme');
+  }
+  updateThemeIcon();
+
+  // Add click event listener
+  darkModeToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     currentThemeMode = currentThemeMode === 'dark' ? 'white' : 'dark';
 
     if (currentThemeMode === 'white') {
@@ -548,10 +557,16 @@ if (darkModeToggle) {
       document.documentElement.classList.remove('white-theme');
     }
 
-    // Save preference
     localStorage.setItem('themeMode', currentThemeMode);
     updateThemeIcon();
   });
+}
+
+// Wait for DOM to be fully ready, then setup theme toggle
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupThemeToggle);
+} else {
+  setupThemeToggle();
 }
 
 /* ===========================
