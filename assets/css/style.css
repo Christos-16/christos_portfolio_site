@@ -79,6 +79,34 @@ section {
   animation: none !important;
 }
 
+#about {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+#highlights {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+#tech-stack {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+#skills {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+#experience {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+#portfolio {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+#contact {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
