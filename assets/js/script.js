@@ -519,34 +519,39 @@ window.addEventListener('beforeunload', () => {
 
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-// Load saved theme preference (dark or white)
-let currentThemeMode = localStorage.getItem('themeMode') || 'dark';
-if (currentThemeMode === 'white') {
-  document.documentElement.classList.add('white-theme');
-  updateThemeIcon();
-}
-
-darkModeToggle.addEventListener('click', () => {
-  currentThemeMode = currentThemeMode === 'dark' ? 'white' : 'dark';
-
-  if (currentThemeMode === 'white') {
-    document.documentElement.classList.add('white-theme');
-  } else {
-    document.documentElement.classList.remove('white-theme');
-  }
-
-  // Save preference
-  localStorage.setItem('themeMode', currentThemeMode);
-  updateThemeIcon();
-});
-
 function updateThemeIcon() {
+  if (!darkModeToggle) return;
   const icon = darkModeToggle.querySelector('ion-icon');
+  if (!icon) return;
+
   if (document.documentElement.classList.contains('white-theme')) {
     icon.setAttribute('name', 'sunny-outline');
   } else {
     icon.setAttribute('name', 'moon-outline');
   }
+}
+
+// Load saved theme preference (dark or white)
+let currentThemeMode = localStorage.getItem('themeMode') || 'dark';
+if (currentThemeMode === 'white') {
+  document.documentElement.classList.add('white-theme');
+}
+updateThemeIcon();
+
+if (darkModeToggle) {
+  darkModeToggle.addEventListener('click', () => {
+    currentThemeMode = currentThemeMode === 'dark' ? 'white' : 'dark';
+
+    if (currentThemeMode === 'white') {
+      document.documentElement.classList.add('white-theme');
+    } else {
+      document.documentElement.classList.remove('white-theme');
+    }
+
+    // Save preference
+    localStorage.setItem('themeMode', currentThemeMode);
+    updateThemeIcon();
+  });
 }
 
 /* ===========================
