@@ -404,6 +404,46 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ===========================
+   PARALLAX EFFECT
+   =========================== */
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const parallaxElements = document.querySelectorAll('.hero::before');
+
+  if (scrolled < window.innerHeight) {
+    // Parallax effect for hero background
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+    }
+  }
+});
+
+/* ===========================
+   INTERSECTION OBSERVER FOR ANIMATIONS
+   =========================== */
+
+const revealOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+      observer.unobserve(entry.target);
+    }
+  });
+}, revealOptions);
+
+// Apply to sections for staggered animations
+document.querySelectorAll('.service-card, .highlight-card, .tech-item, .skill-bar, .timeline-item, .portfolio-card').forEach(el => {
+  revealOnScroll.observe(el);
+});
+
+/* ===========================
    UTILITY FUNCTIONS
    =========================== */
 
