@@ -308,50 +308,51 @@ scrollToTopBtn.addEventListener('mouseleave', () => {
 const projectData = {
   askcoco: {
     title: 'AI-Powered Browser Assistant Extension',
-    description: 'Developed a Chrome extension that enhances browser functionality with AI-assisted text analysis. This project involved creating a seamless integration between browser DOM manipulation and external AI services to provide real-time content analysis within the browser environment.',
+    description: 'Tackled the challenge of integrating AI-powered text analysis directly into the browser. This required deep understanding of Chrome Extension architecture, DOM manipulation, and seamless communication between content scripts and background workers. The solution enables users to access intelligent text processing without leaving their workflow.',
     highlights: [
-      'Implemented Chrome Extension manifest and background scripts',
-      'Built DOM manipulation for content detection and interaction',
-      'Integrated with external AI APIs for text processing',
-      'Created responsive popup UI for user interactions',
-      'Optimized performance for background processing'
+      'Solved Chrome Extension architecture challenges with manifest configuration',
+      'Implemented secure DOM manipulation for content detection and interaction',
+      'Built efficient API communication layer with external AI services',
+      'Designed responsive UI for real-time user interaction',
+      'Optimized extension performance to minimize browser impact',
+      'Ensured data privacy and secure communication protocols'
     ]
   },
   sally: {
-    title: 'Conversation Data Management System',
-    description: 'Engineered a real-time data processing platform for managing conversation data across multiple sources. The system handles complex data transformation, external service integration, and JSON-based data pipeline optimization for seamless information flow.',
+    title: 'Real-Time Data Processing Platform',
+    description: 'Solved the complex problem of processing and synchronizing conversation data from multiple sources in real-time. This involved designing a robust pipeline that handles data transformation, validation, and external service integration while maintaining data consistency and high performance.',
     highlights: [
-      'Designed and implemented real-time data processing pipeline',
-      'Integrated Typebot services for conversation data collection',
-      'Optimized JSON data transformation and validation',
-      'Implemented error handling and data consistency checks',
-      'Created efficient database queries for large datasets',
-      'Developed API endpoints for external service communication'
+      'Architected real-time data processing pipeline from ground up',
+      'Implemented bidirectional service integration with data validation',
+      'Optimized JSON transformation to reduce processing overhead',
+      'Built resilient error handling and automatic retry mechanisms',
+      'Designed efficient database indexing for sub-second queries',
+      'Created REST API endpoints with proper authentication and rate limiting'
     ]
   },
   pdfsearch: {
-    title: 'Document Content Search Engine',
-    description: 'Created a sophisticated document processing and search system that enables users to find and retrieve information from document collections efficiently. Implemented advanced parsing techniques and optimized search algorithms for fast, accurate results.',
+    title: 'Document Search and Retrieval System',
+    description: 'Addressed the need for fast and accurate document searching across large collections. The solution required implementing advanced parsing techniques, building efficient indexing strategies, and creating an intuitive interface that balances powerful search capabilities with user-friendly design.',
     highlights: [
-      'Engineered document parsing and content extraction',
-      'Implemented full-text search functionality',
-      'Optimized indexing for improved query performance',
-      'Built user-friendly search interface and results display',
-      'Handled multiple document formats and encodings',
-      'Integrated with Laravel backend for scalability'
+      'Engineered robust document parsing supporting multiple file formats',
+      'Implemented full-text search with advanced query syntax',
+      'Built inverted index for millisecond-level search performance',
+      'Designed clean, accessible user interface for search and results',
+      'Handled encoding complexities and format variations seamlessly',
+      'Architected scalable Laravel backend for concurrent users'
     ]
   },
   encrypt: {
-    title: 'Healthcare Data Integration Platform',
-    description: 'Built a comprehensive data integration system for healthcare applications with strict security and compliance requirements. The platform handles complex data transformation using graph databases and implements streaming infrastructure for real-time processing of sensitive medical data.',
+    title: 'Secure Data Integration System',
+    description: 'Engineered a data integration platform for handling sensitive information with strict compliance requirements. The solution required designing a secure architecture, implementing efficient data transformation pipelines, and ensuring real-time processing capabilities while maintaining data integrity and security standards.',
     highlights: [
-      'Designed graph database schema for medical data relationships',
-      'Implemented Kafka-based streaming for real-time data processing',
-      'Developed data transformation pipeline for format conversion',
-      'Integrated DICOM file processing for medical imaging data',
-      'Built secure data validation and encryption mechanisms',
-      'Optimized data flow for low-latency processing',
-      'Implemented comprehensive logging and monitoring'
+      'Designed relational data models using graph database principles',
+      'Implemented streaming infrastructure for real-time data synchronization',
+      'Built secure data transformation pipeline with validation layers',
+      'Integrated specialized file format processing with error recovery',
+      'Implemented encryption and secure credential management',
+      'Optimized data flow architecture for low-latency requirements',
+      'Built comprehensive monitoring and audit logging system'
     ]
   }
 };
