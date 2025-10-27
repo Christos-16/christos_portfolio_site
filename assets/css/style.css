@@ -80,31 +80,59 @@ section {
 }
 
 #about {
-  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#about.in-view {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 #highlights {
-  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#highlights.in-view {
+  animation: fadeInDown 0.8s ease-out forwards;
 }
 
 #tech-stack {
-  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#tech-stack.in-view {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 #skills {
-  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#skills.in-view {
+  animation: fadeInDown 0.8s ease-out forwards;
 }
 
 #experience {
-  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#experience.in-view {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 #portfolio {
-  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#portfolio.in-view {
+  animation: fadeInDown 0.8s ease-out forwards;
 }
 
 #contact {
-  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+#contact.in-view {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .container {
@@ -1804,6 +1832,28 @@ section {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes sectionSlideInLeft {
   from {
     opacity: 0;
@@ -1826,34 +1876,6 @@ section {
   }
 }
 
-/* Alternating section animations */
-#about.in-view {
-  animation: sectionSlideInLeft 1s ease-out forwards;
-}
-
-#highlights.in-view {
-  animation: sectionSlideInRight 1s ease-out forwards;
-}
-
-#tech-stack.in-view {
-  animation: sectionSlideInLeft 1s ease-out forwards;
-}
-
-#skills.in-view {
-  animation: sectionSlideInRight 1s ease-out forwards;
-}
-
-#experience.in-view {
-  animation: sectionSlideInLeft 1s ease-out forwards;
-}
-
-#portfolio.in-view {
-  animation: sectionSlideInRight 1s ease-out forwards;
-}
-
-#contact.in-view {
-  animation: sectionSlideInLeft 1s ease-out forwards;
-}
 
 /* Staggered animations for cards */
 .service-card:nth-child(1) {
