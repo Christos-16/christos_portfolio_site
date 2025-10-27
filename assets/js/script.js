@@ -14,8 +14,19 @@ navLinks.forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
 
-    navLinks.forEach(l => l.classList.remove('active'));
-    this.classList.add('active');
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+
+    if (targetSection) {
+      const offsetTop = targetSection.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    }
 
     // Close mobile menu if open
     if (hamburger && navMenu) {
@@ -438,9 +449,31 @@ const revealOnScroll = new IntersectionObserver(function(entries, observer) {
   });
 }, revealOptions);
 
-// Apply to sections for staggered animations
+// Apply to cards for staggered animations
 document.querySelectorAll('.service-card, .highlight-card, .tech-item, .skill-bar, .timeline-item, .portfolio-card').forEach(el => {
   revealOnScroll.observe(el);
+});
+
+/* ===========================
+   SECTION REVEAL ON SCROLL
+   =========================== */
+
+const sectionRevealOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const sectionReveal = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+    }
+  });
+}, sectionRevealOptions);
+
+// Observe all sections except hero
+document.querySelectorAll('section:not(#hero)').forEach(section => {
+  sectionReveal.observe(section);
 });
 
 /* ===========================
