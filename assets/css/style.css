@@ -70,12 +70,6 @@ img {
 
 section {
   padding: 5rem 0;
-  opacity: 0;
-  animation: none;
-  transition: opacity 0.6s ease-out;
-}
-
-section.in-view {
   opacity: 1;
   animation: none;
 }
