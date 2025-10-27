@@ -518,31 +518,31 @@ window.addEventListener('beforeunload', () => {
    =========================== */
 
 const darkModeToggle = document.getElementById('dark-mode-toggle');
-const htmlElement = document.documentElement;
 
-// Load saved dark mode preference
-const savedDarkMode = localStorage.getItem('darkMode');
-if (savedDarkMode === 'light') {
-  htmlElement.classList.add('light-mode');
-  updateDarkModeIcon();
+// Load saved theme preference (dark or white)
+let currentThemeMode = localStorage.getItem('themeMode') || 'dark';
+if (currentThemeMode === 'white') {
+  document.documentElement.classList.add('white-theme');
+  updateThemeIcon();
 }
 
 darkModeToggle.addEventListener('click', () => {
-  htmlElement.classList.toggle('light-mode');
+  currentThemeMode = currentThemeMode === 'dark' ? 'white' : 'dark';
 
-  // Save preference
-  if (htmlElement.classList.contains('light-mode')) {
-    localStorage.setItem('darkMode', 'light');
+  if (currentThemeMode === 'white') {
+    document.documentElement.classList.add('white-theme');
   } else {
-    localStorage.setItem('darkMode', 'dark');
+    document.documentElement.classList.remove('white-theme');
   }
 
-  updateDarkModeIcon();
+  // Save preference
+  localStorage.setItem('themeMode', currentThemeMode);
+  updateThemeIcon();
 });
 
-function updateDarkModeIcon() {
+function updateThemeIcon() {
   const icon = darkModeToggle.querySelector('ion-icon');
-  if (htmlElement.classList.contains('light-mode')) {
+  if (document.documentElement.classList.contains('white-theme')) {
     icon.setAttribute('name', 'sunny-outline');
   } else {
     icon.setAttribute('name', 'moon-outline');
@@ -638,6 +638,97 @@ contactForm.addEventListener('submit', (e) => {
       formSuccess.classList.remove('show');
     }, 5000);
   }
+});
+
+/* ===========================
+   LANGUAGE TOGGLE
+   =========================== */
+
+// Language data
+const translations = {
+  en: {
+    home: 'Home',
+    about: 'About',
+    skills: 'Skills',
+    experience: 'Experience',
+    portfolio: 'Portfolio',
+    contact: 'Contact',
+    toggleLang: 'EL'
+  },
+  el: {
+    home: 'Αρχική',
+    about: 'Σχετικά',
+    skills: 'Δεξιότητες',
+    experience: 'Εμπειρία',
+    portfolio: 'Έργα',
+    contact: 'Επικοινωνία',
+    toggleLang: 'EN'
+  }
+};
+
+let currentLang = localStorage.getItem('language') || 'en';
+
+const languageToggle = document.getElementById('language-toggle');
+if (languageToggle) {
+  languageToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'el' : 'en';
+    localStorage.setItem('language', currentLang);
+    updateLanguage();
+  });
+}
+
+function updateLanguage() {
+  // Update nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navItems = ['home', 'about', 'skills', 'experience', 'portfolio', 'contact'];
+
+  navLinks.forEach((link, index) => {
+    if (navItems[index]) {
+      link.textContent = translations[currentLang][navItems[index]];
+    }
+  });
+
+  // Update language toggle button
+  const langButton = document.querySelector('.lang-text');
+  if (langButton) {
+    langButton.textContent = translations[currentLang].toggleLang;
+  }
+
+  // Store preference
+  document.documentElement.lang = currentLang;
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', () => {
+  updateLanguage();
+});
+
+/* ===========================
+   THEME TOGGLE (Dark/White)
+   =========================== */
+
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+// Get saved theme preference or default to dark
+let currentTheme = localStorage.getItem('theme') || 'dark';
+
+// Apply saved theme on load
+if (currentTheme === 'white') {
+  htmlElement.classList.add('white-theme');
+}
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', () => {
+  currentTheme = currentTheme === 'dark' ? 'white' : 'dark';
+
+  if (currentTheme === 'white') {
+    htmlElement.classList.add('white-theme');
+  } else {
+    htmlElement.classList.remove('white-theme');
+  }
+
+  localStorage.setItem('theme', currentTheme);
 });
 
 /* ===========================

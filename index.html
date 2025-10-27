@@ -97,6 +97,9 @@
       <button class="dark-mode-toggle" id="dark-mode-toggle" title="Toggle dark mode">
         <ion-icon name="moon-outline"></ion-icon>
       </button>
+      <button class="language-toggle" id="language-toggle" title="Toggle language">
+        <span class="lang-text">EL</span>
+      </button>
       <div class="hamburger">
         <span></span>
         <span></span>
@@ -612,8 +615,69 @@
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
 
+      <!-- Featured Project Hero -->
+      <div class="featured-project">
+        <div class="featured-content">
+          <div class="featured-badge student-badge">
+            <ion-icon name="school-outline"></ion-icon>
+            <span>Personal Project</span>
+          </div>
+          <h3>Barbershop63 - Progressive Web App</h3>
+          <p class="featured-description">Developed a full-featured Progressive Web Application for barbershop appointment management. Built an interactive booking system with offline functionality, admin dashboard for schedule management, and dynamic dark/light mode theming that adapts to brand colors.</p>
+
+          <div class="featured-meta">
+            <div class="meta-stat">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <div>
+                <span class="stat-label">Duration</span>
+                <span class="stat-value">Ongoing</span>
+              </div>
+            </div>
+            <div class="meta-stat">
+              <ion-icon name="person-outline"></ion-icon>
+              <div>
+                <span class="stat-label">Type</span>
+                <span class="stat-value">Freelance</span>
+              </div>
+            </div>
+            <div class="meta-stat">
+              <ion-icon name="speedometer-outline"></ion-icon>
+              <div>
+                <span class="stat-label">Key Feature</span>
+                <span class="stat-value">Offline First</span>
+              </div>
+            </div>
+            <div class="meta-stat">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+              <div>
+                <span class="stat-label">Platform</span>
+                <span class="stat-value">Mobile-optimized</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="featured-tech">
+            <h4>Technologies & Features</h4>
+            <div class="tech-list">
+              <span class="tech-tag">PWA</span>
+              <span class="tech-tag">Service Workers</span>
+              <span class="tech-tag">Web Manifest</span>
+              <span class="tech-tag">Offline Support</span>
+              <span class="tech-tag">Responsive Design</span>
+              <span class="tech-tag">Dark/Light Mode</span>
+            </div>
+          </div>
+
+          <div class="featured-actions">
+            <button class="btn btn-primary portfolio-modal-trigger" data-project="barbershop">
+              View Full Details
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn active" data-filter="all">All Projects</button>
         <button class="filter-btn" data-filter="work">Work Projects</button>
         <button class="filter-btn" data-filter="student">Student Projects</button>
       </div>
@@ -621,6 +685,12 @@
       <div class="portfolio-grid">
         <!-- Work Projects -->
         <div class="portfolio-card" data-category="work">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge work-badge">
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span>Professional</span>
+            </div>
+          </div>
           <div class="portfolio-image">
             <img src="./assets/images/work.png" alt="Kalfidis Website Development">
             <div class="portfolio-overlay">
@@ -630,19 +700,30 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Kalfidis Website Development</h3>
-            <p class="portfolio-category">Work Project</p>
+            <h3>Kalfidis - E-Commerce Platform</h3>
+            <p class="portfolio-description">Built a scalable Shopify-based e-commerce platform with custom Liquid templates and optimized styling.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 4 months</span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Solo</span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">Shopify</span>
               <span class="tag">Liquid</span>
-              <span class="tag">CSS</span>
+              <span class="tag">E-Commerce</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge work-badge">
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span>Professional</span>
+            </div>
+            <span class="proprietary-tag">Proprietary</span>
+          </div>
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="AskCoCo Extension">
+            <img src="./assets/images/work.png" alt="Browser Assistant Extension">
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="askcoco">
                 <ion-icon name="open-outline"></ion-icon>
@@ -651,20 +732,29 @@
           </div>
           <div class="portfolio-content">
             <h3>Browser Assistant Extension</h3>
-            <p class="portfolio-category">Work Project - Proprietary</p>
-            <p class="portfolio-description">Integrated AI capabilities directly into browser with secure DOM manipulation and API communication</p>
+            <p class="portfolio-description">Integrated AI capabilities directly into the browser with secure DOM manipulation and real-time API communication.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 5 months</span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Full-stack</span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">Chrome Extension</span>
               <span class="tag">JavaScript</span>
               <span class="tag">API Integration</span>
-              <span class="tag">Background Scripts</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge work-badge">
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span>Professional</span>
+            </div>
+            <span class="proprietary-tag">Proprietary</span>
+          </div>
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Conversation Data Management System">
+            <img src="./assets/images/work.png" alt="Data Processing Pipeline">
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="sally">
                 <ion-icon name="open-outline"></ion-icon>
@@ -672,21 +762,30 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Data Processing Pipeline</h3>
-            <p class="portfolio-category">Work Project - Proprietary</p>
-            <p class="portfolio-description">Engineered real-time data processing system with multi-source integration and transformation pipeline</p>
+            <h3>Dynamic Content Management System</h3>
+            <p class="portfolio-description">Engineered a robust data management platform with multi-source integration and flexible transformation capabilities.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 4 months</span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> 2-person team</span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">PHP/Laravel</span>
-              <span class="tag">Real-time Processing</span>
-              <span class="tag">Service Integration</span>
-              <span class="tag">Data Validation</span>
+              <span class="tag">Database Design</span>
+              <span class="tag">Data Integration</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge work-badge">
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span>Professional</span>
+            </div>
+            <span class="proprietary-tag">Proprietary</span>
+          </div>
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Document Content Search Engine">
+            <img src="./assets/images/work.png" alt="Document Search Engine">
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="pdfsearch">
                 <ion-icon name="open-outline"></ion-icon>
@@ -694,21 +793,30 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Search & Retrieval System</h3>
-            <p class="portfolio-category">Work Project - Proprietary</p>
-            <p class="portfolio-description">Built advanced document search system with multi-format parsing and performance-optimized indexing</p>
+            <h3>Intelligent Search & Indexing System</h3>
+            <p class="portfolio-description">Built advanced document search engine with multi-format support and performance-optimized indexing for rapid retrieval.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 3 months</span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Solo</span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">PHP/Laravel</span>
-              <span class="tag">Document Parsing</span>
-              <span class="tag">Search Indexing</span>
-              <span class="tag">Database Performance</span>
+              <span class="tag">Search Optimization</span>
+              <span class="tag">Database Tuning</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="work">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge work-badge">
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span>Professional</span>
+            </div>
+            <span class="proprietary-tag">Proprietary</span>
+          </div>
           <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Healthcare Data Integration Platform">
+            <img src="./assets/images/work.png" alt="Secure Data Integration System">
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="encrypt">
                 <ion-icon name="open-outline"></ion-icon>
@@ -717,13 +825,14 @@
           </div>
           <div class="portfolio-content">
             <h3>Secure Data Integration System</h3>
-            <p class="portfolio-category">Work Project - Proprietary</p>
-            <p class="portfolio-description">Architected secure data platform with advanced transformation pipeline and real-time streaming capabilities</p>
+            <p class="portfolio-description">Architected enterprise-grade data platform with real-time streaming, advanced transformation pipeline, and comprehensive security measures.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 6 months</span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> 3-person team</span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">PHP/Laravel</span>
-              <span class="tag">Graph Databases</span>
               <span class="tag">Data Streaming</span>
-              <span class="tag">Security & Encryption</span>
               <span class="tag">System Architecture</span>
             </div>
           </div>
@@ -731,6 +840,43 @@
 
         <!-- Student Projects -->
         <div class="portfolio-card" data-category="student">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge student-badge">
+              <ion-icon name="school-outline"></ion-icon>
+              <span>Personal Project</span>
+            </div>
+          </div>
+          <div class="portfolio-image">
+            <img src="./assets/images/work.png" alt="Barbershop63 PWA">
+            <div class="portfolio-overlay">
+              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="barbershop">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Barbershop63 - Booking App</h3>
+            <p class="portfolio-description">Full-stack Progressive Web App for barbershop appointment management with offline support, admin panel, and dynamic theming.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> Ongoing</span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Freelance</span>
+            </div>
+            <div class="portfolio-tags">
+              <span class="tag">PWA</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Service Workers</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="student">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge student-badge">
+              <ion-icon name="school-outline"></ion-icon>
+              <span>Personal Project</span>
+            </div>
+          </div>
           <div class="portfolio-image">
             <img src="./assets/images/template-1599665.png" alt="IEEE CS UoWM Website">
             <div class="portfolio-overlay">
@@ -741,15 +887,25 @@
           </div>
           <div class="portfolio-content">
             <h3>IEEE CS UoWM Website</h3>
-            <p class="portfolio-category">Student Project</p>
+            <p class="portfolio-description">Managed website redesign and modernization for university IEEE chapter using WordPress and custom styling.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://ieee.cs.uowm.gr/" target="_blank">Visit Site</a></span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">WordPress</span>
               <span class="tag">Web Design</span>
+              <span class="tag">Community</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="student">
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge student-badge">
+              <ion-icon name="school-outline"></ion-icon>
+              <span>Personal Project</span>
+            </div>
+          </div>
           <div class="portfolio-image">
             <img src="./assets/images/iot-3337536_1920.png" alt="Romilos Weather Station">
             <div class="portfolio-overlay">
@@ -760,36 +916,26 @@
           </div>
           <div class="portfolio-content">
             <h3>Romilos Weather Station</h3>
-            <p class="portfolio-category">Student Project</p>
+            <p class="portfolio-description">Built IoT weather station system for real-time environmental monitoring using Arduino and Python data collection.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="logo-github"></ion-icon> <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank">GitHub</a></span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">IoT</span>
-              <span class="tag">Python</span>
               <span class="tag">Arduino</span>
+              <span class="tag">Python</span>
+              <span class="tag">Hardware</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="student">
-          <div class="portfolio-image">
-            <img src="./assets/images/quotes generator.png" alt="Quotes Generator">
-            <div class="portfolio-overlay">
-              <a href="https://christos-16.github.io/Quotes_Generator_Site/" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge student-badge">
+              <ion-icon name="school-outline"></ion-icon>
+              <span>Personal Project</span>
             </div>
           </div>
-          <div class="portfolio-content">
-            <h3>Quotes Generator Site</h3>
-            <p class="portfolio-category">Student Project</p>
-            <div class="portfolio-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">HTML/CSS</span>
-              <span class="tag">API</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
           <div class="portfolio-image">
             <img src="./assets/images/weather_app.jpg" alt="Weather App">
             <div class="portfolio-overlay">
@@ -799,56 +945,27 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Weather App</h3>
-            <p class="portfolio-category">Student Project</p>
+            <h3>Weather Application</h3>
+            <p class="portfolio-description">Responsive weather application built with React, featuring real-time weather data integration and interactive UI components.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://weatherappana.netlify.app/" target="_blank">Live Demo</a></span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">React</span>
               <span class="tag">API Integration</span>
-              <span class="tag">Responsive</span>
+              <span class="tag">Responsive Design</span>
             </div>
           </div>
         </div>
 
         <div class="portfolio-card" data-category="student">
-          <div class="portfolio-image">
-            <img src="./assets/images/fosscomm2020.jpg" alt="FOSSCOMM 2020">
-            <div class="portfolio-overlay">
-              <a href="https://www.youtube.com/@Fosscomm-xf9sz" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
+          <div class="portfolio-badge-group">
+            <div class="portfolio-badge student-badge">
+              <ion-icon name="school-outline"></ion-icon>
+              <span>Personal Project</span>
             </div>
+            <span class="award-tag">🏆 Award Winner</span>
           </div>
-          <div class="portfolio-content">
-            <h3>FOSSCOMM 2020</h3>
-            <p class="portfolio-category">Student Project</p>
-            <div class="portfolio-tags">
-              <span class="tag">Video Editing</span>
-              <span class="tag">Event Management</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
-          <div class="portfolio-image">
-            <img src="./assets/images/web-design-3411373_1920.jpg" alt="Music Player">
-            <div class="portfolio-overlay">
-              <a href="https://github.com/Christos-16/music_player_with_js" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Music Player with JS</h3>
-            <p class="portfolio-category">Student Project</p>
-            <div class="portfolio-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Audio API</span>
-              <span class="tag">UI/UX</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
           <div class="portfolio-image">
             <img src="./assets/images/iot-3337536_1920.png" alt="SmartHAB">
             <div class="portfolio-overlay">
@@ -859,11 +976,15 @@
           </div>
           <div class="portfolio-content">
             <h3>SmartHAB - Smart Building Management</h3>
-            <p class="portfolio-category">Student Project - 2nd Place Award</p>
+            <p class="portfolio-description">Advanced IoT system for intelligent building automation. Master's thesis project showcasing Z-Wave integration, sensor networks, and smart home automation.</p>
+            <div class="portfolio-meta">
+              <span class="meta-item"><ion-icon name="award-outline"></ion-icon> 2nd Place - Kozani 2030</span>
+            </div>
             <div class="portfolio-tags">
               <span class="tag">IoT</span>
+              <span class="tag">Z-Wave</span>
               <span class="tag">Smart Home</span>
-              <span class="tag">Award Winner</span>
+              <span class="tag">System Design</span>
             </div>
           </div>
         </div>
@@ -885,69 +1006,6 @@
             <ul id="modal-highlights"></ul>
           </div>
           <div class="modal-tags" id="modal-tags"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials">
-    <div class="container">
-      <h2 class="section-title">What Others Say</h2>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">C</div>
-            <div>
-              <h4>Colleagues & Team</h4>
-              <p class="testimonial-role">Professional Network</p>
-            </div>
-          </div>
-          <p class="testimonial-text">"Christos is a dedicated developer who takes ownership of his work. His attention to detail in code quality and problem-solving approach make him a valuable team member."</p>
-          <div class="testimonial-stars">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">E</div>
-            <div>
-              <h4>Project Leads</h4>
-              <p class="testimonial-role">Enchatted Management</p>
-            </div>
-          </div>
-          <p class="testimonial-text">"His ability to understand complex requirements and translate them into robust solutions is impressive. Christos brings both technical excellence and excellent communication to every project."</p>
-          <div class="testimonial-stars">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">A</div>
-            <div>
-              <h4>Academic Foundation</h4>
-              <p class="testimonial-role">University Recognition</p>
-            </div>
-          </div>
-          <p class="testimonial-text">"Strong technical foundation with a proven track record in system design. Demonstrates exceptional ability to bridge theoretical knowledge with practical real-world applications."</p>
-          <div class="testimonial-stars">
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-            <ion-icon name="star"></ion-icon>
-          </div>
         </div>
       </div>
     </div>
