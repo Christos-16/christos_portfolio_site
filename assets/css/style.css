@@ -3,10 +3,10 @@
    =========================== */
 
 :root {
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary-color: #ec4899;
-  --accent-color: #f59e0b;
+  --primary-color: #e08649;
+  --primary-dark: #d67a3a;
+  --secondary-color: #5a9fd4;
+  --accent-color: #f4a261;
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
   --bg-tertiary: #334155;
@@ -94,7 +94,7 @@ section {
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #f4a261, #5a9fd4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -157,7 +157,7 @@ section {
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(224, 134, 73, 0.1) 0%, rgba(90, 159, 212, 0.05) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -169,7 +169,7 @@ section {
   right: 0;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(224, 134, 73, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -186,8 +186,8 @@ section {
 .hero-avatar {
   flex-shrink: 0;
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 160px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,8 +198,8 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(244, 162, 97, 0.2) 0%, rgba(224, 134, 73, 0.15) 40%, transparent 70%);
   opacity: 0;
@@ -210,8 +210,8 @@ section {
 
 .hero-avatar:hover .avatar-background {
   opacity: 1;
-  width: 300px;
-  height: 300px;
+  width: 220px;
+  height: 220px;
   background: radial-gradient(circle at 30% 30%,
     rgba(244, 162, 97, 0.9) 0%,
     rgba(224, 134, 73, 0.6) 30%,
@@ -221,8 +221,8 @@ section {
 
 .avatar-img {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 3px solid var(--primary-color);
   box-shadow: 0 20px 60px rgba(244, 162, 97, 0.2);
@@ -256,7 +256,7 @@ section {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #e08649, #5a9fd4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -292,14 +292,14 @@ section {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background: linear-gradient(135deg, #e08649, #d67a3a);
   color: white;
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 30px rgba(224, 134, 73, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 15px 40px rgba(224, 134, 73, 0.5);
 }
 
 .btn-secondary {
@@ -354,7 +354,7 @@ section {
   font-weight: 700;
   margin-bottom: 3rem;
   text-align: center;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, #f4a261, #5a9fd4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
