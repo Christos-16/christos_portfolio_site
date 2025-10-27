@@ -1,6 +1,19 @@
 'use strict';
 
 /* ===========================
+   SCROLL PROGRESS BAR
+   =========================== */
+
+const scrollProgressBar = document.querySelector('.scroll-progress');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgressBar.style.width = scrolled + '%';
+});
+
+/* ===========================
    NAVIGATION FUNCTIONALITY
    =========================== */
 
@@ -31,6 +44,7 @@ navLinks.forEach(link => {
     // Close mobile menu if open
     if (hamburger && navMenu) {
       navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
     }
   });
 });
@@ -64,6 +78,7 @@ if (hamburger) {
   hamburger.addEventListener('click', () => {
     if (navMenu) {
       navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
     }
   });
 }
@@ -264,36 +279,18 @@ window.addEventListener('load', () => {
    SCROLL TO TOP FUNCTIONALITY
    =========================== */
 
-let scrollToTopBtn = document.createElement('button');
+const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = '↑';
 scrollToTopBtn.className = 'scroll-to-top';
-scrollToTopBtn.style.cssText = `
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  color: white;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: none;
-  z-index: 999;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-`;
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
 
 document.body.appendChild(scrollToTopBtn);
 
 window.addEventListener('scroll', () => {
   if (window.pageYOffset > 300) {
-    scrollToTopBtn.style.display = 'flex';
-    scrollToTopBtn.style.alignItems = 'center';
-    scrollToTopBtn.style.justifyContent = 'center';
+    scrollToTopBtn.classList.add('show');
   } else {
-    scrollToTopBtn.style.display = 'none';
+    scrollToTopBtn.classList.remove('show');
   }
 });
 
@@ -302,14 +299,6 @@ scrollToTopBtn.addEventListener('click', () => {
     top: 0,
     behavior: 'smooth'
   });
-});
-
-scrollToTopBtn.addEventListener('mouseenter', () => {
-  scrollToTopBtn.style.transform = 'scale(1.1)';
-});
-
-scrollToTopBtn.addEventListener('mouseleave', () => {
-  scrollToTopBtn.style.transform = 'scale(1)';
 });
 
 /* ===========================
@@ -474,6 +463,182 @@ const sectionReveal = new IntersectionObserver(function(entries, observer) {
 // Observe all sections except hero
 document.querySelectorAll('section:not(#hero)').forEach(section => {
   sectionReveal.observe(section);
+});
+
+// Fallback: Make sure all sections are visible (in case observer fails)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('section:not(#hero)').forEach(section => {
+      if (!section.classList.contains('in-view')) {
+        section.classList.add('in-view');
+      }
+    });
+  }, 1000);
+});
+
+/* ===========================
+   CTA BANNER
+   =========================== */
+
+const ctaBanner = document.getElementById('cta-banner');
+const ctaClose = document.getElementById('cta-close');
+let ctaShown = false;
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  // Show CTA banner after scrolling 30% down the page
+  const showCTAAt = document.documentElement.scrollHeight * 0.3;
+
+  if (scrollTop > showCTAAt && !ctaShown) {
+    ctaBanner.classList.add('show');
+    ctaShown = true;
+  } else if (scrollTop < showCTAAt && ctaShown) {
+    ctaBanner.classList.remove('show');
+    ctaShown = false;
+  }
+});
+
+ctaClose.addEventListener('click', () => {
+  ctaBanner.classList.remove('show');
+  // Don't show again until next page visit
+  localStorage.setItem('ctaClosed', 'true');
+});
+
+// Check if CTA was closed
+if (localStorage.getItem('ctaClosed') === 'true') {
+  ctaShown = true; // Prevent showing during this visit
+}
+
+// Reset CTA closed state on page reload
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('ctaClosed');
+});
+
+/* ===========================
+   DARK MODE TOGGLE
+   =========================== */
+
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const htmlElement = document.documentElement;
+
+// Load saved dark mode preference
+const savedDarkMode = localStorage.getItem('darkMode');
+if (savedDarkMode === 'light') {
+  htmlElement.classList.add('light-mode');
+  updateDarkModeIcon();
+}
+
+darkModeToggle.addEventListener('click', () => {
+  htmlElement.classList.toggle('light-mode');
+
+  // Save preference
+  if (htmlElement.classList.contains('light-mode')) {
+    localStorage.setItem('darkMode', 'light');
+  } else {
+    localStorage.setItem('darkMode', 'dark');
+  }
+
+  updateDarkModeIcon();
+});
+
+function updateDarkModeIcon() {
+  const icon = darkModeToggle.querySelector('ion-icon');
+  if (htmlElement.classList.contains('light-mode')) {
+    icon.setAttribute('name', 'sunny-outline');
+  } else {
+    icon.setAttribute('name', 'moon-outline');
+  }
+}
+
+/* ===========================
+   FORM VALIDATION
+   =========================== */
+
+const contactForm = document.getElementById('contact-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+const formSuccess = document.getElementById('form-success');
+
+// Real-time validation
+nameInput.addEventListener('blur', () => {
+  const error = document.getElementById('name-error');
+  if (nameInput.value.trim() === '') {
+    error.classList.add('show');
+  } else {
+    error.classList.remove('show');
+  }
+});
+
+emailInput.addEventListener('blur', () => {
+  const error = document.getElementById('email-error');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value)) {
+    error.classList.add('show');
+  } else {
+    error.classList.remove('show');
+  }
+});
+
+messageInput.addEventListener('blur', () => {
+  const error = document.getElementById('message-error');
+  if (messageInput.value.trim() === '') {
+    error.classList.add('show');
+  } else {
+    error.classList.remove('show');
+  }
+});
+
+// Form submission
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Validate all fields
+  let isValid = true;
+  const errors = {
+    name: document.getElementById('name-error'),
+    email: document.getElementById('email-error'),
+    message: document.getElementById('message-error')
+  };
+
+  // Name validation
+  if (nameInput.value.trim() === '') {
+    errors.name.classList.add('show');
+    isValid = false;
+  } else {
+    errors.name.classList.remove('show');
+  }
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value)) {
+    errors.email.classList.add('show');
+    isValid = false;
+  } else {
+    errors.email.classList.remove('show');
+  }
+
+  // Message validation
+  if (messageInput.value.trim() === '') {
+    errors.message.classList.add('show');
+    isValid = false;
+  } else {
+    errors.message.classList.remove('show');
+  }
+
+  // If valid, show success and reset form
+  if (isValid) {
+    formSuccess.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+    formSuccess.classList.add('show');
+
+    // Reset form
+    contactForm.reset();
+
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      formSuccess.classList.remove('show');
+    }, 5000);
+  }
 });
 
 /* ===========================

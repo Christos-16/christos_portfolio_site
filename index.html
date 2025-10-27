@@ -4,24 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Christos Anastasiou - Junior Software Developer with 18+ months of professional experience in PHP, Laravel, JavaScript, and IoT solutions. Currently at Enchatted.">
-  <meta name="keywords" content="developer, software engineer, PHP, Laravel, JavaScript, React, web development, IoT, Shopify">
+  <meta name="description" content="Christos Anastasiou - Junior Software Developer with 2 years of professional experience in PHP, Laravel, JavaScript, React, and IoT solutions. Specialized in building scalable web applications and smart building systems.">
+  <meta name="keywords" content="junior developer, software engineer, PHP, Laravel, JavaScript, React, web development, IoT, smart buildings, Shopify, fullstack developer">
   <meta name="author" content="Christos Anastasiou">
-  <meta name="theme-color" content="#6366f1">
+  <meta name="theme-color" content="#e08649">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://christos-anastasiou.com">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://christos-portfolio.com">
-  <meta property="og:title" content="Christos Anastasiou - Junior Software Developer">
-  <meta property="og:description" content="Junior Software Developer passionate about building web applications and IoT solutions. 18+ months professional experience.">
-  <meta property="og:image" content="./assets/images/MYAVATAR-removebg-preview.png">
+  <meta property="og:url" content="https://christos-anastasiou.com">
+  <meta property="og:title" content="Christos Anastasiou - Junior Software Developer | Full Stack Web Development">
+  <meta property="og:description" content="2 years of professional experience building scalable web applications, IoT solutions, and smart building systems. Specializing in PHP, Laravel, JavaScript, and React.">
+  <meta property="og:image" content="./assets/images/4.png">
+  <meta property="og:site_name" content="Christos Anastasiou Portfolio">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://christos-portfolio.com">
+  <meta property="twitter:url" content="https://christos-anastasiou.com">
   <meta property="twitter:title" content="Christos Anastasiou - Junior Software Developer">
-  <meta property="twitter:description" content="Junior Software Developer with expertise in PHP, Laravel, JavaScript, React, and IoT solutions.">
-  <meta property="twitter:image" content="./assets/images/MYAVATAR-removebg-preview.png">
+  <meta property="twitter:description" content="Full stack developer with 2 years experience in PHP, Laravel, JavaScript, React, and IoT solutions.">
+  <meta property="twitter:image" content="./assets/images/4.png">
+  <meta property="twitter:creator" content="@christos_dev">
 
   <title>Christos Anastasiou - Junior Software Developer | Portfolio</title>
 
@@ -30,9 +34,51 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Performance optimizations -->
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="preconnect" href="https://unpkg.com">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Christos Anastasiou",
+    "url": "https://christos-anastasiou.com",
+    "image": "./assets/images/4.png",
+    "jobTitle": "Junior Software Developer",
+    "email": "christos@example.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/christos-anastasiou-0a591b279/",
+      "https://github.com/Christos-16",
+      "https://www.instagram.com/christos_anastasiou16/"
+    ],
+    "knowsAbout": ["PHP", "Laravel", "JavaScript", "React", "IoT", "Web Development", "Smart Buildings"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Enchatted"
+    }
+  }
+  </script>
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- CTA Sticky Banner -->
+  <div class="cta-banner" id="cta-banner">
+    <div class="cta-content">
+      <p>Ready to build something amazing?</p>
+      <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+    </div>
+    <button class="cta-close" id="cta-close">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+  </div>
 
   <!-- Navigation Bar -->
   <nav class="navbar" id="navbar">
@@ -48,6 +94,9 @@
         <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+      <button class="dark-mode-toggle" id="dark-mode-toggle" title="Toggle dark mode">
+        <ion-icon name="moon-outline"></ion-icon>
+      </button>
       <div class="hamburger">
         <span></span>
         <span></span>
@@ -813,6 +862,68 @@
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Others Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">CN</div>
+            <div>
+              <h4>Project Manager at Enchatted</h4>
+              <p class="testimonial-role">Direct Supervisor</p>
+            </div>
+          </div>
+          <p class="testimonial-text">"Christos is an exceptional developer who consistently delivers high-quality work ahead of schedule. His problem-solving skills and dedication to excellence make him a valuable asset to any team."</p>
+          <div class="testimonial-stars">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">AC</div>
+            <div>
+              <h4>Senior Developer</h4>
+              <p class="testimonial-role">Colleague</p>
+            </div>
+          </div>
+          <p class="testimonial-text">"Working with Christos has been a pleasure. His clean code, attention to detail, and collaborative approach make him stand out. He's always willing to help and learn new technologies."</p>
+          <div class="testimonial-stars">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">GP</div>
+            <div>
+              <h4>University Professor</h4>
+              <p class="testimonial-role">Academic Mentor</p>
+            </div>
+          </div>
+          <p class="testimonial-text">"An outstanding student with deep technical knowledge and innovative thinking. Christos's thesis work was exceptional, and his approach to solving complex problems sets him apart from his peers."</p>
+          <div class="testimonial-stars">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="container">
@@ -862,15 +973,19 @@
           </div>
         </div>
 
+        <div class="form-success" id="form-success"></div>
         <form class="contact-form" id="contact-form">
           <div class="form-group">
             <input type="text" id="name" placeholder="Your Name" required>
+            <span class="form-error" id="name-error">Please enter your name</span>
           </div>
           <div class="form-group">
             <input type="email" id="email" placeholder="Your Email" required>
+            <span class="form-error" id="email-error">Please enter a valid email</span>
           </div>
           <div class="form-group">
             <textarea id="message" placeholder="Your Message" rows="6" required></textarea>
+            <span class="form-error" id="message-error">Please enter a message</span>
           </div>
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
