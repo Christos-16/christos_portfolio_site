@@ -258,7 +258,7 @@
             <ion-icon name="briefcase-outline"></ion-icon>
           </div>
           <h3 data-i18n="highlights.item1.title">2 Years of Work Experience</h3>
-          <p data-i18n="highlights.item1.text">Working full-time at Enchatted on real projects in healthcare, e-commerce, and IoT systems.</p>
+          <p data-i18n="highlights.item1.text">Since 01/11/2023 employed at Enchatted I.K.E. as web applications developer & information systems administrator—covering data analysis, server and database management, in-house apps, web/API builds, and multimedia workflows.</p>
         </div>
 
         <div class="highlight-card">
@@ -281,8 +281,8 @@
           <div class="highlight-icon">
             <ion-icon name="code-outline"></ion-icon>
           </div>
-          <h3 data-i18n="highlights.item4.title">Full Stack Developer</h3>
-          <p data-i18n="highlights.item4.text">I work with both backend and frontend—PHP, Laravel, JavaScript, React, and database design.</p>
+          <h3 data-i18n="highlights.item4.title">Software Developer (Web & Systems)</h3>
+          <p data-i18n="highlights.item4.text">Working across backend and frontend—PHP, Laravel, JavaScript, React, REST APIs, and database design.</p>
         </div>
 
         <div class="highlight-card">
@@ -624,400 +624,194 @@
     <div class="container">
       <h2 class="section-title" data-i18n="portfolio.title">Featured Projects</h2>
 
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all" data-i18n="portfolio.filters.all">All Projects</button>
-        <button class="filter-btn" data-filter="work" data-i18n="portfolio.filters.work">Work Projects</button>
-        <button class="filter-btn" data-filter="student" data-i18n="portfolio.filters.student">Student Projects</button>
-      </div>
+      <div class="portfolio-journey">
+        <h3 class="portfolio-subtitle" data-i18n="projectTimeline.title">Project Journey</h3>
+        <p class="section-intro" data-i18n="projectTimeline.intro">
+          Quick highlights from each phase—open a card to see the wins without digging through long case studies.
+        </p>
 
-      <div class="portfolio-grid">
-        <!-- Work Projects -->
-        <div class="portfolio-card" data-category="work">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge work-badge">
-              <ion-icon name="briefcase-outline"></ion-icon>
-              <span data-i18n="portfolio.work1.badge">Professional</span>
-            </div>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-commerce">
-            <span class="sr-only">Abstract illustration representing the Kalfidis e-commerce platform.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="bag-handle-outline"></ion-icon>
+        <div class="journey-grid">
+          <button class="journey-card" type="button" data-journey="current" aria-haspopup="dialog">
+            <div class="portfolio-badge-group">
+              <div class="portfolio-badge journey-badge journey-badge-current">
+                <ion-icon name="rocket-outline"></ion-icon>
+                <span data-i18n="projectTimeline.item1.badge">Current</span>
               </div>
-              <span class="visual-chip">E-Commerce</span>
+              <span class="journey-date" data-i18n="projectTimeline.item1.date">2024 — Present</span>
             </div>
-            <div class="portfolio-overlay">
-              <a href="https://kalfidis.com/en" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.work1.title">Kalfidis - E-Commerce Platform</h3>
-            <p class="portfolio-description" data-i18n="portfolio.work1.description">Built a scalable Shopify-based e-commerce platform with custom Liquid templates and optimized styling.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work1.duration">4 months</span></span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work1.role">Solo</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">Shopify</span>
-              <span class="tag">Liquid</span>
-              <span class="tag">E-Commerce</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="work">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge work-badge">
-              <ion-icon name="briefcase-outline"></ion-icon>
-              <span data-i18n="portfolio.work2.badge">Professional</span>
-            </div>
-            <span class="proprietary-tag" data-i18n="portfolio.work2.proprietary">Proprietary</span>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-browser">
-            <span class="sr-only">Abstract illustration representing the AI browser assistant project.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="browsers-outline"></ion-icon>
+            <div class="portfolio-image portfolio-visual journey-visual visual-journey-current">
+              <span class="sr-only" data-i18n="projectTimeline.item1.visual">Illustration representing modern product delivery work.</span>
+              <div class="visual-symbols" aria-hidden="true">
+                <div class="visual-icon" aria-hidden="true">
+                  <ion-icon name="analytics-outline"></ion-icon>
+                </div>
+                <span class="visual-chip" data-i18n="projectTimeline.item1.chip">Delivery</span>
               </div>
-              <span class="visual-chip">Browser AI</span>
             </div>
-            <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="askcoco">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.work2.title">Browser Assistant Extension</h3>
-            <p class="portfolio-description" data-i18n="portfolio.work2.description">Integrated AI capabilities directly into the browser with secure DOM manipulation and real-time API communication.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work2.duration">5 months</span></span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work2.role">Full-stack</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">Chrome Extension</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">API Integration</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="work">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge work-badge">
-              <ion-icon name="briefcase-outline"></ion-icon>
-              <span data-i18n="portfolio.work3.badge">Professional</span>
-            </div>
-            <span class="proprietary-tag" data-i18n="portfolio.work3.proprietary">Proprietary</span>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-data">
-            <span class="sr-only">Abstract illustration representing the data processing pipeline project.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="layers-outline"></ion-icon>
+            <div class="portfolio-content journey-content">
+              <h3 class="journey-title" data-i18n="projectTimeline.item1.title">Product Delivery at Enchatted</h3>
+              <p class="journey-summary" data-i18n="projectTimeline.item1.summary">Leading Enchatted delivery across Shopify, Laravel, and AI-powered browser tooling.</p>
+              <div class="journey-tags portfolio-tags">
+                <span class="tag" data-i18n="projectTimeline.item1.tag1">Laravel</span>
+                <span class="tag" data-i18n="projectTimeline.item1.tag2">Shopify</span>
+                <span class="tag" data-i18n="projectTimeline.item1.tag3">AI Tooling</span>
               </div>
-              <span class="visual-chip">Data Pipeline</span>
-            </div>
-            <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="sally">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.work3.title">Dynamic Content Management System</h3>
-            <p class="portfolio-description" data-i18n="portfolio.work3.description">Engineered a robust data management platform with multi-source integration and flexible transformation capabilities.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work3.duration">4 months</span></span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work3.role">2-person team</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">PHP/Laravel</span>
-              <span class="tag">Database Design</span>
-              <span class="tag">Data Integration</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="work">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge work-badge">
-              <ion-icon name="briefcase-outline"></ion-icon>
-              <span data-i18n="portfolio.work4.badge">Professional</span>
-            </div>
-            <span class="proprietary-tag" data-i18n="portfolio.work4.proprietary">Proprietary</span>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-search">
-            <span class="sr-only">Abstract illustration representing the document search and indexing system.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="search-outline"></ion-icon>
+              <span class="journey-cta" data-i18n="projectTimeline.cta">View Highlights</span>
+              <div class="journey-modal-data" hidden>
+                <h4 data-i18n="projectTimeline.item1.modalTitle">Enchatted Delivery Highlights</h4>
+                <p data-i18n="projectTimeline.item1.modalIntro">Cross-functional workstreams shipping production features across commerce, learning, and automation products.</p>
+                <ul>
+                  <li data-i18n="projectTimeline.item1.point1">Kalfidis multi-language Shopify store with custom Liquid, GraphQL caching, and growth dashboards.</li>
+                  <li data-i18n="projectTimeline.item1.point2">AskCoco browser assistant shipped as Manifest v3 extension with secure DOM hooks and AI-driven prompts.</li>
+                  <li data-i18n="projectTimeline.item1.point3">Sally CMS modules delivering schema-driven content fields, role workflows, and audit history.</li>
+                  <li data-i18n="projectTimeline.item1.point4">PDF discovery pipeline syncing S3 archives, text extraction queues, and instant search UI.</li>
+                  <li data-i18n="projectTimeline.item1.point5">Open edX and H5P customisations aligning branding, MFE theming, and learner analytics.</li>
+                  <li data-i18n="projectTimeline.item1.point6">ENCRYPT data flows bridging GraphDB and Kafka with validation services for EU deliverables.</li>
+                </ul>
               </div>
-              <span class="visual-chip">Search</span>
             </div>
-            <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="pdfsearch">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.work4.title">Intelligent Search & Indexing System</h3>
-            <p class="portfolio-description" data-i18n="portfolio.work4.description">Built advanced document search engine with multi-format support and performance-optimized indexing for rapid retrieval.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work4.duration">3 months</span></span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work4.role">Solo</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">PHP/Laravel</span>
-              <span class="tag">Search Optimization</span>
-              <span class="tag">Database Tuning</span>
-            </div>
-          </div>
-        </div>
+          </button>
 
-        <div class="portfolio-card" data-category="work">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge work-badge">
-              <ion-icon name="briefcase-outline"></ion-icon>
-              <span data-i18n="portfolio.work5.badge">Professional</span>
-            </div>
-            <span class="proprietary-tag" data-i18n="portfolio.work5.proprietary">Proprietary</span>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-security">
-            <span class="sr-only">Abstract illustration representing the secure data integration system.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="shield-checkmark-outline"></ion-icon>
-              </div>
-              <span class="visual-chip">Security</span>
-            </div>
-            <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="encrypt">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.work5.title">Secure Data Integration System</h3>
-            <p class="portfolio-description" data-i18n="portfolio.work5.description">Architected enterprise-grade data platform with real-time streaming, advanced transformation pipeline, and comprehensive security measures.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work5.duration">6 months</span></span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work5.role">3-person team</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">PHP/Laravel</span>
-              <span class="tag">Data Streaming</span>
-              <span class="tag">System Architecture</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Student Projects -->
-        <div class="portfolio-card" data-category="student">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge student-badge">
-              <ion-icon name="school-outline"></ion-icon>
-              <span data-i18n="portfolio.student1.badge">Personal Project</span>
-            </div>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-pwa">
-            <span class="sr-only">Abstract illustration representing the Barbershop63 progressive web app.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="color-wand-outline"></ion-icon>
-              </div>
-              <span class="visual-chip">PWA</span>
-            </div>
-            <div class="portfolio-overlay">
-              <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="barbershop">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.student1.title">Barbershop63 - Booking App</h3>
-            <p class="portfolio-description" data-i18n="portfolio.student1.description">Full-stack Progressive Web App for barbershop appointment management with offline support, admin panel, and dynamic theming.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.student1.duration">Ongoing</span></span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.student1.role">Freelance</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">PWA</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Service Workers</span>
-              <span class="tag">Responsive</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge student-badge">
-              <ion-icon name="school-outline"></ion-icon>
-              <span data-i18n="portfolio.student2.badge">Personal Project</span>
-            </div>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-community">
-            <span class="sr-only">Abstract illustration representing the IEEE CS UoWM community website.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="people-circle-outline"></ion-icon>
-              </div>
-              <span class="visual-chip">Community</span>
-            </div>
-            <div class="portfolio-overlay">
-              <a href="https://ieee.cs.uowm.gr/" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.student2.title">IEEE CS UoWM Website</h3>
-            <p class="portfolio-description" data-i18n="portfolio.student2.description">Managed website redesign and modernization for university IEEE chapter using WordPress and custom styling.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://ieee.cs.uowm.gr/" target="_blank" data-i18n="portfolio.student2.link">Visit Site</a></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">WordPress</span>
-              <span class="tag">Web Design</span>
-              <span class="tag">Community</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge student-badge">
-              <ion-icon name="school-outline"></ion-icon>
-              <span data-i18n="portfolio.student3.badge">Personal Project</span>
-            </div>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-iot">
-            <span class="sr-only">Abstract illustration representing the Romilos IoT weather station project.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
+          <button class="journey-card" type="button" data-journey="research" aria-haspopup="dialog">
+            <div class="portfolio-badge-group">
+              <div class="portfolio-badge journey-badge journey-badge-research">
                 <ion-icon name="pulse-outline"></ion-icon>
+                <span data-i18n="projectTimeline.item2.badge">Research</span>
               </div>
-              <span class="visual-chip">IoT</span>
+              <span class="journey-date" data-i18n="projectTimeline.item2.date">2023 — 2025</span>
             </div>
-            <div class="portfolio-overlay">
-              <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.student3.title">Romilos Weather Station</h3>
-            <p class="portfolio-description" data-i18n="portfolio.student3.description">Built IoT weather station system for real-time environmental monitoring using Arduino and Python data collection.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="logo-github"></ion-icon> <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank" data-i18n="portfolio.student3.link">GitHub</a></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">IoT</span>
-              <span class="tag">Arduino</span>
-              <span class="tag">Python</span>
-              <span class="tag">Hardware</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge student-badge">
-              <ion-icon name="school-outline"></ion-icon>
-              <span data-i18n="portfolio.student4.badge">Personal Project</span>
-            </div>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-weather">
-            <span class="sr-only">Abstract illustration representing the weather application project.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="partly-sunny-outline"></ion-icon>
+            <div class="portfolio-image portfolio-visual journey-visual visual-journey-research">
+              <span class="sr-only" data-i18n="projectTimeline.item2.visual">Illustration representing smart building energy forecasting research.</span>
+              <div class="visual-symbols" aria-hidden="true">
+                <div class="visual-icon" aria-hidden="true">
+                  <ion-icon name="podium-outline"></ion-icon>
+                </div>
+                <span class="visual-chip" data-i18n="projectTimeline.item2.chip">Energy</span>
               </div>
-              <span class="visual-chip">Weather</span>
             </div>
-            <div class="portfolio-overlay">
-              <a href="https://weatherappana.netlify.app/" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.student4.title">Weather Application</h3>
-            <p class="portfolio-description" data-i18n="portfolio.student4.description">Responsive weather application built with React, featuring real-time weather data integration and interactive UI components.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://weatherappana.netlify.app/" target="_blank" data-i18n="portfolio.student4.link">Live Demo</a></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">React</span>
-              <span class="tag">API Integration</span>
-              <span class="tag">Responsive Design</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="portfolio-card" data-category="student">
-          <div class="portfolio-badge-group">
-            <div class="portfolio-badge student-badge">
-              <ion-icon name="school-outline"></ion-icon>
-              <span data-i18n="portfolio.student5.badge">Personal Project</span>
-            </div>
-            <span class="award-tag" data-i18n="portfolio.student5.award">🏆 Award Winner</span>
-          </div>
-          <div class="portfolio-image portfolio-visual visual-smart-home">
-            <span class="sr-only">Abstract illustration representing the SmartHAB smart building project.</span>
-            <div class="visual-symbols" aria-hidden="true">
-              <div class="visual-icon" aria-hidden="true">
-                <ion-icon name="home-outline"></ion-icon>
+            <div class="portfolio-content journey-content">
+              <h3 class="journey-title" data-i18n="projectTimeline.item2.title">Smart Building & IoT Research</h3>
+              <p class="journey-summary" data-i18n="projectTimeline.item2.summary">Master's thesis: Benchmarked ML models on 29M sensor readings to forecast campus energy demand and map actionable savings.</p>
+              <div class="journey-tags portfolio-tags">
+                <span class="tag" data-i18n="projectTimeline.item2.tag1">IoT</span>
+                <span class="tag" data-i18n="projectTimeline.item2.tag2">Z-Wave</span>
+                <span class="tag" data-i18n="projectTimeline.item2.tag3">Energy Forecasting</span>
               </div>
-              <span class="visual-chip">Smart Home</span>
+              <span class="journey-cta" data-i18n="projectTimeline.cta">View Highlights</span>
+              <div class="journey-modal-data" hidden>
+                <h4 data-i18n="projectTimeline.item2.modalTitle">Master's Thesis Outcomes</h4>
+                <p data-i18n="projectTimeline.item2.modalIntro">Analysis and Optimization of Smart Building Systems Using Machine Learning and IoT Technologies.</p>
+                <ul>
+                  <li data-i18n="projectTimeline.item2.point1">Curated 29M readings from 52 Z-Wave sensors across five energy subsystems on campus.</li>
+                  <li data-i18n="projectTimeline.item2.point2">Engineered ML pipelines comparing nine algorithms across linear, boosting, and deep architectures.</li>
+                  <li data-i18n="projectTimeline.item2.point3">Applied walk-forward validation with RMSE, MAE, wMAPE, and MASE to mirror production forecasting.</li>
+                  <li data-i18n="projectTimeline.item2.point4">Produced explainability notebooks and energy cost scenarios to guide facility optimisation.</li>
+                  <li data-i18n="projectTimeline.item2.point5">Packaged reproducible code, documentation, and roadmap for multimodal data and RAG tooling.</li>
+                </ul>
+              </div>
             </div>
-            <div class="portfolio-overlay">
-              <a href="https://drive.google.com/drive/folders/198fFgIT1QdIWKq9qt_xmNPQvJnxI99sz" target="_blank" class="portfolio-link">
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3 data-i18n="portfolio.student5.title">SmartHAB - Smart Building Management</h3>
-            <p class="portfolio-description" data-i18n="portfolio.student5.description">Advanced IoT system for intelligent building automation. Master's thesis project showcasing Z-Wave integration, sensor networks, and smart home automation.</p>
-            <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="award-outline"></ion-icon> <span data-i18n="portfolio.student5.meta">2nd Place - Kozani 2030</span></span>
-            </div>
-            <div class="portfolio-tags">
-              <span class="tag">IoT</span>
-              <span class="tag">Z-Wave</span>
-              <span class="tag">Smart Home</span>
-              <span class="tag">System Design</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </button>
 
-    <!-- Project Details Modal -->
-    <div class="project-modal" id="project-modal">
-      <div class="modal-overlay" id="modal-overlay"></div>
-      <div class="modal-content">
-        <button class="modal-close" id="modal-close" type="button" aria-label="Close project details" data-i18n-aria-label="modal.close">
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-        <div class="modal-body">
-          <h3 id="modal-title"></h3>
-          <p id="modal-description"></p>
-          <div class="modal-details">
-            <h4 data-i18n="modal.highlightsTitle">Technical Highlights</h4>
-            <ul id="modal-highlights"></ul>
-          </div>
-          <div class="modal-tags" id="modal-tags"></div>
+          <button class="journey-card" type="button" data-journey="community" aria-haspopup="dialog">
+            <div class="portfolio-badge-group">
+              <div class="portfolio-badge journey-badge journey-badge-community">
+                <ion-icon name="people-outline"></ion-icon>
+                <span data-i18n="projectTimeline.item3.badge">Community</span>
+              </div>
+              <span class="journey-date" data-i18n="projectTimeline.item3.date">2021 — 2022</span>
+            </div>
+            <div class="portfolio-image portfolio-visual journey-visual visual-journey-community">
+              <span class="sr-only" data-i18n="projectTimeline.item3.visual">Illustration representing community and WordPress work.</span>
+              <div class="visual-symbols" aria-hidden="true">
+                <div class="visual-icon" aria-hidden="true">
+                  <ion-icon name="chatbubbles-outline"></ion-icon>
+                </div>
+                <span class="visual-chip" data-i18n="projectTimeline.item3.chip">Community</span>
+              </div>
+            </div>
+            <div class="portfolio-content journey-content">
+              <h3 class="journey-title" data-i18n="projectTimeline.item3.title">Community & WordPress Sites</h3>
+              <p class="journey-summary" data-i18n="projectTimeline.item3.summary">Keeping community WordPress sites fresh, accessible, and easy to hand over.</p>
+              <div class="journey-tags portfolio-tags">
+                <span class="tag" data-i18n="projectTimeline.item3.tag1">WordPress</span>
+                <span class="tag" data-i18n="projectTimeline.item3.tag2">Content Strategy</span>
+                <span class="tag" data-i18n="projectTimeline.item3.tag3">Accessibility</span>
+              </div>
+              <span class="journey-cta" data-i18n="projectTimeline.cta">View Highlights</span>
+              <div class="journey-modal-data" hidden>
+                <h4 data-i18n="projectTimeline.item3.modalTitle">Community WordPress Projects</h4>
+                <p data-i18n="projectTimeline.item3.modalIntro">Volunteer-led work refreshing student and local organisation sites with modern content strategy.</p>
+                <ul>
+                  <li data-i18n="projectTimeline.item3.point1">Led IEEE Student Branch site refresh with event coverage, sponsors, and automated updates.</li>
+                  <li data-i18n="projectTimeline.item3.point2">Supported local organisations with bespoke themes, donation flows, and editorial tooling.</li>
+                  <li data-i18n="projectTimeline.item3.point3">Audited accessibility and performance, resolving contrast, navigation, and Core Web Vitals issues.</li>
+                  <li data-i18n="projectTimeline.item3.point4">Produced maintenance playbooks and trained volunteer editors for smooth handovers.</li>
+                </ul>
+              </div>
+            </div>
+          </button>
+
+          <button class="journey-card" type="button" data-journey="foundations" aria-haspopup="dialog">
+            <div class="portfolio-badge-group">
+              <div class="portfolio-badge journey-badge journey-badge-foundations">
+                <ion-icon name="flask-outline"></ion-icon>
+                <span data-i18n="projectTimeline.item4.badge">Foundations</span>
+              </div>
+              <span class="journey-date" data-i18n="projectTimeline.item4.date">2019 — 2021</span>
+            </div>
+            <div class="portfolio-image portfolio-visual journey-visual visual-journey-foundations">
+              <span class="sr-only" data-i18n="projectTimeline.item4.visual">Illustration representing early experiments and learning.</span>
+              <div class="visual-symbols" aria-hidden="true">
+                <div class="visual-icon" aria-hidden="true">
+                  <ion-icon name="code-slash-outline"></ion-icon>
+                </div>
+                <span class="visual-chip" data-i18n="projectTimeline.item4.chip">Experiments</span>
+              </div>
+            </div>
+            <div class="portfolio-content journey-content">
+              <h3 class="journey-title" data-i18n="projectTimeline.item4.title">Foundations & Experiments</h3>
+              <p class="journey-summary" data-i18n="projectTimeline.item4.summary">Experimenting with web tech to build strong UI and delivery foundations.</p>
+              <div class="journey-tags portfolio-tags">
+                <span class="tag" data-i18n="projectTimeline.item4.tag1">React</span>
+                <span class="tag" data-i18n="projectTimeline.item4.tag2">UI/UX</span>
+                <span class="tag" data-i18n="projectTimeline.item4.tag3">Rapid Prototyping</span>
+              </div>
+              <span class="journey-cta" data-i18n="projectTimeline.cta">View Highlights</span>
+              <div class="journey-modal-data" hidden>
+                <h4 data-i18n="projectTimeline.item4.modalTitle">Foundational Experiments</h4>
+                <p data-i18n="projectTimeline.item4.modalIntro">University and personal prototypes that built my front-end and delivery habits.</p>
+                <ul>
+                  <li data-i18n="projectTimeline.item4.point1">Built React weather, task, and habit apps to practice API consumption and responsive UI.</li>
+                  <li data-i18n="projectTimeline.item4.point2">Prototyped vanilla JS micro-tools exploring DOM patterns, forms, and local storage.</li>
+                  <li data-i18n="projectTimeline.item4.point3">Adopted Git workflows, automated tests, and CI scripts across university projects.</li>
+                  <li data-i18n="projectTimeline.item4.point4">Experimented with Node services and REST APIs to learn deployment and monitoring basics.</li>
+                </ul>
+              </div>
+            </div>
+          </button>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="journey-modal" id="journey-modal" aria-hidden="true">
+    <div class="journey-modal-backdrop" data-journey-close></div>
+    <div class="journey-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="journey-modal-title">
+      <button class="journey-modal-close" type="button" data-journey-close aria-label="Close project details">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div class="journey-modal-header">
+        <div class="journey-modal-badge" id="journey-modal-badge"></div>
+        <div class="journey-modal-meta">
+          <span class="journey-modal-date" id="journey-modal-date"></span>
+          <h3 class="journey-modal-title" id="journey-modal-title"></h3>
+        </div>
+      </div>
+      <p class="journey-modal-intro" id="journey-modal-intro"></p>
+      <ul class="journey-modal-list" id="journey-modal-list"></ul>
+      <div class="journey-modal-tags" id="journey-modal-tags"></div>
+    </div>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
@@ -1069,17 +863,21 @@
         </div>
 
         <div class="form-success" id="form-success"></div>
-        <form class="contact-form" id="contact-form">
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form" id="contact-form">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="sr-only" aria-hidden="true">
+            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+          </p>
           <div class="form-group">
-            <input type="text" id="name" placeholder="Your Name" required data-i18n-placeholder="contact.form.namePlaceholder">
+            <input type="text" id="name" name="name" placeholder="Your Name" required data-i18n-placeholder="contact.form.namePlaceholder">
             <span class="form-error" id="name-error" data-i18n="contact.form.nameError">Please enter your name</span>
           </div>
           <div class="form-group">
-            <input type="email" id="email" placeholder="Your Email" required data-i18n-placeholder="contact.form.emailPlaceholder">
+            <input type="email" id="email" name="email" placeholder="Your Email" required data-i18n-placeholder="contact.form.emailPlaceholder">
             <span class="form-error" id="email-error" data-i18n="contact.form.emailError">Please enter a valid email</span>
           </div>
           <div class="form-group">
-            <textarea id="message" placeholder="Your Message" rows="6" required data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+            <textarea id="message" name="message" placeholder="Your Message" rows="6" required data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
             <span class="form-error" id="message-error" data-i18n="contact.form.messageError">Please enter a message</span>
           </div>
           <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
