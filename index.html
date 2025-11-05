@@ -29,13 +29,14 @@
 
   <title>Christos Anastasiou - Junior Software Developer | Portfolio</title>
 
-  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+  <link rel="alternate icon" href="./assets/images/favicon.svg">
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Performance optimizations -->
   <link rel="dns-prefetch" href="https://unpkg.com">
@@ -72,10 +73,10 @@
   <!-- CTA Sticky Banner -->
   <div class="cta-banner" id="cta-banner">
     <div class="cta-content">
-      <p>Ready to build something amazing?</p>
-      <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+      <p data-i18n="cta.message">Ready to build something amazing?</p>
+      <a href="#contact" class="btn btn-primary" data-i18n="cta.button">Let's Work Together</a>
     </div>
-    <button class="cta-close" id="cta-close">
+    <button class="cta-close" id="cta-close" type="button" aria-label="Close call to action banner">
       <ion-icon name="close-outline"></ion-icon>
     </button>
   </div>
@@ -86,25 +87,33 @@
       <div class="nav-logo">
         <span>Christos</span>
       </div>
-      <ul class="nav-menu">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+      <ul class="nav-menu" id="primary-navigation">
+        <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <button class="dark-mode-toggle" id="dark-mode-toggle" title="Toggle dark mode">
+      <button class="dark-mode-toggle" id="dark-mode-toggle" type="button" aria-label="Toggle color theme">
         <ion-icon name="moon-outline"></ion-icon>
       </button>
-      <button class="language-toggle" id="language-toggle" title="Toggle language">
+      <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language">
         <span class="lang-text">EL</span>
       </button>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <button
+        class="hamburger"
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation menu"
+      >
+        <span class="sr-only">Toggle navigation menu</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
 
@@ -117,20 +126,20 @@
       </div>
       <div class="hero-text">
         <h1 class="hero-title">Christos Anastasiou</h1>
-        <p class="hero-subtitle">Junior Software Developer</p>
-        <p class="hero-description">
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Junior Software Developer</p>
+        <p class="hero-description" data-i18n="hero.description">
           Passionate about building beautiful web applications and exploring IoT solutions.
           <br>I'm currently working at <strong>Enchatted</strong> and studying at <strong>University of Western Macedonia</strong>.
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary btn-lg">Let's Work Together</a>
-          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank">View on GitHub</a>
-          <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" class="btn btn-secondary" target="_blank">LinkedIn Profile</a>
+          <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero.ctaPrimary">Let's Work Together</a>
+          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank" data-i18n="hero.ctaGithub">View on GitHub</a>
+          <a href="https://www.linkedin.com/in/christos-anastasiου-0a591b279/" class="btn btn-secondary" target="_blank" data-i18n="hero.ctaLinkedIn">LinkedIn Profile</a>
         </div>
       </div>
     </div>
     <div class="scroll-indicator">
-      <span>Scroll to explore</span>
+      <span data-i18n="hero.scroll">Scroll to explore</span>
       <ion-icon name="arrow-down"></ion-icon>
     </div>
   </section>
@@ -138,12 +147,12 @@
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title" data-i18n="about.title">About Me</h2>
 
       <!-- Who I Am Section -->
       <div class="about-intro">
-        <h3 class="about-subtitle">Who I Am</h3>
-        <p class="about-intro-text">
+        <h3 class="about-subtitle" data-i18n="about.whoTitle">Who I Am</h3>
+        <p class="about-intro-text" data-i18n="about.whoText">
           I'm <strong>Christos Anastasiou</strong>, a <strong>Junior Software Developer</strong> with <strong>2 years of professional experience</strong> at <strong>Enchatted</strong>.
           I'm passionate about building clean, efficient code and creating digital solutions that make a real impact.
         </p>
@@ -155,80 +164,80 @@
           <div class="service-icon">
             <ion-icon name="code-outline"></ion-icon>
           </div>
-          <h3>Web Development</h3>
-          <p>Building responsive and dynamic web applications with modern technologies like React, Vue.js, and Laravel</p>
+          <h3 data-i18n="services.web.title">Web Development</h3>
+          <p data-i18n="services.web.text">Building responsive and dynamic web applications with modern technologies like React, Vue.js, and Laravel.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">
             <ion-icon name="settings-outline"></ion-icon>
           </div>
-          <h3>PHP Development</h3>
-          <p>Developing robust server-side applications and REST APIs using PHP and Laravel framework</p>
+          <h3 data-i18n="services.php.title">PHP Development</h3>
+          <p data-i18n="services.php.text">Developing robust server-side applications and REST APIs using PHP and the Laravel framework.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">
             <ion-icon name="cube-outline"></ion-icon>
           </div>
-          <h3>IoT Solutions</h3>
-          <p>Designing and implementing IoT systems with a focus on smart building automation and Z-Wave technology</p>
+          <h3 data-i18n="services.iot.title">IoT Solutions</h3>
+          <p data-i18n="services.iot.text">Designing and implementing IoT systems with a focus on smart building automation and Z-Wave technology.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon">
             <ion-icon name="storefront-outline"></ion-icon>
           </div>
-          <h3>Shopify</h3>
-          <p>Creating and customizing Shopify stores with advanced features and optimized user experience</p>
+          <h3 data-i18n="services.shopify.title">Shopify</h3>
+          <p data-i18n="services.shopify.text">Creating and customizing Shopify stores with advanced features and optimized user experience.</p>
         </div>
       </div>
 
       <!-- Detailed About Content -->
       <div class="about-content">
         <div class="about-text">
-          <h3 class="about-subtitle">My Education</h3>
-          <p>
+          <h3 class="about-subtitle" data-i18n="about.educationTitle">My Education</h3>
+          <p data-i18n="about.educationText1">
             I hold a <strong>Bachelor of Science in Computer Science</strong> (Grade: 7.34) from the University of Western Macedonia, where my thesis
             explored <strong>"Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management"</strong>. This experience sparked my passion for
             building scalable, connected systems and tackling complex technical challenges.
           </p>
-          <p>
+          <p data-i18n="about.educationText2">
             I've recently completed my <strong>Master's degree in Modern Information Technologies and Services</strong> (Grade: 9.24) from the same university.
             My thesis advanced IoT system integration with a focus on scalable, real-world solutions for smart building ecosystems. Combined with my professional experience at Enchatted,
             I've developed strong expertise in full-stack web development, IoT systems, data integration, and building robust production systems.
           </p>
 
-          <h3 class="about-subtitle">What I Do</h3>
-          <p>
+          <h3 class="about-subtitle" data-i18n="about.workTitle">What I Do</h3>
+          <p data-i18n="about.workIntro">
             As a full-stack developer at Enchatted, I contribute to diverse, mission-critical projects across healthcare, e-commerce, and educational technology. I'm involved in every stage—from designing system architecture to deploying production code. Here are some highlights:
           </p>
           <ul class="about-list">
-            <li>🚀 <strong>Kalfidis</strong> - Shopify E-Commerce Platform with GraphQL API and custom caching</li>
-            <li>📄 <strong>PDF Search Tool</strong> - Internal tool for PDF searching and indexing with Laravel & JavaScript</li>
-            <li>🎓 <strong>Open edX Customization</strong> - Custom XBlock modules, H5P integration, and MFE UI adaptation</li>
-            <li>📊 <strong>ENCRYPT Project</strong> - Data flow design between GraphDB and Kafka pipelines with validation</li>
-            <li>💻 <strong>Sally CMS</strong> - Dynamic fields, responsive dashboards, and content management tools</li>
-            <li>⚡ <strong>Chrome Extension</strong> - Browser automation tool with Manifest v3 API and client-side data sync</li>
+            <li data-i18n="about.workItem1">🚀 <strong>Kalfidis</strong> - Shopify E-Commerce Platform with GraphQL API and custom caching</li>
+            <li data-i18n="about.workItem2">📄 <strong>PDF Search Tool</strong> - Internal tool for PDF searching and indexing with Laravel & JavaScript</li>
+            <li data-i18n="about.workItem3">🎓 <strong>Open edX Customization</strong> - Custom XBlock modules, H5P integration, and MFE UI adaptation</li>
+            <li data-i18n="about.workItem4">📊 <strong>ENCRYPT Project</strong> - Data flow design between GraphDB and Kafka pipelines with validation</li>
+            <li data-i18n="about.workItem5">💻 <strong>Sally CMS</strong> - Dynamic fields, responsive dashboards, and content management tools</li>
+            <li data-i18n="about.workItem6">⚡ <strong>Chrome Extension</strong> - Browser automation tool with Manifest v3 API and client-side data sync</li>
           </ul>
 
-          <h3 class="about-subtitle">My Philosophy</h3>
-          <p>
+          <h3 class="about-subtitle" data-i18n="about.philosophyTitle">My Philosophy</h3>
+          <p data-i18n="about.philosophyText1">
             I'm passionate about <strong>writing clean, maintainable code</strong> that stands the test of time. I believe in <strong>understanding the "why" behind every decision</strong>,
             whether it's choosing a technology, designing an API, or optimizing a database query. I approach problems methodically—breaking them down, exploring solutions, and always thinking about scalability and user impact.
           </p>
 
-          <p>
+          <p data-i18n="about.philosophyText2">
             Beyond code, I'm driven by continuous learning. The tech landscape evolves rapidly, and I stay curious about emerging technologies, best practices, and new problem-solving approaches.
             When I work on a project, I'm not just completing tasks—I'm building solutions that make a real difference for users and businesses.
           </p>
 
-          <p>
+          <p data-i18n="about.philosophyText3">
             <strong>I'm looking to grow, contribute meaningfully to challenging projects, and collaborate with teams that value quality and innovation.</strong>
           </p>
 
           <div class="about-actions">
-            <a href="https://drive.google.com/drive/folders/1ppLg7VataCrp7wzt3ZFxn2SPcz7-tfIZ" target="_blank" class="btn btn-primary" title="Download my CV">
+            <a href="https://drive.google.com/drive/folders/1ppLg7VataCrp7wzt3ZFxn2SPcz7-tfIZ" target="_blank" class="btn btn-primary" title="Download my CV" data-i18n="about.cvButton">
               <ion-icon name="document-text-outline"></ion-icon>
               Download CV
             </a>
@@ -241,71 +250,71 @@
   <!-- Highlights Section -->
   <section id="highlights" class="highlights">
     <div class="container">
-      <h2 class="section-title">Highlights & Achievements</h2>
+      <h2 class="section-title" data-i18n="highlights.title">Highlights & Achievements</h2>
 
       <div class="highlights-grid">
         <div class="highlight-card">
           <div class="highlight-icon">
             <ion-icon name="briefcase-outline"></ion-icon>
           </div>
-          <h3>2 Years Professional Experience</h3>
-          <p>Full-time at Enchatted, developing production systems for real users in healthcare, e-commerce, and IoT domains</p>
+          <h3 data-i18n="highlights.item1.title">2 Years of Work Experience</h3>
+          <p data-i18n="highlights.item1.text">Working full-time at Enchatted on real projects in healthcare, e-commerce, and IoT systems.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
-            <ion-icon name="award-outline"></ion-icon>
+            <ion-icon name="trophy-outline"></ion-icon>
           </div>
-          <h3>2nd Place Award Winner</h3>
-          <p>Recognized in "Kozani 2030" student competition with SmartHAB—an advanced IoT smart building automation system</p>
+          <h3 data-i18n="highlights.item2.title">2nd Place Award Winner</h3>
+          <p data-i18n="highlights.item2.text">Recognized in "Kozani 2030" student competition with SmartHAB—an advanced IoT smart building automation system.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
             <ion-icon name="school-outline"></ion-icon>
           </div>
-          <h3>Master's Degree Completed</h3>
-          <p>Recently completed Master's in Modern Information Technologies & Services (Grade: 9.24) with advanced thesis on IoT system integration and scalability</p>
+          <h3 data-i18n="highlights.item3.title">Master's Degree</h3>
+          <p data-i18n="highlights.item3.text">Completed my Master's in Modern Information Technologies & Services with focus on practical IoT solutions.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
             <ion-icon name="code-outline"></ion-icon>
           </div>
-          <h3>Full Stack Developer</h3>
-          <p>Backend (PHP/Laravel), Frontend (JavaScript/React), and Database design expertise</p>
+          <h3 data-i18n="highlights.item4.title">Full Stack Developer</h3>
+          <p data-i18n="highlights.item4.text">I work with both backend and frontend—PHP, Laravel, JavaScript, React, and database design.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
             <ion-icon name="cube-outline"></ion-icon>
           </div>
-          <h3>Diverse Tech Stack</h3>
-          <p>IoT, Web Development, Healthcare Systems, E-commerce, and Data Integration</p>
+          <h3 data-i18n="highlights.item5.title">Diverse Projects</h3>
+          <p data-i18n="highlights.item5.text">I've worked on IoT systems, web apps, healthcare platforms, online stores, and data solutions.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
             <ion-icon name="person-outline"></ion-icon>
           </div>
-          <h3>Continuous Learner</h3>
-          <p>Always exploring new technologies and best practices in software development</p>
+          <h3 data-i18n="highlights.item6.title">Always Learning</h3>
+          <p data-i18n="highlights.item6.text">I like exploring new technologies and staying curious about how things work.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
             <ion-icon name="flask-outline"></ion-icon>
           </div>
-          <h3>Research Contributor</h3>
-          <p>Published research on AI, Knowledge Graphs, and IoT systems at Springer conferences (AIAI 2025, DCAI 2025)</p>
+          <h3 data-i18n="highlights.item7.title">Published Research</h3>
+          <p data-i18n="highlights.item7.text">I've published papers on AI, Knowledge Graphs, and IoT at international conferences.</p>
         </div>
 
         <div class="highlight-card">
           <div class="highlight-icon">
-            <ion-icon name="network-outline"></ion-icon>
+            <ion-icon name="bulb-outline"></ion-icon>
           </div>
-          <h3>IoT & ML Specialist</h3>
-          <p>Research focus on smart building automation, machine learning for energy management, and decision support systems</p>
+          <h3 data-i18n="highlights.item8.title">Smart Systems</h3>
+          <p data-i18n="highlights.item8.text">I focus on IoT automation, smart building systems, and making technology work intelligently.</p>
         </div>
       </div>
 
@@ -313,19 +322,19 @@
       <div class="stats-container">
         <div class="stat-item">
           <h3 class="stat-number">2+</h3>
-          <p class="stat-label">Years Professional Experience</p>
+          <p class="stat-label" data-i18n="highlights.stats1">Years Professional Experience</p>
         </div>
         <div class="stat-item">
           <h3 class="stat-number">6+</h3>
-          <p class="stat-label">Major Projects Delivered</p>
+          <p class="stat-label" data-i18n="highlights.stats2">Major Projects Delivered</p>
         </div>
         <div class="stat-item">
           <h3 class="stat-number">2</h3>
-          <p class="stat-label">Published Research Papers</p>
+          <p class="stat-label" data-i18n="highlights.stats3">Published Research Papers</p>
         </div>
         <div class="stat-item">
           <h3 class="stat-number">9.24</h3>
-          <p class="stat-label">Master's Grade</p>
+          <p class="stat-label" data-i18n="highlights.stats4">Master's Grade</p>
         </div>
       </div>
     </div>
@@ -334,11 +343,11 @@
   <!-- Tech Stack Section -->
   <section id="tech-stack" class="tech-stack">
     <div class="container">
-      <h2 class="section-title">Tech Stack</h2>
+      <h2 class="section-title" data-i18n="tech.title">Tech Stack</h2>
 
       <div class="tech-categories">
         <div class="tech-category">
-          <h3>Frontend</h3>
+          <h3 data-i18n="tech.frontend">Frontend</h3>
           <div class="tech-items">
             <div class="tech-item" title="HTML5">
               <span>HTML5</span>
@@ -359,7 +368,7 @@
         </div>
 
         <div class="tech-category">
-          <h3>Backend</h3>
+          <h3 data-i18n="tech.backend">Backend</h3>
           <div class="tech-items">
             <div class="tech-item" title="PHP">
               <span>PHP</span>
@@ -377,7 +386,7 @@
         </div>
 
         <div class="tech-category">
-          <h3>Other</h3>
+          <h3 data-i18n="tech.other">Other</h3>
           <div class="tech-items">
             <div class="tech-item" title="Shopify">
               <span>Shopify</span>
@@ -400,11 +409,11 @@
   <!-- Skills Section -->
   <section id="skills" class="skills">
     <div class="container">
-      <h2 class="section-title">Skills & Expertise</h2>
+      <h2 class="section-title" data-i18n="skills.title">Skills & Expertise</h2>
 
       <div class="skills-grid">
         <div class="skill-group">
-          <h3>Programming</h3>
+          <h3 data-i18n="skills.programming">Programming</h3>
           <div class="skill-bar">
             <div class="skill-label">
               <span>PHP</span>
@@ -447,7 +456,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Web Development</h3>
+          <h3 data-i18n="skills.web">Web Development</h3>
           <div class="skill-bar">
             <div class="skill-label">
               <span>HTML & CSS</span>
@@ -490,7 +499,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Other Skills</h3>
+          <h3 data-i18n="skills.other">Other Skills</h3>
           <div class="skill-bar">
             <div class="skill-label">
               <span>IoT Systems</span>
@@ -538,26 +547,26 @@
   <!-- Experience & Education Section -->
   <section id="experience" class="experience">
     <div class="container">
-      <h2 class="section-title">Experience & Education</h2>
+      <h2 class="section-title" data-i18n="experience.title">Experience & Education</h2>
 
       <div class="timeline-container">
         <!-- Work Experience -->
         <div class="timeline-section">
-          <h3 class="timeline-heading">Work Experience</h3>
+          <h3 class="timeline-heading" data-i18n="experience.workTitle">Work Experience</h3>
 
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-content">
-                <h4 class="timeline-title">Junior Software Developer</h4>
-                <p class="timeline-company">Enchatted</p>
-                <span class="timeline-date">11/2023 — 10/2025</span>
+                <h4 class="timeline-title" data-i18n="experience.work1.title">Junior Software Developer</h4>
+                <p class="timeline-company" data-i18n="experience.work1.company">Enchatted</p>
+                <span class="timeline-date" data-i18n="experience.work1.date">11/2023 — 10/2025</span>
                 <ul class="timeline-details">
-                  <li>Designing and developing full-stack web applications with PHP, Laravel, and JavaScript/React</li>
-                  <li>Building e-commerce solutions on Shopify with custom backend integrations and GraphQL APIs</li>
-                  <li>Architecting and optimizing databases, designing REST APIs, and implementing real-time data pipelines</li>
-                  <li>Working on mission-critical projects across healthcare, e-commerce, and educational technology domains</li>
-                  <li>Collaborating with cross-functional teams to deliver scalable, production-ready solutions</li>
+                  <li data-i18n="experience.work1.point1">Designing and developing full-stack web applications with PHP, Laravel, and JavaScript/React</li>
+                  <li data-i18n="experience.work1.point2">Building e-commerce solutions on Shopify with custom backend integrations and GraphQL APIs</li>
+                  <li data-i18n="experience.work1.point3">Architecting and optimizing databases, designing REST APIs, and implementing real-time data pipelines</li>
+                  <li data-i18n="experience.work1.point4">Working on mission-critical projects across healthcare, e-commerce, and educational technology domains</li>
+                  <li data-i18n="experience.work1.point5">Collaborating with cross-functional teams to deliver scalable, production-ready solutions</li>
                 </ul>
               </div>
             </div>
@@ -565,13 +574,13 @@
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-content">
-                <h4 class="timeline-title">Sales Advisor</h4>
-                <p class="timeline-company">Telectron Hellas - Vodafone</p>
-                <span class="timeline-date">09/2021 — 02/2022</span>
+                <h4 class="timeline-title" data-i18n="experience.work2.title">Sales Advisor</h4>
+                <p class="timeline-company" data-i18n="experience.work2.company">Telectron Hellas - Vodafone</p>
+                <span class="timeline-date" data-i18n="experience.work2.date">09/2021 — 02/2022</span>
                 <ul class="timeline-details">
-                  <li>Sales of telephony packages and technological gadgets</li>
-                  <li>Customer communication and issue resolution</li>
-                  <li>Product knowledge and customer service excellence</li>
+                  <li data-i18n="experience.work2.point1">Sales of telephony packages and technological gadgets</li>
+                  <li data-i18n="experience.work2.point2">Customer communication and issue resolution</li>
+                  <li data-i18n="experience.work2.point3">Product knowledge and customer service excellence</li>
                 </ul>
               </div>
             </div>
@@ -580,28 +589,28 @@
 
         <!-- Education -->
         <div class="timeline-section">
-          <h3 class="timeline-heading">Education</h3>
+          <h3 class="timeline-heading" data-i18n="experience.educationTitle">Education</h3>
 
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-content">
-                <h4 class="timeline-title">Master of Science - Modern Information Technologies and Services</h4>
-                <p class="timeline-company">University of Western Macedonia</p>
-                <span class="timeline-date">10/2023 — Completed 2024</span>
-                <p>Final Grade: 9.24</p>
-                <p><strong>Thesis:</strong> Advanced study on IoT system integration, scalability, and real-world deployment strategies for smart building ecosystems.</p>
+                <h4 class="timeline-title" data-i18n="experience.edu1.title">Master of Science - Modern Information Technologies and Services</h4>
+                <p class="timeline-company" data-i18n="experience.edu1.company">University of Western Macedonia</p>
+                <span class="timeline-date" data-i18n="experience.edu1.date">10/2023 — Completed 2024</span>
+                <p data-i18n="experience.edu1.grade">Final Grade: 9.24</p>
+                <p data-i18n="experience.edu1.thesis"><strong>Thesis:</strong> Advanced study on IoT system integration, scalability, and real-world deployment strategies for smart building ecosystems.</p>
               </div>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-content">
-                <h4 class="timeline-title">Bachelor of Science - Computer Science</h4>
-                <p class="timeline-company">University of Western Macedonia</p>
-                <span class="timeline-date">10/2019 — 10/2023</span>
-                <p>Final Grade: 7.34</p>
-                <p><strong>Thesis:</strong> "Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management" — Comprehensive study on IoT architecture, Z-Wave protocol implementation, and practical smart building automation systems.</p>
+                <h4 class="timeline-title" data-i18n="experience.edu2.title">Bachelor of Science - Computer Science</h4>
+                <p class="timeline-company" data-i18n="experience.edu2.company">University of Western Macedonia</p>
+                <span class="timeline-date" data-i18n="experience.edu2.date">10/2019 — 10/2023</span>
+                <p data-i18n="experience.edu2.grade">Final Grade: 7.34</p>
+                <p data-i18n="experience.edu2.thesis"><strong>Thesis:</strong> "Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management" — Comprehensive study on IoT architecture, Z-Wave protocol implementation, and practical smart building automation systems.</p>
               </div>
             </div>
           </div>
@@ -613,73 +622,102 @@
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title" data-i18n="portfolio.title">My Development Journey</h2>
 
-      <!-- Featured Project Hero -->
-      <div class="featured-project">
-        <div class="featured-content">
-          <div class="featured-badge student-badge">
-            <ion-icon name="school-outline"></ion-icon>
-            <span>Personal Project</span>
-          </div>
-          <h3>Barbershop63 - Progressive Web App</h3>
-          <p class="featured-description">Developed a full-featured Progressive Web Application for barbershop appointment management. Built an interactive booking system with offline functionality, admin dashboard for schedule management, and dynamic dark/light mode theming that adapts to brand colors.</p>
-
-          <div class="featured-meta">
-            <div class="meta-stat">
-              <ion-icon name="calendar-outline"></ion-icon>
-              <div>
-                <span class="stat-label">Duration</span>
-                <span class="stat-value">Ongoing</span>
-              </div>
+      <!-- Learning Path Timeline -->
+      <div class="learning-path">
+        <!-- Phase 1: Web Foundations -->
+        <div class="learning-phase">
+          <div class="phase-header">
+            <div class="phase-icon">
+              <ion-icon name="globe-outline"></ion-icon>
             </div>
-            <div class="meta-stat">
-              <ion-icon name="person-outline"></ion-icon>
-              <div>
-                <span class="stat-label">Type</span>
-                <span class="stat-value">Freelance</span>
-              </div>
-            </div>
-            <div class="meta-stat">
-              <ion-icon name="speedometer-outline"></ion-icon>
-              <div>
-                <span class="stat-label">Key Feature</span>
-                <span class="stat-value">Offline First</span>
-              </div>
-            </div>
-            <div class="meta-stat">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-              <div>
-                <span class="stat-label">Platform</span>
-                <span class="stat-value">Mobile-optimized</span>
-              </div>
+            <div class="phase-info">
+              <h3 data-i18n="portfolio.phase1.title">Web Foundations</h3>
+              <p class="phase-years">2019 — 2022</p>
             </div>
           </div>
+          <p class="phase-description" data-i18n="portfolio.phase1.description">Started with WordPress customization and web design fundamentals. Learned CMS management, HTML/CSS, and how to build responsive websites.</p>
+          <div class="phase-techs">
+            <span class="tech-badge">WordPress</span>
+            <span class="tech-badge">HTML/CSS</span>
+            <span class="tech-badge">Web Design</span>
+            <span class="tech-badge">CMS Management</span>
+          </div>
+        </div>
 
-          <div class="featured-tech">
-            <h4>Technologies & Features</h4>
-            <div class="tech-list">
-              <span class="tech-tag">PWA</span>
-              <span class="tech-tag">Service Workers</span>
-              <span class="tech-tag">Web Manifest</span>
-              <span class="tech-tag">Offline Support</span>
-              <span class="tech-tag">Responsive Design</span>
-              <span class="tech-tag">Dark/Light Mode</span>
+        <!-- Phase 2: IoT & System Design -->
+        <div class="learning-phase">
+          <div class="phase-header">
+            <div class="phase-icon">
+              <ion-icon name="hardware-chip-outline"></ion-icon>
+            </div>
+            <div class="phase-info">
+              <h3 data-i18n="portfolio.phase2.title">IoT & System Architecture</h3>
+              <p class="phase-years">2023</p>
             </div>
           </div>
+          <p class="phase-description" data-i18n="portfolio.phase2.description">Focused on IoT systems and smart building automation. Completed my Bachelor's thesis on Z-Wave protocols and system design. Built SmartHAB—an award-winning IoT project (2nd Place at Kozani 2030).</p>
+          <div class="phase-techs">
+            <span class="tech-badge">IoT Systems</span>
+            <span class="tech-badge">Z-Wave</span>
+            <span class="tech-badge">Arduino</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">System Design</span>
+          </div>
+        </div>
 
-          <div class="featured-actions">
-            <button class="btn btn-primary portfolio-modal-trigger" data-project="barbershop">
-              View Full Details
-            </button>
+        <!-- Phase 3: Full-Stack Professional -->
+        <div class="learning-phase">
+          <div class="phase-header">
+            <div class="phase-icon">
+              <ion-icon name="code-outline"></ion-icon>
+            </div>
+            <div class="phase-info">
+              <h3 data-i18n="portfolio.phase3.title">Full-Stack Development</h3>
+              <p class="phase-years">2023 — Present</p>
+            </div>
+          </div>
+          <p class="phase-description" data-i18n="portfolio.phase3.description">Working at Enchatted on diverse, real-world projects. Built scalable e-commerce platforms, data pipelines, content management systems, and browser extensions. Mastered backend architecture and modern frontend frameworks.</p>
+          <div class="phase-techs">
+            <span class="tech-badge">PHP/Laravel</span>
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Shopify</span>
+            <span class="tech-badge">GraphQL</span>
+            <span class="tech-badge">Kafka</span>
+            <span class="tech-badge">Database Design</span>
+          </div>
+        </div>
+
+        <!-- Phase 4: Research & Innovation -->
+        <div class="learning-phase">
+          <div class="phase-header">
+            <div class="phase-icon">
+              <ion-icon name="flask-outline"></ion-icon>
+            </div>
+            <div class="phase-info">
+              <h3 data-i18n="portfolio.phase4.title">Research & AI Integration</h3>
+              <p class="phase-years">2024 — Present</p>
+            </div>
+          </div>
+          <p class="phase-description" data-i18n="portfolio.phase4.description">Completed my Master's thesis on scalable IoT systems. Published research papers on AI, Knowledge Graphs, and IoT at international conferences (AIAI 2025, DCAI 2025). Combining practical experience with academic insights.</p>
+          <div class="phase-techs">
+            <span class="tech-badge">AI/ML</span>
+            <span class="tech-badge">Knowledge Graphs</span>
+            <span class="tech-badge">IoT Integration</span>
+            <span class="tech-badge">Research</span>
+            <span class="tech-badge">Advanced Architecture</span>
           </div>
         </div>
       </div>
 
+      <!-- Featured Projects from Each Phase -->
+      <h3 class="section-subtitle" data-i18n="portfolio.highlighted.title">Highlighted Projects</h3>
+
       <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="work">Work Projects</button>
-        <button class="filter-btn" data-filter="student">Student Projects</button>
+        <button class="filter-btn active" data-filter="all" data-i18n="portfolio.filters.all">All Projects</button>
+        <button class="filter-btn" data-filter="work" data-i18n="portfolio.filters.work">Work Projects</button>
+        <button class="filter-btn" data-filter="student" data-i18n="portfolio.filters.student">Student & Personal</button>
       </div>
 
       <div class="portfolio-grid">
@@ -688,11 +726,17 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge work-badge">
               <ion-icon name="briefcase-outline"></ion-icon>
-              <span>Professional</span>
+              <span data-i18n="portfolio.work1.badge">Professional</span>
             </div>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Kalfidis Website Development">
+          <div class="portfolio-image portfolio-visual visual-commerce">
+            <span class="sr-only">Abstract illustration representing the Kalfidis e-commerce platform.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="bag-handle-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">E-Commerce</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="https://kalfidis.com/en" target="_blank" class="portfolio-link">
                 <ion-icon name="open-outline"></ion-icon>
@@ -700,11 +744,11 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Kalfidis - E-Commerce Platform</h3>
-            <p class="portfolio-description">Built a scalable Shopify-based e-commerce platform with custom Liquid templates and optimized styling.</p>
+            <h3 data-i18n="portfolio.work1.title">Kalfidis - E-Commerce Platform</h3>
+            <p class="portfolio-description" data-i18n="portfolio.work1.description">Built a scalable Shopify-based e-commerce platform with custom Liquid templates and optimized styling.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 4 months</span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Solo</span>
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work1.duration">4 months</span></span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work1.role">Solo</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">Shopify</span>
@@ -718,12 +762,18 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge work-badge">
               <ion-icon name="briefcase-outline"></ion-icon>
-              <span>Professional</span>
+              <span data-i18n="portfolio.work2.badge">Professional</span>
             </div>
-            <span class="proprietary-tag">Proprietary</span>
+            <span class="proprietary-tag" data-i18n="portfolio.work2.proprietary">Proprietary</span>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Browser Assistant Extension">
+          <div class="portfolio-image portfolio-visual visual-browser">
+            <span class="sr-only">Abstract illustration representing the AI browser assistant project.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="browsers-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Browser AI</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="askcoco">
                 <ion-icon name="open-outline"></ion-icon>
@@ -731,11 +781,11 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Browser Assistant Extension</h3>
-            <p class="portfolio-description">Integrated AI capabilities directly into the browser with secure DOM manipulation and real-time API communication.</p>
+            <h3 data-i18n="portfolio.work2.title">Browser Assistant Extension</h3>
+            <p class="portfolio-description" data-i18n="portfolio.work2.description">Integrated AI capabilities directly into the browser with secure DOM manipulation and real-time API communication.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 5 months</span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Full-stack</span>
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work2.duration">5 months</span></span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work2.role">Full-stack</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">Chrome Extension</span>
@@ -749,12 +799,18 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge work-badge">
               <ion-icon name="briefcase-outline"></ion-icon>
-              <span>Professional</span>
+              <span data-i18n="portfolio.work3.badge">Professional</span>
             </div>
-            <span class="proprietary-tag">Proprietary</span>
+            <span class="proprietary-tag" data-i18n="portfolio.work3.proprietary">Proprietary</span>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Data Processing Pipeline">
+          <div class="portfolio-image portfolio-visual visual-data">
+            <span class="sr-only">Abstract illustration representing the data processing pipeline project.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="layers-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Data Pipeline</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="sally">
                 <ion-icon name="open-outline"></ion-icon>
@@ -762,11 +818,11 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Dynamic Content Management System</h3>
-            <p class="portfolio-description">Engineered a robust data management platform with multi-source integration and flexible transformation capabilities.</p>
+            <h3 data-i18n="portfolio.work3.title">Dynamic Content Management System</h3>
+            <p class="portfolio-description" data-i18n="portfolio.work3.description">Engineered a robust data management platform with multi-source integration and flexible transformation capabilities.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 4 months</span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> 2-person team</span>
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work3.duration">4 months</span></span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work3.role">2-person team</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">PHP/Laravel</span>
@@ -780,12 +836,18 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge work-badge">
               <ion-icon name="briefcase-outline"></ion-icon>
-              <span>Professional</span>
+              <span data-i18n="portfolio.work4.badge">Professional</span>
             </div>
-            <span class="proprietary-tag">Proprietary</span>
+            <span class="proprietary-tag" data-i18n="portfolio.work4.proprietary">Proprietary</span>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Document Search Engine">
+          <div class="portfolio-image portfolio-visual visual-search">
+            <span class="sr-only">Abstract illustration representing the document search and indexing system.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="search-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Search</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="pdfsearch">
                 <ion-icon name="open-outline"></ion-icon>
@@ -793,11 +855,11 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Intelligent Search & Indexing System</h3>
-            <p class="portfolio-description">Built advanced document search engine with multi-format support and performance-optimized indexing for rapid retrieval.</p>
+            <h3 data-i18n="portfolio.work4.title">Intelligent Search & Indexing System</h3>
+            <p class="portfolio-description" data-i18n="portfolio.work4.description">Built advanced document search engine with multi-format support and performance-optimized indexing for rapid retrieval.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 3 months</span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Solo</span>
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work4.duration">3 months</span></span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work4.role">Solo</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">PHP/Laravel</span>
@@ -811,12 +873,18 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge work-badge">
               <ion-icon name="briefcase-outline"></ion-icon>
-              <span>Professional</span>
+              <span data-i18n="portfolio.work5.badge">Professional</span>
             </div>
-            <span class="proprietary-tag">Proprietary</span>
+            <span class="proprietary-tag" data-i18n="portfolio.work5.proprietary">Proprietary</span>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Secure Data Integration System">
+          <div class="portfolio-image portfolio-visual visual-security">
+            <span class="sr-only">Abstract illustration representing the secure data integration system.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Security</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="encrypt">
                 <ion-icon name="open-outline"></ion-icon>
@@ -824,11 +892,11 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Secure Data Integration System</h3>
-            <p class="portfolio-description">Architected enterprise-grade data platform with real-time streaming, advanced transformation pipeline, and comprehensive security measures.</p>
+            <h3 data-i18n="portfolio.work5.title">Secure Data Integration System</h3>
+            <p class="portfolio-description" data-i18n="portfolio.work5.description">Architected enterprise-grade data platform with real-time streaming, advanced transformation pipeline, and comprehensive security measures.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> 6 months</span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> 3-person team</span>
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.work5.duration">6 months</span></span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.work5.role">3-person team</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">PHP/Laravel</span>
@@ -843,11 +911,17 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge student-badge">
               <ion-icon name="school-outline"></ion-icon>
-              <span>Personal Project</span>
+              <span data-i18n="portfolio.student1.badge">Personal Project</span>
             </div>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/work.png" alt="Barbershop63 PWA">
+          <div class="portfolio-image portfolio-visual visual-pwa">
+            <span class="sr-only">Abstract illustration representing the Barbershop63 progressive web app.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="color-wand-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">PWA</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="#" class="portfolio-link portfolio-modal-trigger" data-project="barbershop">
                 <ion-icon name="open-outline"></ion-icon>
@@ -855,11 +929,11 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Barbershop63 - Booking App</h3>
-            <p class="portfolio-description">Full-stack Progressive Web App for barbershop appointment management with offline support, admin panel, and dynamic theming.</p>
+            <h3 data-i18n="portfolio.student1.title">Barbershop63 - Booking App</h3>
+            <p class="portfolio-description" data-i18n="portfolio.student1.description">Full-stack Progressive Web App for barbershop appointment management with offline support, admin panel, and dynamic theming.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> Ongoing</span>
-              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> Freelance</span>
+              <span class="meta-item"><ion-icon name="time-outline"></ion-icon> <span data-i18n="portfolio.student1.duration">Ongoing</span></span>
+              <span class="meta-item"><ion-icon name="person-outline"></ion-icon> <span data-i18n="portfolio.student1.role">Freelance</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">PWA</span>
@@ -874,11 +948,17 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge student-badge">
               <ion-icon name="school-outline"></ion-icon>
-              <span>Personal Project</span>
+              <span data-i18n="portfolio.student2.badge">Personal Project</span>
             </div>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/template-1599665.png" alt="IEEE CS UoWM Website">
+          <div class="portfolio-image portfolio-visual visual-community">
+            <span class="sr-only">Abstract illustration representing the IEEE CS UoWM community website.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="people-circle-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Community</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="https://ieee.cs.uowm.gr/" target="_blank" class="portfolio-link">
                 <ion-icon name="open-outline"></ion-icon>
@@ -886,10 +966,10 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>IEEE CS UoWM Website</h3>
-            <p class="portfolio-description">Managed website redesign and modernization for university IEEE chapter using WordPress and custom styling.</p>
+            <h3 data-i18n="portfolio.student2.title">IEEE CS UoWM Website</h3>
+            <p class="portfolio-description" data-i18n="portfolio.student2.description">Managed website redesign and modernization for university IEEE chapter using WordPress and custom styling.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://ieee.cs.uowm.gr/" target="_blank">Visit Site</a></span>
+              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://ieee.cs.uowm.gr/" target="_blank" data-i18n="portfolio.student2.link">Visit Site</a></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">WordPress</span>
@@ -903,11 +983,17 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge student-badge">
               <ion-icon name="school-outline"></ion-icon>
-              <span>Personal Project</span>
+              <span data-i18n="portfolio.student3.badge">Personal Project</span>
             </div>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/iot-3337536_1920.png" alt="Romilos Weather Station">
+          <div class="portfolio-image portfolio-visual visual-iot">
+            <span class="sr-only">Abstract illustration representing the Romilos IoT weather station project.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="pulse-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">IoT</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank" class="portfolio-link">
                 <ion-icon name="open-outline"></ion-icon>
@@ -915,10 +1001,10 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Romilos Weather Station</h3>
-            <p class="portfolio-description">Built IoT weather station system for real-time environmental monitoring using Arduino and Python data collection.</p>
+            <h3 data-i18n="portfolio.student3.title">Romilos Weather Station</h3>
+            <p class="portfolio-description" data-i18n="portfolio.student3.description">Built IoT weather station system for real-time environmental monitoring using Arduino and Python data collection.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="logo-github"></ion-icon> <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank">GitHub</a></span>
+              <span class="meta-item"><ion-icon name="logo-github"></ion-icon> <a href="https://github.com/pjkots01/IoT_Romilos_Project" target="_blank" data-i18n="portfolio.student3.link">GitHub</a></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">IoT</span>
@@ -933,11 +1019,17 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge student-badge">
               <ion-icon name="school-outline"></ion-icon>
-              <span>Personal Project</span>
+              <span data-i18n="portfolio.student4.badge">Personal Project</span>
             </div>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/weather_app.jpg" alt="Weather App">
+          <div class="portfolio-image portfolio-visual visual-weather">
+            <span class="sr-only">Abstract illustration representing the weather application project.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="partly-sunny-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Weather</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="https://weatherappana.netlify.app/" target="_blank" class="portfolio-link">
                 <ion-icon name="open-outline"></ion-icon>
@@ -945,10 +1037,10 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>Weather Application</h3>
-            <p class="portfolio-description">Responsive weather application built with React, featuring real-time weather data integration and interactive UI components.</p>
+            <h3 data-i18n="portfolio.student4.title">Weather Application</h3>
+            <p class="portfolio-description" data-i18n="portfolio.student4.description">Responsive weather application built with React, featuring real-time weather data integration and interactive UI components.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://weatherappana.netlify.app/" target="_blank">Live Demo</a></span>
+              <span class="meta-item"><ion-icon name="link-outline"></ion-icon> <a href="https://weatherappana.netlify.app/" target="_blank" data-i18n="portfolio.student4.link">Live Demo</a></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">React</span>
@@ -962,12 +1054,18 @@
           <div class="portfolio-badge-group">
             <div class="portfolio-badge student-badge">
               <ion-icon name="school-outline"></ion-icon>
-              <span>Personal Project</span>
+              <span data-i18n="portfolio.student5.badge">Personal Project</span>
             </div>
-            <span class="award-tag">🏆 Award Winner</span>
+            <span class="award-tag" data-i18n="portfolio.student5.award">🏆 Award Winner</span>
           </div>
-          <div class="portfolio-image">
-            <img src="./assets/images/iot-3337536_1920.png" alt="SmartHAB">
+          <div class="portfolio-image portfolio-visual visual-smart-home">
+            <span class="sr-only">Abstract illustration representing the SmartHAB smart building project.</span>
+            <div class="visual-symbols" aria-hidden="true">
+              <div class="visual-icon" aria-hidden="true">
+                <ion-icon name="home-outline"></ion-icon>
+              </div>
+              <span class="visual-chip">Smart Home</span>
+            </div>
             <div class="portfolio-overlay">
               <a href="https://drive.google.com/drive/folders/198fFgIT1QdIWKq9qt_xmNPQvJnxI99sz" target="_blank" class="portfolio-link">
                 <ion-icon name="open-outline"></ion-icon>
@@ -975,10 +1073,10 @@
             </div>
           </div>
           <div class="portfolio-content">
-            <h3>SmartHAB - Smart Building Management</h3>
-            <p class="portfolio-description">Advanced IoT system for intelligent building automation. Master's thesis project showcasing Z-Wave integration, sensor networks, and smart home automation.</p>
+            <h3 data-i18n="portfolio.student5.title">SmartHAB - Smart Building Management</h3>
+            <p class="portfolio-description" data-i18n="portfolio.student5.description">Advanced IoT system for intelligent building automation. Master's thesis project showcasing Z-Wave integration, sensor networks, and smart home automation.</p>
             <div class="portfolio-meta">
-              <span class="meta-item"><ion-icon name="award-outline"></ion-icon> 2nd Place - Kozani 2030</span>
+              <span class="meta-item"><ion-icon name="award-outline"></ion-icon> <span data-i18n="portfolio.student5.meta">2nd Place - Kozani 2030</span></span>
             </div>
             <div class="portfolio-tags">
               <span class="tag">IoT</span>
@@ -995,14 +1093,14 @@
     <div class="project-modal" id="project-modal">
       <div class="modal-overlay" id="modal-overlay"></div>
       <div class="modal-content">
-        <button class="modal-close" id="modal-close">
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close project details" data-i18n-aria-label="modal.close">
           <ion-icon name="close-outline"></ion-icon>
         </button>
         <div class="modal-body">
           <h3 id="modal-title"></h3>
           <p id="modal-description"></p>
           <div class="modal-details">
-            <h4>Technical Highlights</h4>
+            <h4 data-i18n="modal.highlightsTitle">Technical Highlights</h4>
             <ul id="modal-highlights"></ul>
           </div>
           <div class="modal-tags" id="modal-tags"></div>
@@ -1014,35 +1112,35 @@
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
+      <h2 class="section-title" data-i18n="contact.title">Let's Connect</h2>
 
       <div class="contact-content">
         <div class="contact-info">
-          <h3>Get In Touch</h3>
-          <p>I'm always interested in hearing about new projects and opportunities.</p>
+          <h3 data-i18n="contact.subtitle">Get In Touch</h3>
+          <p data-i18n="contact.text">I'm always interested in hearing about new projects and opportunities.</p>
 
           <div class="contact-items">
             <div class="contact-item">
               <ion-icon name="mail-outline"></ion-icon>
               <div>
-                <p class="label">Email</p>
-                <a href="mailto:anastasiouxrhstos@gmail.com">anastasiouxrhstos <span style="font-style: italic;">at</span> gmail.com</a>
+                <p class="label" data-i18n="contact.emailLabel">Email</p>
+                <a href="mailto:anastasiouxrhstos@gmail.com" data-i18n="contact.emailValue">anastasiouxrhstos <span style="font-style: italic;">at</span> gmail.com</a>
               </div>
             </div>
 
             <div class="contact-item">
               <ion-icon name="phone-portrait-outline"></ion-icon>
               <div>
-                <p class="label">Phone</p>
-                <a href="tel:+306978142511">+30 697 814 2511</a>
+                <p class="label" data-i18n="contact.phoneLabel">Phone</p>
+                <a href="tel:+306978142511" data-i18n="contact.phoneValue">+30 697 814 2511</a>
               </div>
             </div>
 
             <div class="contact-item">
               <ion-icon name="location-outline"></ion-icon>
               <div>
-                <p class="label">Location</p>
-                <p>Kastoria, Greece</p>
+                <p class="label" data-i18n="contact.locationLabel">Location</p>
+                <p data-i18n="contact.locationValue">Kastoria, Greece</p>
               </div>
             </div>
           </div>
@@ -1063,18 +1161,18 @@
         <div class="form-success" id="form-success"></div>
         <form class="contact-form" id="contact-form">
           <div class="form-group">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <span class="form-error" id="name-error">Please enter your name</span>
+            <input type="text" id="name" placeholder="Your Name" required data-i18n-placeholder="contact.form.namePlaceholder">
+            <span class="form-error" id="name-error" data-i18n="contact.form.nameError">Please enter your name</span>
           </div>
           <div class="form-group">
-            <input type="email" id="email" placeholder="Your Email" required>
-            <span class="form-error" id="email-error">Please enter a valid email</span>
+            <input type="email" id="email" placeholder="Your Email" required data-i18n-placeholder="contact.form.emailPlaceholder">
+            <span class="form-error" id="email-error" data-i18n="contact.form.emailError">Please enter a valid email</span>
           </div>
           <div class="form-group">
-            <textarea id="message" placeholder="Your Message" rows="6" required></textarea>
-            <span class="form-error" id="message-error">Please enter a message</span>
+            <textarea id="message" placeholder="Your Message" rows="6" required data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+            <span class="form-error" id="message-error" data-i18n="contact.form.messageError">Please enter a message</span>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
         </form>
       </div>
     </div>
@@ -1083,8 +1181,8 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Christos Anastasiou. All rights reserved.</p>
-      <p>Crafted with passion for great web experiences.</p>
+      <p data-i18n="footer.copy">&copy; 2025 Christos Anastasiou. All rights reserved.</p>
+      <p data-i18n="footer.tagline">Crafted with passion for great web experiences.</p>
     </div>
   </footer>
 

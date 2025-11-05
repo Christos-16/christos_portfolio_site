@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Σύλλογος Φαλαταδιανών Τήνου</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a2279;
+      --accent: #4a90e2;
+      --light: #ffffff;
+      --dark: #1b1b1b;
+      --muted: #f4f6fb;
+      --spacer: clamp(1.5rem, 4vw, 2.5rem);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--dark);
+      background-color: var(--muted);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 0.75rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-section {
+      padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 3vw, 2.5rem);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      color: var(--light);
+      padding: clamp(2.5rem, 8vw, 6rem);
+      background: linear-gradient(120deg, rgba(10, 34, 121, 0.92), rgba(26, 46, 107, 0.78)),
+        url("https://pretty.cs.uowm.gr/falatados/wp-content/uploads/2025/10/%CF%86%CE%B1%CF%84%CE%B1%CE%BB%CE%B1%CE%B4%CE%BF%CF%82-2.jpg") center / cover no-repeat fixed;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: clamp(2rem, 4vw, 4rem);
+      width: min(1100px, 100%);
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-lead {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 32rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-media {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-media img {
+      max-width: min(380px, 100%);
+      width: 100%;
+      filter: drop-shadow(0 25px 45px rgba(6, 18, 56, 0.45));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem clamp(1.5rem, 4vw, 2.8rem);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--light);
+      color: var(--primary);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--light);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-3px);
+      outline: none;
+    }
+
+    /* Pillars */
+    .pillars {
+      background: var(--light);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .pillar-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f4f6fb 100%);
+      border-radius: 22px;
+      padding: clamp(1.8rem, 3vw, 2.5rem);
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(12, 28, 70, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 45px rgba(12, 28, 70, 0.18);
+    }
+
+    .pillar-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1rem;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(74, 144, 226, 0.12);
+    }
+
+    .pillar-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    /* About section */
+    .about {
+      background: linear-gradient(135deg, rgba(244, 246, 251, 0.65), rgba(231, 237, 250, 0.65));
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: center;
+    }
+
+    .about-media {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(15, 41, 96, 0.25);
+    }
+
+    .about-title {
+      color: var(--primary);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      opacity: 0.88;
+    }
+
+    /* Events */
+    .events {
+      background: var(--light);
+    }
+
+    .events-heading {
+      text-align: center;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+
+    .carousel {
+      margin: 0 auto;
+      max-width: clamp(18rem, 85vw, 900px);
+    }
+
+    .carousel-frame {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 22px 45px rgba(14, 35, 88, 0.22);
+    }
+
+    #event-carousel {
+      width: 100%;
+      max-height: clamp(220px, 50vw, 450px);
+      object-fit: cover;
+      transition: opacity 0.35s ease-in-out;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .carousel-controls .btn {
+      min-width: 170px;
+      background: var(--accent);
+      color: var(--light);
+      border-radius: 10px;
+      padding: 0.85rem 1.8rem;
+    }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+      color: var(--light);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-inner {
+      max-width: 650px;
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-text {
+      margin-bottom: 2rem;
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      opacity: 0.96;
+    }
+
+    .cta .btn-primary {
+      background: var(--dark);
+      color: var(--accent);
+      padding: 0.95rem 2.8rem;
+      border-radius: 12px;
+    }
+
+    .cta-subtext {
+      margin: 1.2rem 0 0;
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-media img {
+        max-width: min(460px, 100%);
+      }
+
+      .pillar-card {
+        padding: 1.6rem;
+      }
+
+      .carousel-controls {
+        flex-direction: column;
+      }
+
+      .carousel-controls .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 class="hero-title">Σύλλογος Φαλαταδιανών Τήνου</h1>
+        <p class="hero-lead">
+          Ενώνουμε τους Φαλαταδιανούς παγκοσμίως για τη διατήρηση της παράδοσης και την ενίσχυση της κοινότητας.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://pretty.cs.uowm.gr/falatados/about/" target="_blank" rel="noopener">
+            Μάθε Περισσότερα
+          </a>
+          <a class="btn btn-secondary" href="https://pretty.cs.uowm.gr/falatados/contact/" target="_blank" rel="noopener">
+            Επικοινωνία
+          </a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="https://pretty.cs.uowm.gr/falatados/wp-content/themes/neve/assets/img/starter-content/person-hero-2.png" alt="Μέλος του Συλλόγου Φαλαταδιανών Τήνου" loading="lazy">
+      </div>
+    </div>
+  </header>
+
+  <section class="pillars page-section" id="pillars">
+    <div class="container">
+      <div class="pillars-grid" role="list">
+        <article class="pillar-card" role="listitem">
+          <div class="pillar-icon">
+            <img src="https://pretty.cs.uowm.gr/falatados/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-1.png" alt="" loading="lazy">
+          </div>
+          <h3 class="pillar-title">Παράδοση</h3>
+          <p>Διατηρούμε και αναβιώνουμε τις παραδοσιακές τέχνες και τα ήθη της Φαταλάδος.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <div class="pillar-icon">
+            <img src="https://pretty.cs.uowm.gr/falatados/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-4.1.png" alt="" loading="lazy">
+          </div>
+          <h3 class="pillar-title">Εκδηλώσεις</h3>
+          <p>Διοργανώνουμε πολιτιστικές εκδηλώσεις και συγκεντρώσεις σε όλο τον κόσμο.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <div class="pillar-icon">
+            <img src="https://pretty.cs.uowm.gr/falatados/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-3.1.png" alt="" loading="lazy">
+          </div>
+          <h3 class="pillar-title">Κοινότητα</h3>
+          <p>Ενώνουμε τα μέλη μας και δημιουργούμε ισχυρούς δεσμούς φιλίας.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <div class="pillar-icon">
+            <img src="https://pretty.cs.uowm.gr/falatados/wp-content/themes/neve/assets/img/starter-content/neve-marketing-icon-2.png" alt="" loading="lazy">
+          </div>
+          <h3 class="pillar-title">Συνεργασίες</h3>
+          <p>Συνεργαζόμαστε με άλλους συλλόγους και πολιτιστικές οργανώσεις.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about page-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="about-title">Σχετικά με τον Σύλλογό μας</h2>
+          <p>
+            Ο Σύλλογος Φαλαταδιανών Τήνου ιδρύθηκε με σκοπό να ενώσει τους ανθρώπους που προέρχονται από τη Φαταλάδα και
+            να διατηρήσει τη μοναδική πολιτιστική κληρονομιά της περιοχής.
+          </p>
+          <p>
+            Διοργανώνουμε πολιτιστικές εκδηλώσεις, διαλέξεις και εργαστήρια που αναδεικνύουν τις παραδοσιακές τέχνες,
+            τη μουσική και τα ήθη της Φαταλάδος. Παράλληλα στηρίζουμε κοινωνικές και ανθρωπιστικές δράσεις, με κύριο
+            στόχο την ενίσχυση της κοινότητας.
+          </p>
+          <a class="btn btn-primary" href="https://pretty.cs.uowm.gr/falatados/about/" target="_blank" rel="noopener">
+            Μάθε περισσότερα
+          </a>
+        </div>
+        <div class="about-media">
+          <img src="https://pretty.cs.uowm.gr/falatados/wp-content/uploads/2025/10/%CF%86%CE%B1%CF%84%CE%B1%CE%BB%CE%B1%CE%B4%CE%BF%CF%82-2.jpg" alt="Φαταλάδος Τήνου" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="events page-section" id="events">
+    <div class="container">
+      <div class="events-heading">
+        <h2>Τελευταίες Εκδηλώσεις</h2>
+        <p>Δείτε στιγμές από τις πρόσφατες δράσεις μας και μείνετε συντονισμένοι για όσα έρχονται!</p>
+      </div>
+
+      <div class="carousel" aria-live="polite">
+        <div class="carousel-frame">
+          <img id="event-carousel" src="https://pretty.cs.uowm.gr/falatados/wp-content/uploads/2025/10/%CE%95%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1-166.jpg" alt="Εκδήλωση του Συλλόγου Φαλαταδιανών Τήνου">
+        </div>
+        <div class="carousel-controls">
+          <button class="btn" type="button" data-direction="previous">← Προηγούμενη</button>
+          <button class="btn" type="button" data-direction="next">Επόμενη →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta page-section" id="contact">
+    <div class="cta-inner">
+      <h2 class="cta-title">Επικοινώνησε Μαζί μας</h2>
+      <p class="cta-text">
+        Έχεις ερωτήσεις, θέλεις να μάθεις περισσότερα ή να γίνεις μέρος της κοινότητας; Επικοινώνησε μαζί μας και ας μιλήσουμε!
+      </p>
+      <a class="btn btn-primary" href="https://pretty.cs.uowm.gr/falatados/contact/" target="_blank" rel="noopener">
+        📧 Επικοινώνησε Τώρα
+      </a>
+      <p class="cta-subtext">Θα σας απαντήσουμε το συντομότερο δυνατό!</p>
+    </div>
+  </section>
+
+  <script>
+    const carouselImages = [
+      "https://pretty.cs.uowm.gr/falatados/wp-content/uploads/2025/10/%CE%95%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1-166.jpg",
+      "https://pretty.cs.uowm.gr/falatados/wp-content/uploads/2025/10/%CE%95%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1-169.jpg",
+      "https://pretty.cs.uowm.gr/falatados/wp-content/uploads/2025/10/%CE%95%CE%B9%CE%BA%CF%8C%CE%BD%CE%B1-167-1.jpg"
+    ];
+
+    let activeImage = 0;
+    const carouselElement = document.getElementById("event-carousel");
+
+    function updateCarousel(nextIndex) {
+      if (!carouselElement) return;
+      activeImage = (nextIndex + carouselImages.length) % carouselImages.length;
+      carouselElement.style.opacity = "0";
+      window.setTimeout(() => {
+        carouselElement.src = carouselImages[activeImage];
+        carouselElement.style.opacity = "1";
+      }, 150);
+    }
+
+    document.querySelectorAll(".carousel-controls .btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const direction = event.currentTarget.getAttribute("data-direction");
+        updateCarousel(direction === "next" ? activeImage + 1 : activeImage - 1);
+      });
+    });
+  </script>
+</body>
+</html>

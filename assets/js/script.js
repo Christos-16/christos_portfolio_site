@@ -21,6 +21,16 @@ const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section');
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const hasMobileMenu = Boolean(hamburger && navMenu);
+
+const setMenuState = isOpen => {
+  if (!hasMobileMenu) return;
+
+  navMenu.classList.toggle('active', isOpen);
+  hamburger.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', String(isOpen));
+  hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+};
 
 // Smooth scroll navigation
 navLinks.forEach(link => {
@@ -42,9 +52,8 @@ navLinks.forEach(link => {
     }
 
     // Close mobile menu if open
-    if (hamburger && navMenu) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
+    if (hasMobileMenu && navMenu.classList.contains('active')) {
+      setMenuState(false);
     }
   });
 });
@@ -74,13 +83,78 @@ window.addEventListener('scroll', () => {
    MOBILE MENU TOGGLE
    =========================== */
 
-if (hamburger) {
+if (hasMobileMenu) {
+  setMenuState(false);
+
   hamburger.addEventListener('click', () => {
-    if (navMenu) {
-      navMenu.classList.toggle('active');
-      hamburger.classList.toggle('active');
+    const shouldOpen = !navMenu.classList.contains('active');
+    setMenuState(shouldOpen);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      setMenuState(false);
+      hamburger.focus();
     }
   });
+}
+
+/* ===========================
+   HERO TEXT GLOW TRAIL
+   =========================== */
+
+const heroSectionEl = document.querySelector('.hero');
+const heroText = document.querySelector('.hero-text');
+
+const glowHandler = (() => {
+  let glowFadeTimeout;
+
+  const updateGlow = (event, element, opacityProp) => {
+    const rect = element.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
+
+    element.style.setProperty('--cursor-x', `${x}%`);
+    element.style.setProperty('--cursor-y', `${y}%`);
+    const targetOpacity = opacityProp === '--hero-glow-opacity' ? '0.55' : '0.7';
+    element.style.setProperty(opacityProp, targetOpacity);
+
+    clearTimeout(glowFadeTimeout);
+    glowFadeTimeout = setTimeout(() => {
+      element.style.setProperty(opacityProp, '0');
+    }, 220);
+  };
+
+  return { updateGlow };
+})();
+
+if (heroSectionEl) {
+  const handleMove = event => {
+    const pointerEvent = event.type === 'mousemove' ? event : event;
+    glowHandler.updateGlow(pointerEvent, heroSectionEl, '--hero-glow-opacity');
+    if (heroText) {
+      glowHandler.updateGlow(pointerEvent, heroText, '--glow-opacity');
+    }
+  };
+
+  const handleLeave = () => {
+    heroSectionEl.style.setProperty('--hero-glow-opacity', '0');
+    if (heroText) {
+      heroText.style.setProperty('--glow-opacity', '0');
+    }
+  };
+
+  heroSectionEl.addEventListener('pointermove', handleMove);
+  heroSectionEl.addEventListener('mousemove', handleMove);
+  heroSectionEl.addEventListener('pointerleave', handleLeave);
+  heroSectionEl.addEventListener('mouseleave', handleLeave);
+} else if (heroText) {
+  const handleMove = event => glowHandler.updateGlow(event, heroText, '--glow-opacity');
+  heroText.addEventListener('pointermove', handleMove);
+  heroText.addEventListener('mousemove', handleMove);
+  const handleLeave = () => heroText.style.setProperty('--glow-opacity', '0');
+  heroText.addEventListener('pointerleave', handleLeave);
+  heroText.addEventListener('mouseleave', handleLeave);
 }
 
 /* ===========================
@@ -89,30 +163,63 @@ if (hamburger) {
 
 const filterBtns = document.querySelectorAll('.filter-btn');
 const portfolioCards = document.querySelectorAll('.portfolio-card');
+const FILTER_ENTER_CLASS = 'filter-enter';
+const FILTER_EXIT_CLASS = 'filter-exit';
+
+const clearAnimationState = card => {
+  card.classList.remove(FILTER_ENTER_CLASS);
+  card.classList.remove(FILTER_EXIT_CLASS);
+};
+
+const animateIn = card => {
+  clearAnimationState(card);
+  card.style.display = 'block';
+  card.dataset.filterVisibility = 'visible';
+  requestAnimationFrame(() => {
+    card.classList.add(FILTER_ENTER_CLASS);
+  });
+  const handleEnd = event => {
+    if (event.animationName === 'filterFadeIn') {
+      card.classList.remove(FILTER_ENTER_CLASS);
+      card.removeEventListener('animationend', handleEnd);
+    }
+  };
+  card.addEventListener('animationend', handleEnd);
+};
+
+const animateOut = card => {
+  if (window.getComputedStyle(card).display === 'none') {
+    return;
+  }
+
+  clearAnimationState(card);
+  card.classList.add(FILTER_EXIT_CLASS);
+  card.dataset.filterVisibility = 'hidden';
+  const handleEnd = event => {
+    if (event.animationName === 'filterFadeOut' && card.dataset.filterVisibility === 'hidden') {
+      card.style.display = 'none';
+      card.classList.remove(FILTER_EXIT_CLASS);
+      card.removeEventListener('animationend', handleEnd);
+    }
+  };
+  card.addEventListener('animationend', handleEnd);
+};
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', function() {
-    // Remove active class from all buttons
     filterBtns.forEach(b => b.classList.remove('active'));
-    // Add active class to clicked button
     this.classList.add('active');
 
     const filterValue = this.getAttribute('data-filter');
 
-    // Filter cards
     portfolioCards.forEach(card => {
-      if (filterValue === 'all') {
-        card.style.display = 'block';
-        setTimeout(() => card.classList.add('animate'), 10);
+      const cardCategory = card.getAttribute('data-category');
+      const shouldShow = filterValue === 'all' || cardCategory === filterValue;
+
+      if (shouldShow) {
+        animateIn(card);
       } else {
-        const cardCategory = card.getAttribute('data-category');
-        if (cardCategory === filterValue) {
-          card.style.display = 'block';
-          setTimeout(() => card.classList.add('animate'), 10);
-        } else {
-          card.style.display = 'none';
-          card.classList.remove('animate');
-        }
+        animateOut(card);
       }
     });
   });
@@ -162,18 +269,27 @@ style.textContent = `
       top: 100%;
       left: 0;
       right: 0;
-      background: rgba(15, 23, 42, 0.98);
+      display: flex;
+      background: var(--navbar-bg);
+      box-shadow: var(--shadow-navbar);
+      backdrop-filter: blur(12px);
       flex-direction: column;
       padding: 2rem 1rem;
       gap: 1rem;
       border-top: 1px solid var(--border-color);
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 0.3s ease, opacity 0.25s ease;
     }
 
     .nav-menu.active {
       max-height: 400px;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .nav-link {
@@ -285,6 +401,18 @@ const projectData = {
       'Ensured data privacy and secure communication protocols'
     ]
   },
+  barbershop: {
+    title: 'Barbershop63 Progressive Web App',
+    description: 'Developed a full booking experience for a local barbershop that keeps working even when clients drop offline. The goal was to replace manual scheduling with a seamless, mobile-first app that syncs appointments, staff availability, and notifications across devices.',
+    highlights: [
+      'Implemented installable PWA with precaching and runtime caching strategies',
+      'Designed admin dashboard for managing barbers, services, and availability',
+      'Built customer booking flow with time-slot validation and reminders integration',
+      'Shipped responsive UI that adapts to kiosk, tablet, and mobile usage',
+      'Added light/dark theme support that maps to the brand palette dynamically',
+      'Instrumented analytics to monitor retention and peak booking hours'
+    ]
+  },
   sally: {
     title: 'Real-Time Data Processing Platform',
     description: 'Solved the complex problem of processing and synchronizing conversation data from multiple sources in real-time. This involved designing a robust pipeline that handles data transformation, validation, and external service integration while maintaining data consistency and high performance.',
@@ -374,16 +502,16 @@ document.addEventListener('keydown', function(e) {
    PARALLAX EFFECT
    =========================== */
 
+const heroSection = document.querySelector('.hero');
+
 window.addEventListener('scroll', () => {
+  if (!heroSection) return;
+
   const scrolled = window.pageYOffset;
-  const parallaxElements = document.querySelectorAll('.hero::before');
 
   if (scrolled < window.innerHeight) {
     // Parallax effect for hero background
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
-    }
+    heroSection.style.backgroundPosition = `center ${scrolled * 0.5}px`;
   }
 });
 
@@ -631,25 +759,164 @@ contactForm.addEventListener('submit', (e) => {
    LANGUAGE TOGGLE
    =========================== */
 
-// Language data
 const translations = {
   en: {
-    home: 'Home',
-    about: 'About',
-    skills: 'Skills',
-    experience: 'Experience',
-    portfolio: 'Portfolio',
-    contact: 'Contact',
-    toggleLang: 'EL'
+    'cta.message': 'Ready to build something amazing?',
+    'cta.button': 'Let\'s Work Together',
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.skills': 'Skills',
+    'nav.experience': 'Experience',
+    'nav.portfolio': 'Portfolio',
+    'nav.contact': 'Contact',
+    'hero.subtitle': 'Junior Software Developer',
+    'hero.description': 'Passionate about building beautiful web applications and exploring IoT solutions.<br>I\'m currently working at <strong>Enchatted</strong> and studying at <strong>University of Western Macedonia</strong>.',
+    'hero.ctaPrimary': 'Let\'s Work Together',
+    'hero.ctaGithub': 'View on GitHub',
+    'hero.ctaLinkedIn': 'LinkedIn Profile',
+    'hero.scroll': 'Scroll to explore',
+    'about.title': 'About Me',
+    'about.whoTitle': 'Who I Am',
+    'about.whoText': 'I\'m <strong>Christos Anastasiou</strong>, a <strong>Junior Software Developer</strong> with <strong>2 years of professional experience</strong> at <strong>Enchatted</strong>. I\'m passionate about building clean, efficient code and creating digital solutions that make a real impact.',
+    'about.educationTitle': 'My Education',
+    'about.educationText1': 'I hold a <strong>Bachelor of Science in Computer Science</strong> (Grade: 7.34) from the University of Western Macedonia, where my thesis explored <strong>"Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management"</strong>. This experience sparked my passion for building scalable, connected systems and tackling complex technical challenges.',
+    'about.educationText2': 'I\'ve recently completed my <strong>Master\'s degree in Modern Information Technologies and Services</strong> (Grade: 9.24) from the same university. My thesis advanced IoT system integration with a focus on scalable, real-world solutions for smart building ecosystems. Combined with my professional experience at Enchatted, I\'ve developed strong expertise in full-stack web development, IoT systems, data integration, and building robust production systems.',
+    'about.workTitle': 'What I Do',
+    'about.workIntro': 'As a full-stack developer at Enchatted, I contribute to diverse, mission-critical projects across healthcare, e-commerce, and educational technology. I\'m involved in every stage—from designing system architecture to deploying production code. Here are some highlights:',
+    'about.workItem1': '🚀 <strong>Kalfidis</strong> - Shopify E-Commerce Platform with GraphQL API and custom caching',
+    'about.workItem2': '📄 <strong>PDF Search Tool</strong> - Internal tool for PDF searching and indexing with Laravel & JavaScript',
+    'about.workItem3': '🎓 <strong>Open edX Customization</strong> - Custom XBlock modules, H5P integration, and MFE UI adaptation',
+    'about.workItem4': '📊 <strong>ENCRYPT Project</strong> - Data flow design between GraphDB and Kafka pipelines with validation',
+    'about.workItem5': '💻 <strong>Sally CMS</strong> - Dynamic fields, responsive dashboards, and content management tools',
+    'about.workItem6': '⚡ <strong>Chrome Extension</strong> - Browser automation tool with Manifest v3 API and client-side data sync',
+    'about.philosophyTitle': 'My Philosophy',
+    'about.philosophyText1': 'I\'m passionate about <strong>writing clean, maintainable code</strong> that stands the test of time. I believe in <strong>understanding the "why" behind every decision</strong>, whether it\'s choosing a technology, designing an API, or optimizing a database query. I approach problems methodically—breaking them down, exploring solutions, and always thinking about scalability and user impact.',
+    'about.philosophyText2': 'Beyond code, I\'m driven by continuous learning. The tech landscape evolves rapidly, and I stay curious about emerging technologies, best practices, and new problem-solving approaches. When I work on a project, I\'m not just completing tasks—I\'m building solutions that make a real difference for users and businesses.',
+    'about.philosophyText3': '<strong>I\'m looking to grow, contribute meaningfully to challenging projects, and collaborate with teams that value quality and innovation.</strong>',
+    'about.cvButton': 'Download CV',
+    'services.web.title': 'Web Development',
+    'services.web.text': 'Building responsive and dynamic web applications with modern technologies like React, Vue.js, and Laravel.',
+    'services.php.title': 'PHP Development',
+    'services.php.text': 'Developing robust server-side applications and REST APIs using PHP and the Laravel framework.',
+    'services.iot.title': 'IoT Solutions',
+    'services.iot.text': 'Designing and implementing IoT systems with a focus on smart building automation and Z-Wave technology.',
+    'services.shopify.title': 'Shopify',
+    'services.shopify.text': 'Creating and customizing Shopify stores with advanced features and optimized user experience.',
+    'portfolio.title': 'My Development Journey',
+    'portfolio.phase1.title': 'Web Foundations',
+    'portfolio.phase1.description': 'Started with WordPress customization and web design fundamentals. Learned CMS management, HTML/CSS, and how to build responsive websites.',
+    'portfolio.phase2.title': 'IoT & System Architecture',
+    'portfolio.phase2.description': 'Focused on IoT systems and smart building automation. Completed my Bachelor\'s thesis on Z-Wave protocols and system design. Built SmartHAB—an award-winning IoT project (2nd Place at Kozani 2030).',
+    'portfolio.phase3.title': 'Full-Stack Development',
+    'portfolio.phase3.description': 'Working at Enchatted on diverse, real-world projects. Built scalable e-commerce platforms, data pipelines, content management systems, and browser extensions. Mastered backend architecture and modern frontend frameworks.',
+    'portfolio.phase4.title': 'Research & AI Integration',
+    'portfolio.phase4.description': 'Completed my Master\'s thesis on scalable IoT systems. Published research papers on AI, Knowledge Graphs, and IoT at international conferences (AIAI 2025, DCAI 2025). Combining practical experience with academic insights.',
+    'portfolio.highlighted.title': 'Highlighted Projects',
+    'portfolio.filters.all': 'All Projects',
+    'portfolio.filters.work': 'Work Projects',
+    'portfolio.filters.student': 'Student & Personal',
+    'highlights.title': 'Highlights & Achievements',
+    'highlights.item1.title': '2 Years of Work Experience',
+    'highlights.item1.text': 'Working full-time at Enchatted on real projects in healthcare, e-commerce, and IoT systems.',
+    'highlights.item2.title': '2nd Place Award Winner',
+    'highlights.item2.text': 'Recognized in "Kozani 2030" student competition with SmartHAB—an advanced IoT smart building automation system.',
+    'highlights.item3.title': 'Master\'s Degree',
+    'highlights.item3.text': 'Completed my Master\'s in Modern Information Technologies & Services with focus on practical IoT solutions.',
+    'highlights.item4.title': 'Full Stack Developer',
+    'highlights.item4.text': 'I work with both backend and frontend—PHP, Laravel, JavaScript, React, and database design.',
+    'highlights.item5.title': 'Diverse Projects',
+    'highlights.item5.text': 'I\'ve worked on IoT systems, web apps, healthcare platforms, online stores, and data solutions.',
+    'highlights.item6.title': 'Always Learning',
+    'highlights.item6.text': 'I like exploring new technologies and staying curious about how things work.',
+    'highlights.item7.title': 'Published Research',
+    'highlights.item7.text': 'I\'ve published papers on AI, Knowledge Graphs, and IoT at international conferences.',
+    'highlights.item8.title': 'Smart Systems',
+    'highlights.item8.text': 'I focus on IoT automation, smart building systems, and making technology work intelligently.',
+    'highlights.stats1': 'Years Professional Experience',
+    'highlights.stats2': 'Major Projects Delivered',
+    'highlights.stats3': 'Published Research Papers',
+    'highlights.stats4': 'Master\'s Grade',
+    'lang.button': 'EL',
+    'lang.aria': 'Switch language to Greek'
   },
   el: {
-    home: 'Αρχική',
-    about: 'Σχετικά',
-    skills: 'Δεξιότητες',
-    experience: 'Εμπειρία',
-    portfolio: 'Έργα',
-    contact: 'Επικοινωνία',
-    toggleLang: 'EN'
+    'cta.message': 'Έτοιμος να δημιουργήσουμε κάτι μοναδικό;',
+    'cta.button': 'Επικοινώνησε μαζί μου',
+    'nav.home': 'Αρχική',
+    'nav.about': 'Σχετικά',
+    'nav.skills': 'Δεξιότητες',
+    'nav.experience': 'Εμπειρία',
+    'nav.portfolio': 'Έργα',
+    'nav.contact': 'Επικοινωνία',
+    'hero.subtitle': 'Junior Προγραμματιστής Λογισμικού',
+    'hero.description': 'Λατρεύω να δημιουργώ κομψές web εφαρμογές και να πειραματίζομαι με λύσεις Internet of Things.<br>Παράλληλα εργάζομαι στην <strong>Enchatted</strong> και σπουδάζω στο <strong>Πανεπιστήμιο Δυτικής Μακεδονίας</strong>.',
+    'hero.ctaPrimary': 'Ας συνεργαστούμε',
+    'hero.ctaGithub': 'Δες το GitHub μου',
+    'hero.ctaLinkedIn': 'Προφίλ στο LinkedIn',
+    'hero.scroll': 'Κάνε scroll για να συνεχίσεις',
+    'about.title': 'Σχετικά με εμένα',
+    'about.whoTitle': 'Ποιος είμαι',
+    'about.whoText': 'Είμαι ο <strong>Christos Anastasiou</strong>, <strong>Junior Προγραμματιστής Λογισμικού</strong> με <strong>2 χρόνια επαγγελματικής εμπειρίας</strong> στην <strong>Enchatted</strong>. Μου αρέσει να γράφω καθαρό, αποδοτικό κώδικα και να δημιουργώ ψηφιακές εμπειρίες που αφήνουν αποτύπωμα.',
+    'about.educationTitle': 'Σπουδές',
+    'about.educationText1': 'Κατέχω <strong>Πτυχίο Πληροφορικής</strong> (βαθμός 7,34) από το Πανεπιστήμιο Δυτικής Μακεδονίας. Η πτυχιακή μου εργασία είχε θέμα <strong>«Smart Building Automation with Z-Wave: A Case Study of IoT Integration and Management»</strong> και με βοήθησε να αγαπήσω τα κλιμακώσιμα, διασυνδεδεμένα συστήματα.',
+    'about.educationText2': 'Ολοκλήρωσα πρόσφατα το <strong>Μεταπτυχιακό στις Σύγχρονες Τεχνολογίες και Υπηρεσίες Πληροφορικής</strong> (βαθμός 9,24) στο ίδιο πανεπιστήμιο, εστιάζοντας σε λύσεις IoT που εφαρμόζονται στην πράξη. Μαζί με την εμπειρία μου στην Enchatted, έχω αποκτήσει ισχυρή τεχνογνωσία σε full-stack ανάπτυξη, συστήματα IoT, ολοκλήρωση δεδομένων και παραγωγικά περιβάλλοντα μεγάλης κλίμακας.',
+    'about.workTitle': 'Τι κάνω στην πράξη',
+    'about.workIntro': 'Ως full-stack developer στην Enchatted συμμετέχω σε κρίσιμα έργα για την υγεία, το ηλεκτρονικό εμπόριο και την εκπαίδευση. Παίρνω μέρος σε όλα τα στάδια—από την αρχιτεκτονική μέχρι την παράδοση σε παραγωγή. Ενδεικτικά:',
+    'about.workItem1': '🚀 <strong>Kalfidis</strong> – Πλατφόρμα Shopify με GraphQL API και custom μηχανισμό caching.',
+    'about.workItem2': '📄 <strong>PDF Search Tool</strong> – Εσωτερικό εργαλείο αναζήτησης/ευρετηρίασης PDF με Laravel & JavaScript.',
+    'about.workItem3': '🎓 <strong>Open edX Customization</strong> – Προσαρμοσμένα XBlock modules, H5P integration και MFE UI.',
+    'about.workItem4': '📊 <strong>ENCRYPT Project</strong> – Σχεδιασμός ροών δεδομένων μεταξύ GraphDB και Kafka pipelines με validators.',
+    'about.workItem5': '💻 <strong>Sally CMS</strong> – Δυναμικά πεδία, responsive dashboards και εργαλεία διαχείρισης περιεχομένου.',
+    'about.workItem6': '⚡ <strong>Chrome Extension</strong> – Εργαλείο αυτοματοποίησης browser με Manifest v3 και client-side συγχρονισμό.',
+    'about.philosophyTitle': 'Η φιλοσοφία μου',
+    'about.philosophyText1': 'Πιστεύω στον <strong>καθαρό και συντηρήσιμο κώδικα</strong>. Θέλω να καταλαβαίνω πάντα το «γιατί» πίσω από κάθε επιλογή—από την τεχνολογία που θα διαλέξω μέχρι το πώς θα σχεδιάσω ένα API ή θα βελτιστοποιήσω μια βάση δεδομένων.',
+    'about.philosophyText2': 'Η συνεχής μάθηση είναι τρόπος ζωής. Παρακολουθώ τις εξελίξεις, δοκιμάζω νέες πρακτικές και προσπαθώ να δίνω λύσεις που έχουν πραγματικό αντίκτυπο σε χρήστες και επιχειρήσεις.',
+    'about.philosophyText3': '<strong>Αναζητώ ευκαιρίες για να εξελιχθώ, να συμβάλω σε απαιτητικά έργα και να συνεργαστώ με ομάδες που εκτιμούν την ποιότητα και την καινοτομία.</strong>',
+    'about.cvButton': 'Κατέβασε το CV',
+    'services.web.title': 'Ανάπτυξη Web',
+    'services.web.text': 'Υλοποιώ responsive και δυναμικές web εφαρμογές με σύγχρονες τεχνολογίες όπως React, Vue.js και Laravel.',
+    'services.php.title': 'Ανάπτυξη PHP',
+    'services.php.text': 'Δημιουργώ αξιόπιστες server-side εφαρμογές και REST APIs αξιοποιώντας PHP και το οικοσύστημα του Laravel.',
+    'services.iot.title': 'Λύσεις IoT',
+    'services.iot.text': 'Σχεδιάζω και υλοποιώ συστήματα IoT με έμφαση στον αυτόματο έλεγχο κτιρίων και στην τεχνολογία Z-Wave.',
+    'services.shopify.title': 'Καταστήματα Shopify',
+    'services.shopify.text': 'Στήνω και προσαρμόζω καταστήματα Shopify με προηγμένες λειτουργίες και βελτιστοποιημένη εμπειρία χρήστη.',
+    'portfolio.title': 'Η Εξέλιξή μου στην Τεχνολογία',
+    'portfolio.phase1.title': 'Ίδρυση στο Web',
+    'portfolio.phase1.description': 'Ξεκίνησα με WordPress και web design. Μάθευα CMS, HTML/CSS και πώς να φτιάχνω responsive websites.',
+    'portfolio.phase2.title': 'IoT & Αρχιτεκτονική Συστημάτων',
+    'portfolio.phase2.description': 'Εστίασα στα IoT και smart building. Τελείωσα την πτυχιακή στο Z-Wave και system design. Έφτιαξα το SmartHAB που κέρδισε 2η θέση στο Kozani 2030.',
+    'portfolio.phase3.title': 'Full-Stack Ανάπτυξη',
+    'portfolio.phase3.description': 'Δουλεύω στην Enchatted σε διάφορα real-world projects. Έφτιαξα e-commerce platforms, data pipelines, CMS και browser extensions. Κατάκτησα backend και modern frontend.',
+    'portfolio.phase4.title': 'Έρευνα & AI Integration',
+    'portfolio.phase4.description': 'Ολοκλήρωσα τη διπλωματική σε scalable IoT systems. Δημοσίευσα ερευνητικές εργασίες για AI, Knowledge Graphs και IoT σε διεθνή συνέδρια (AIAI 2025, DCAI 2025).',
+    'portfolio.highlighted.title': 'Ξεχωριστά Έργα',
+    'portfolio.filters.all': 'Όλα τα Έργα',
+    'portfolio.filters.work': 'Εργασία',
+    'portfolio.filters.student': 'Σπουδές & Προσωπικά',
+    'highlights.title': 'Επιτεύγματα & Σημεία Αναφοράς',
+    'highlights.item1.title': '2 Χρόνια Εργασίας',
+    'highlights.item1.text': 'Δουλεύω πλήρως στην Enchatted σε πραγματικά έργα για υγεία, e-commerce και IoT.',
+    'highlights.item2.title': 'Βραβείο 2ης Θέσης',
+    'highlights.item2.text': 'Διάκριση στον διαγωνισμό «Kozani 2030» με το SmartHAB – σύστημα IoT για έξυπνα κτίρια.',
+    'highlights.item3.title': 'Μεταπτυχιακό Πτυχίο',
+    'highlights.item3.text': 'Ολοκλήρωσα το Μεταπτυχιακό σε Σύγχρονες Τεχνολογίες με εστίαση σε πρακτικές λύσεις IoT.',
+    'highlights.item4.title': 'Full Stack Developer',
+    'highlights.item4.text': 'Δουλεύω στο backend και frontend—PHP, Laravel, JavaScript, React, και σχεδιασμό βάσεων.',
+    'highlights.item5.title': 'Διάφορα Έργα',
+    'highlights.item5.text': 'Έχω δουλέψει σε IoT συστήματα, web apps, πλατφόρμες υγείας, online stores και δεδομένα.',
+    'highlights.item6.title': 'Διαρκής Αναζήτηση',
+    'highlights.item6.text': 'Μου αρέσει να εξερευνώ νέες τεχνολογίες και να μαθαίνω πώς λειτουργούν τα πράγματα.',
+    'highlights.item7.title': 'Δημοσιευμένη Έρευνα',
+    'highlights.item7.text': 'Έχω δημοσιεύσει εργασίες για AI, Knowledge Graphs και IoT σε διεθνή συνέδρια.',
+    'highlights.item8.title': 'Έξυπνα Συστήματα',
+    'highlights.item8.text': 'Εστιάζω στο IoT, έξυπνα κτίρια και στο να κάνω την τεχνολογία να δουλεύει έξυπνα.',
+    'highlights.stats1': 'Χρόνια εμπειρίας',
+    'highlights.stats2': 'Μεγάλα έργα σε παραγωγή',
+    'highlights.stats3': 'Δημοσιευμένες εργασίες',
+    'highlights.stats4': 'Βαθμός Μεταπτυχιακού',
+    'lang.button': 'EN',
+    'lang.aria': 'Αλλαγή γλώσσας σε Αγγλικά'
   }
 };
 
@@ -658,37 +925,50 @@ let currentLang = localStorage.getItem('language') || 'en';
 const languageToggle = document.getElementById('language-toggle');
 if (languageToggle) {
   languageToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'el' : 'en';
-    localStorage.setItem('language', currentLang);
-    updateLanguage();
+    const nextLang = currentLang === 'en' ? 'el' : 'en';
+    setLanguage(nextLang);
   });
 }
 
-function updateLanguage() {
-  // Update nav links
-  const navLinks = document.querySelectorAll('.nav-link');
-  const navItems = ['home', 'about', 'skills', 'experience', 'portfolio', 'contact'];
-
-  navLinks.forEach((link, index) => {
-    if (navItems[index]) {
-      link.textContent = translations[currentLang][navItems[index]];
+function applyTranslations(lang) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(el => {
+    const key = el.dataset.i18n;
+    const translation = translations[lang] && translations[lang][key];
+    if (translation !== undefined) {
+      el.innerHTML = translation;
     }
   });
-
-  // Update language toggle button
-  const langButton = document.querySelector('.lang-text');
-  if (langButton) {
-    langButton.textContent = translations[currentLang].toggleLang;
-  }
-
-  // Store preference
-  document.documentElement.lang = currentLang;
 }
 
-// Initialize language on page load
-document.addEventListener('DOMContentLoaded', () => {
-  updateLanguage();
-});
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('language', currentLang);
+  document.documentElement.lang = currentLang;
+
+  applyTranslations(currentLang);
+
+  const langButton = document.querySelector('.lang-text');
+  if (langButton) {
+    const label = translations[currentLang] && translations[currentLang]['lang.button'];
+    langButton.textContent = label || (currentLang === 'en' ? 'EL' : 'EN');
+  }
+
+  if (languageToggle) {
+    const ariaLabel = translations[currentLang] && translations[currentLang]['lang.aria'];
+    if (ariaLabel) {
+      languageToggle.setAttribute('aria-label', ariaLabel);
+    }
+  }
+}
+
+const initTranslations = () => setLanguage(currentLang);
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTranslations);
+} else {
+  initTranslations();
+}
 
 /* ===========================
    THEME TOGGLE (Dark/White)
