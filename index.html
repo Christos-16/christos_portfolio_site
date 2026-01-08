@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Christos Anastasiou - Junior Software Developer with 2 years of professional experience in PHP, Laravel, JavaScript, React, and IoT solutions. Specialized in building scalable web applications and smart building systems.">
+  <meta name="description" content="Christos Anastasiou - Junior Software Developer. 2 years experience in PHP, Laravel, React, JavaScript & IoT. Building web apps and smart systems.">
   <meta name="keywords" content="junior developer, software engineer, PHP, Laravel, JavaScript, React, web development, IoT, smart buildings, Shopify, fullstack developer">
   <meta name="author" content="Christos Anastasiou">
   <meta name="theme-color" content="#e08649">
@@ -15,7 +15,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://christosanastasiou.gr">
-  <meta property="og:title" content="Christos Anastasiou - Junior Software Developer | Full Stack Web Development">
+  <meta property="og:title" content="Christos Anastasiou - Junior Software Developer | Web Development Portfolio">
   <meta property="og:description" content="2 years of professional experience building scalable web applications, IoT solutions, and smart building systems. Specializing in PHP, Laravel, JavaScript, and React.">
   <meta property="og:image" content="./assets/images/4.png">
   <meta property="og:site_name" content="Christos Anastasiou Portfolio">
@@ -24,24 +24,28 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://christosanastasiou.gr">
   <meta property="twitter:title" content="Christos Anastasiou - Junior Software Developer">
-  <meta property="twitter:description" content="Full stack developer with 2 years experience in PHP, Laravel, JavaScript, React, and IoT solutions.">
+  <meta property="twitter:description" content="Junior Software Developer with 2 years experience in PHP, Laravel, JavaScript, React, and IoT solutions.">
   <meta property="twitter:image" content="./assets/images/4.png">
   <meta property="twitter:creator" content="@christos_dev">
 
   <title>Christos Anastasiou - Junior Software Developer | Portfolio</title>
 
-  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
-  <link rel="alternate icon" href="./assets/images/favicon.svg">
-  <link rel="stylesheet" href="./assets/css/style.css">
-
+  <!-- Preconnect to external domains (before any resource loading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Performance optimizations -->
   <link rel="dns-prefetch" href="https://unpkg.com">
-  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+  <link rel="alternate icon" href="./assets/images/favicon.svg">
+
+  <!-- Critical CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Google Fonts with font-display: swap -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -75,7 +79,7 @@
   <div class="cta-banner" id="cta-banner">
     <div class="cta-content">
       <p data-i18n="cta.message">Ready to build something amazing?</p>
-      <a href="#contact" class="btn btn-primary" data-i18n="cta.button">Let's Work Together</a>
+      <a href="#contact" class="btn btn-primary" title="Contact me for collaboration" data-i18n="cta.button">Let's Work Together</a>
     </div>
     <button class="cta-close" id="cta-close" type="button" aria-label="Close call to action banner">
       <ion-icon name="close-outline"></ion-icon>
@@ -89,12 +93,12 @@
         <span>Christos</span>
       </div>
       <ul class="nav-menu" id="primary-navigation" role="list" aria-label="Main navigation">
-        <li role="listitem"><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
-        <li role="listitem"><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
-        <li role="listitem"><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
-        <li role="listitem"><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
-        <li role="listitem"><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a></li>
-        <li role="listitem"><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li role="listitem"><a href="#hero" class="nav-link active" title="Go to Home section" data-i18n="nav.home">Home</a></li>
+        <li role="listitem"><a href="#about" class="nav-link" title="Learn more about me" data-i18n="nav.about">About</a></li>
+        <li role="listitem"><a href="#tech-stack" class="nav-link" title="View my technical skills" data-i18n="nav.skills">Skills</a></li>
+        <li role="listitem"><a href="#experience" class="nav-link" title="See my work experience" data-i18n="nav.experience">Experience</a></li>
+        <li role="listitem"><a href="#portfolio" class="nav-link" title="Browse my projects" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li role="listitem"><a href="#contact" class="nav-link" title="Get in touch with me" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <button class="dark-mode-toggle" id="dark-mode-toggle" type="button" aria-label="Toggle color theme">
         <ion-icon name="moon-outline"></ion-icon>
@@ -133,9 +137,9 @@
           <br>I'm currently working at <strong>Enchatted</strong> and studying at <strong>University of Western Macedonia</strong>.
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero.ctaPrimary">Let's Work Together</a>
-          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaGithub">View on GitHub</a>
-          <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaLinkedIn">LinkedIn Profile</a>
+          <a href="#contact" class="btn btn-primary btn-lg" title="Contact me for collaboration" data-i18n="hero.ctaPrimary">Let's Work Together</a>
+          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" title="View my GitHub profile and projects" data-i18n="hero.ctaGithub">View on GitHub</a>
+          <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" title="Connect with me on LinkedIn" data-i18n="hero.ctaLinkedIn">LinkedIn Profile</a>
         </div>
       </div>
     </div>
@@ -206,12 +210,12 @@
           <p data-i18n="about.educationText2">
             I've recently completed my <strong>Master's degree in Modern Information Technologies and Services</strong> (Grade: 9.24) from the same university.
             My thesis advanced IoT system integration with a focus on scalable, real-world solutions for smart building ecosystems. Combined with my professional experience at Enchatted,
-            I've developed strong expertise in full-stack web development, IoT systems, data integration, and building robust production systems.
+            I've developed strong expertise in web development, IoT systems, data integration, and building robust production systems.
           </p>
 
           <h3 class="about-subtitle" data-i18n="about.workTitle">What I Do</h3>
           <p data-i18n="about.workIntro">
-            As a full-stack developer at Enchatted, I contribute to diverse, mission-critical projects across healthcare, e-commerce, and educational technology. I'm involved in every stage—from designing system architecture to deploying production code. Here are some highlights:
+            As a junior software developer at Enchatted, I contribute to diverse, mission-critical projects across healthcare, e-commerce, and educational technology. I'm involved in every stage—from designing system architecture to deploying production code. Here are some portfolio highlights:
           </p>
           <ul class="about-list">
             <li data-i18n="about.workItem1">🚀 <strong>Kalfidis</strong> - Shopify E-Commerce Platform with GraphQL API and custom caching</li>
@@ -425,7 +429,7 @@
                 <p class="timeline-company" data-i18n="experience.work1.company">Enchatted</p>
                 <span class="timeline-date" data-i18n="experience.work1.date">11/2023 — Present</span>
                 <ul class="timeline-details">
-                  <li data-i18n="experience.work1.point1">Designing and developing full-stack web applications with PHP, Laravel, and JavaScript/React</li>
+                  <li data-i18n="experience.work1.point1">Designing and developing web applications with PHP, Laravel, and JavaScript/React</li>
                   <li data-i18n="experience.work1.point2">Building e-commerce solutions on Shopify with custom backend integrations and GraphQL APIs</li>
                   <li data-i18n="experience.work1.point3">Architecting and optimizing databases, designing REST APIs, and implementing real-time data pipelines</li>
                   <li data-i18n="experience.work1.point4">Working on mission-critical projects across healthcare, e-commerce, and educational technology domains</li>
@@ -485,12 +489,12 @@
   <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio">
     <div class="container">
-      <h2 class="section-title" data-i18n="portfolio.title">Featured Projects</h2>
+      <h2 class="section-title" data-i18n="portfolio.title">My Portfolio - Featured Projects</h2>
 
       <div class="portfolio-journey">
         <h3 class="portfolio-subtitle" data-i18n="projectTimeline.title">Project Journey</h3>
         <p class="section-intro" data-i18n="projectTimeline.intro">
-          Quick highlights from each phase—open a card to see the wins without digging through long case studies.
+          Explore Christos Anastasiou's portfolio journey—from junior developer projects to professional work. Open a card to see the wins.
         </p>
 
         <div class="journey-grid">
@@ -683,7 +687,7 @@
 
       <div class="contact-content">
         <div class="contact-info">
-          <h3 data-i18n="contact.subtitle">Get In Touch</h3>
+          <h3 data-i18n="contact.subtitle">Get In Touch with Christos Anastasiou</h3>
           <p data-i18n="contact.text">I'm always interested in hearing about new projects and opportunities.</p>
 
           <div class="contact-items">
@@ -691,7 +695,7 @@
               <ion-icon name="mail-outline"></ion-icon>
               <div>
                 <p class="label" data-i18n="contact.emailLabel">Email</p>
-                <a href="mailto:anastasiouxrhstos@gmail.com" data-i18n="contact.emailValue">anastasiouxrhstos <span style="font-style: italic;">at</span> gmail.com</a>
+                <a href="mailto:anastasiouxrhstos@gmail.com" title="Send me an email" data-i18n="contact.emailValue">anastasiouxrhstos <span style="font-style: italic;">at</span> gmail.com</a>
               </div>
             </div>
 
@@ -699,7 +703,7 @@
               <ion-icon name="phone-portrait-outline"></ion-icon>
               <div>
                 <p class="label" data-i18n="contact.phoneLabel">Phone</p>
-                <a href="tel:+306978142511" data-i18n="contact.phoneValue">+30 697 814 2511</a>
+                <a href="tel:+306978142511" title="Call me" data-i18n="contact.phoneValue">+30 697 814 2511</a>
               </div>
             </div>
 
@@ -752,13 +756,13 @@
   <footer class="footer">
     <div class="container">
       <p data-i18n="footer.copy">&copy; 2025 Christos Anastasiou. All rights reserved.</p>
-      <p data-i18n="footer.tagline">Crafted with passion for great web experiences.</p>
+      <p data-i18n="footer.tagline">Christos Anastasiou - Crafted with passion for great web experiences.</p>
     </div>
   </footer>
 
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+  <script src="./assets/js/script.js" defer></script>
 
 </body>
 </html>
