@@ -907,7 +907,7 @@ contactForm.addEventListener('submit', (e) => {
     errors.message.classList.remove('show');
   }
 
-  // If valid, submit to Netlify
+  // If valid, submit to Formspree
   if (isValid) {
     if (submitButton) {
       submitButton.disabled = true;
@@ -915,14 +915,11 @@ contactForm.addEventListener('submit', (e) => {
     }
 
     const formData = new FormData(contactForm);
-    if (!formData.has('form-name')) {
-      formData.append('form-name', 'contact');
-    }
 
-    fetch('/', {
+    fetch('https://formspree.io/f/xgovgdkl', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeFormData(formData)
+      headers: { 'Accept': 'application/json' },
+      body: formData
     })
       .then(response => {
         if (!response.ok) {
