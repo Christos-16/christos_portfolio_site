@@ -1,17 +1,34 @@
 'use strict';
 
 /* ===========================
+   THROTTLE UTILITY
+   =========================== */
+
+const throttle = (fn, wait) => {
+  let lastTime = 0;
+  return function(...args) {
+    const now = Date.now();
+    if (now - lastTime >= wait) {
+      lastTime = now;
+      fn.apply(this, args);
+    }
+  };
+};
+
+/* ===========================
    SCROLL PROGRESS BAR
    =========================== */
 
 const scrollProgressBar = document.querySelector('.scroll-progress');
 
-window.addEventListener('scroll', () => {
+const updateScrollProgress = () => {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
   scrollProgressBar.style.width = scrolled + '%';
-});
+};
+
+window.addEventListener('scroll', throttle(updateScrollProgress, 16));
 
 /* ===========================
    NAVIGATION FUNCTIONALITY
@@ -59,14 +76,13 @@ navLinks.forEach(link => {
 });
 
 // Update active nav link on scroll
-window.addEventListener('scroll', () => {
+const updateActiveNavLink = () => {
   let current = '';
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
 
-    if (pageYOffset >= sectionTop - 200) {
+    if (window.scrollY >= sectionTop - 200) {
       current = section.getAttribute('id');
     }
   });
@@ -77,7 +93,9 @@ window.addEventListener('scroll', () => {
       link.classList.add('active');
     }
   });
-});
+};
+
+window.addEventListener('scroll', throttle(updateActiveNavLink, 100));
 
 /* ===========================
    MOBILE MENU TOGGLE
@@ -498,13 +516,15 @@ scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
 
 document.body.appendChild(scrollToTopBtn);
 
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
+const updateScrollToTopBtn = () => {
+  if (window.scrollY > 300) {
     scrollToTopBtn.classList.add('show');
   } else {
     scrollToTopBtn.classList.remove('show');
   }
-});
+};
+
+window.addEventListener('scroll', throttle(updateScrollToTopBtn, 100));
 
 scrollToTopBtn.addEventListener('click', () => {
   window.scrollTo({
@@ -641,16 +661,17 @@ document.addEventListener('keydown', function(e) {
 
 const heroSection = document.querySelector('.hero');
 
-window.addEventListener('scroll', () => {
+const updateParallax = () => {
   if (!heroSection) return;
 
-  const scrolled = window.pageYOffset;
+  const scrolled = window.scrollY;
 
   if (scrolled < window.innerHeight) {
-    // Parallax effect for hero background
     heroSection.style.backgroundPosition = `center ${scrolled * 0.5}px`;
   }
-});
+};
+
+window.addEventListener('scroll', throttle(updateParallax, 16));
 
 /* ===========================
    INTERSECTION OBSERVER FOR ANIMATIONS
@@ -715,9 +736,8 @@ const ctaBanner = document.getElementById('cta-banner');
 const ctaClose = document.getElementById('cta-close');
 let ctaShown = false;
 
-window.addEventListener('scroll', () => {
+const updateCtaBanner = () => {
   const scrollTop = window.scrollY;
-  // Show CTA banner after scrolling 30% down the page
   const showCTAAt = document.documentElement.scrollHeight * 0.3;
 
   if (scrollTop > showCTAAt && !ctaShown) {
@@ -727,7 +747,9 @@ window.addEventListener('scroll', () => {
     ctaBanner.classList.remove('show');
     ctaShown = false;
   }
-});
+};
+
+window.addEventListener('scroll', throttle(updateCtaBanner, 100));
 
 ctaClose.addEventListener('click', () => {
   ctaBanner.classList.remove('show');
@@ -865,11 +887,6 @@ const showFormMessage = (translationKey, type = 'success') => {
   }, 5000);
 };
 
-const encodeFormData = formData =>
-  [...formData.entries()]
-    .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value))
-    .join('&');
-
 // Form submission
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -921,16 +938,37 @@ contactForm.addEventListener('submit', (e) => {
       headers: { 'Accept': 'application/json' },
       body: formData
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+      .then(async response => {
+        if (response.status === 429) {
+          throw new Error('RATE_LIMIT');
+        } else if (response.status === 400) {
+          const data = await response.json().catch(() => ({}));
+          const fieldErrors = data.errors || [];
+          if (fieldErrors.some(e => e.code === 'TYPE_EMAIL')) {
+            throw new Error('INVALID_EMAIL');
+          } else if (fieldErrors.some(e => e.code === 'REQUIRED_FIELD_MISSING')) {
+            throw new Error('REQUIRED_FIELD');
+          }
+          throw new Error('VALIDATION');
+        } else if (!response.ok) {
+          throw new Error('SERVER_ERROR');
         }
 
         contactForm.reset();
         showFormMessage('contact.form.success', 'success');
       })
-      .catch(() => {
-        showFormMessage('contact.form.error', 'error');
+      .catch((error) => {
+        if (error.message === 'RATE_LIMIT') {
+          showFormMessage('contact.form.rateLimitError', 'error');
+        } else if (error.message === 'INVALID_EMAIL') {
+          showFormMessage('contact.form.invalidEmailError', 'error');
+        } else if (error.message === 'REQUIRED_FIELD') {
+          showFormMessage('contact.form.requiredFieldError', 'error');
+        } else if (error.message === 'VALIDATION') {
+          showFormMessage('contact.form.validationError', 'error');
+        } else {
+          showFormMessage('contact.form.error', 'error');
+        }
       })
       .finally(() => {
         if (submitButton) {
@@ -1086,6 +1124,10 @@ const translations = {
     'contact.form.submit': 'Send Message',
     'contact.form.success': '✓ Message sent successfully! I\'ll get back to you soon.',
     'contact.form.error': '⚠️ Something went wrong. Please try again or email me directly.',
+    'contact.form.rateLimitError': '⚠️ Too many requests. Please try again in a few minutes.',
+    'contact.form.validationError': '⚠️ Please check your form data and try again.',
+    'contact.form.invalidEmailError': '⚠️ Please enter a valid email address.',
+    'contact.form.requiredFieldError': '⚠️ Please fill in all required fields.',
     'lang.button': 'EL',
     'lang.aria': 'Switch language to Greek'
   },
@@ -1270,6 +1312,10 @@ const translations = {
     'contact.form.submit': 'Στείλε μήνυμα',
     'contact.form.success': '✓ Το μήνυμα στάλθηκε! Θα επικοινωνήσω σύντομα μαζί σου.',
     'contact.form.error': '⚠️ Κάτι πήγε στραβά. Δοκίμασε ξανά ή στείλε μου email.',
+    'contact.form.rateLimitError': '⚠️ Πολλά αιτήματα. Δοκίμασε ξανά σε λίγα λεπτά.',
+    'contact.form.validationError': '⚠️ Έλεγξε τα στοιχεία της φόρμας και δοκίμασε ξανά.',
+    'contact.form.invalidEmailError': '⚠️ Παρακαλώ εισάγετε έγκυρο email.',
+    'contact.form.requiredFieldError': '⚠️ Παρακαλώ συμπληρώστε όλα τα υποχρεωτικά πεδία.',
     'footer.copy': '© 2025 Christos Anastasiou. Όλα τα δικαιώματα διατηρούνται.',
     'footer.tagline': 'Δημιουργημένο με αγάπη για εξαιρετικές web εμπειρίες.',
     'lang.button': 'EN',

@@ -9,11 +9,12 @@
   <meta name="author" content="Christos Anastasiou">
   <meta name="theme-color" content="#e08649">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <link rel="canonical" href="https://christos-anastasiou.com">
+  <meta name="google-site-verification" content="ciDWWmyMS4Rjhm0Tt_YYoKEYqZOEgpUwvO9Q8aa4Ayk" />
+  <link rel="canonical" href="https://christosanastasiou.gr">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://christos-anastasiou.com">
+  <meta property="og:url" content="https://christosanastasiou.gr">
   <meta property="og:title" content="Christos Anastasiou - Junior Software Developer | Full Stack Web Development">
   <meta property="og:description" content="2 years of professional experience building scalable web applications, IoT solutions, and smart building systems. Specializing in PHP, Laravel, JavaScript, and React.">
   <meta property="og:image" content="./assets/images/4.png">
@@ -21,7 +22,7 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://christos-anastasiou.com">
+  <meta property="twitter:url" content="https://christosanastasiou.gr">
   <meta property="twitter:title" content="Christos Anastasiou - Junior Software Developer">
   <meta property="twitter:description" content="Full stack developer with 2 years experience in PHP, Laravel, JavaScript, React, and IoT solutions.">
   <meta property="twitter:image" content="./assets/images/4.png">
@@ -48,7 +49,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Christos Anastasiou",
-    "url": "https://christos-anastasiou.com",
+    "url": "https://christosanastasiou.gr",
     "image": "./assets/images/4.png",
     "jobTitle": "Junior Software Developer",
     "email": "christos@example.com",
@@ -87,13 +88,13 @@
       <div class="nav-logo">
         <span>Christos</span>
       </div>
-      <ul class="nav-menu" id="primary-navigation">
-        <li><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
-        <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
-        <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
-        <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
-        <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a></li>
-        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+      <ul class="nav-menu" id="primary-navigation" role="list" aria-label="Main navigation">
+        <li role="listitem"><a href="#hero" class="nav-link active" data-i18n="nav.home">Home</a></li>
+        <li role="listitem"><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li role="listitem"><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+        <li role="listitem"><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+        <li role="listitem"><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li role="listitem"><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <button class="dark-mode-toggle" id="dark-mode-toggle" type="button" aria-label="Toggle color theme">
         <ion-icon name="moon-outline"></ion-icon>
@@ -133,8 +134,8 @@
         </p>
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero.ctaPrimary">Let's Work Together</a>
-          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank" data-i18n="hero.ctaGithub">View on GitHub</a>
-          <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" class="btn btn-secondary" target="_blank" data-i18n="hero.ctaLinkedIn">LinkedIn Profile</a>
+          <a href="https://github.com/Christos-16" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaGithub">View on GitHub</a>
+          <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaLinkedIn">LinkedIn Profile</a>
         </div>
       </div>
     </div>
@@ -712,21 +713,20 @@
           </div>
 
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" target="_blank" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/christos-anastasiou-0a591b279/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="https://github.com/Christos-16" target="_blank" title="GitHub">
+            <a href="https://github.com/Christos-16" target="_blank" rel="noopener noreferrer" title="GitHub">
               <ion-icon name="logo-github"></ion-icon>
             </a>
-            <a href="https://www.instagram.com/christos_anastasiou16/" target="_blank" title="Instagram">
+            <a href="https://www.instagram.com/christos_anastasiou16/" target="_blank" rel="noopener noreferrer" title="Instagram">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </div>
         </div>
 
         <div class="form-success" id="form-success"></div>
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form" id="contact-form">
-          <input type="hidden" name="form-name" value="contact">
+        <form name="contact" method="POST" action="https://formspree.io/f/xgovgdkl" class="contact-form" id="contact-form">
           <p class="sr-only" aria-hidden="true">
             <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
           </p>
